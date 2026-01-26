@@ -16,8 +16,7 @@ D. In the textbox type <mark>CIVITAI=</mark> followed by your Civitai api key. E
 E. Click <mark>Update Variables</mark> then click <mark>Set Overrides</mark> to close the popup  
 6. Scroll to the bottom of the page and click <mark>Deploy</mark>.
 7. When the pod has started, click the <mark>Connect</mark> tab and ensure the SSH terminal toggle is turned to <mark>On</mark>.
-8. Open the terminal and paste in one of the scripts below and press enter, the script will download and install, ComfyUI, any custom nodes the workflow requires, as well as any models the workflow needs.
-
+8. Open the terminal and paste in one of the scripts below. Replace <mark>&CIVITAI=</mark> in the script with your Civitai api key. Press enter, the script will download and install, ComfyUI, any custom nodes the workflow requires, as well as any models the workflow needs.
 ## Workflows
 ### Video
 
@@ -26,21 +25,21 @@ E. Click <mark>Update Variables</mark> then click <mark>Set Overrides</mark> to 
     git clone https://github.com/ndrwmoss/going_poddy
     chmod -R +x /workspace/going_poddy/scripts
     cd /workspace/going_poddy/scripts/install
-    ./install --video_character_replace
+    ./install --video_character_replace --$CIVITAI
 
 #### Lipsync
     cd /workspace
     git clone https://github.com/ndrwmoss/going_poddy
     chmod -R +x /workspace/going_poddy/scripts
     cd /workspace/going_poddy/scripts/install
-    ./install --video_lipsync
+    ./install --video_lipsync --$CIVITAI
 
 #### Upscale
     cd /workspace
     git clone https://github.com/ndrwmoss/going_poddy
     chmod -R +x /workspace/going_poddy/scripts
     cd /workspace/going_poddy/scripts/install
-    ./install --video_upscale
+    ./install --video_upscale --$CIVITAI
 
 ### Photo
 #### Clothing Transfer
@@ -48,12 +47,11 @@ E. Click <mark>Update Variables</mark> then click <mark>Set Overrides</mark> to 
     git clone https://github.com/ndrwmoss/going_poddy
     chmod -R +x /workspace/going_poddy/scripts
     cd /workspace/going_poddy/scripts/install
-    ./install --photo_clothing_transfer
-
+    ./install --photo_clothing_transfer --$CIVITAI
 
 #### Upscale
     cd /workspace
     git clone https://github.com/ndrwmoss/going_poddy
     chmod -R +x /workspace/going_poddy/scripts
     cd /workspace/going_poddy/scripts/install
-    ./install --photo_upscale
+    ./install --photo_upscale --$CIVITAI
