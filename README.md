@@ -25,21 +25,21 @@ E. Click <mark>Update Variables</mark> then click <mark>Set Overrides</mark> to 
     git clone https://github.com/ndrwmoss/going_poddy
     chmod -R +x /workspace/going_poddy/scripts
     cd /workspace/going_poddy/scripts/install
-    ./install --video_character_replace --$CIVITAI
+    ./install.sh --video_character_replace --$CIVITAI
 
 #### Lipsync
     cd /workspace
     git clone https://github.com/ndrwmoss/going_poddy
     chmod -R +x /workspace/going_poddy/scripts
     cd /workspace/going_poddy/scripts/install
-    ./install --video_lipsync --$CIVITAI
+    ./install.sh --video_lipsync --$CIVITAI
 
 #### Upscale
     cd /workspace
     git clone https://github.com/ndrwmoss/going_poddy
     chmod -R +x /workspace/going_poddy/scripts
     cd /workspace/going_poddy/scripts/install
-    ./install --video_upscale --$CIVITAI
+    ./install.sh --video_upscale --$CIVITAI
 
 ### Photo
 #### Clothing Transfer
@@ -47,11 +47,11 @@ E. Click <mark>Update Variables</mark> then click <mark>Set Overrides</mark> to 
     git clone https://github.com/ndrwmoss/going_poddy
     chmod -R +x /workspace/going_poddy/scripts
     cd /workspace/going_poddy/scripts/install
-    ./install --photo_clothing_transfer --$CIVITAI
+    ./install.sh --photo_clothing_transfer --$CIVITAI
 
 #### Upscale
     cd /workspace
     git clone https://github.com/ndrwmoss/going_poddy
     chmod -R +x /workspace/going_poddy/scripts
     cd /workspace/going_poddy/scripts/install
-    ./install --photo_upscale --$CIVITAI
+    ./install.sh --photo_upscale --$CIVITAI
