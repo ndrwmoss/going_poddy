@@ -1,6 +1,11 @@
 #!/bin/bash
 set -e # Exit the script if any statement returns a non-true return
-CIVITAI=${CIVITAI:-""}
+CIVITAI=${CIVITAI:-"none"}
+CIVTOKEN=""
+if [ $CIVITAI != "none" ]; then
+  $CIVTOKEN = "&token=" + $CIVTOKEN
+fi
+
 # COPY WORKFLOW
 echo "SCRIPT: Fetching Workflow"
 cd /workspace/going_poddy/workflows
@@ -41,7 +46,7 @@ fi
 
 cd /workspace/ComfyUI/models/diffusion_models
 if [ ! -f "juggernaut-sdxl.safetensors" ]; then
-  wget "https://civitai.com/api/download/models/1759168?type=Model&format=SafeTensor&size=full&fp=fp16&token=$CIVITAI" juggernaut-sdxl.safetensors
+  wget "https://civitai.com/api/download/models/1759168?type=Model&format=SafeTensor&size=full&fp=fp16&token=$CIVTOKEN" juggernaut-sdxl.safetensors
 fi
 
 cd /workspace/ComfyUI/models/controlnet

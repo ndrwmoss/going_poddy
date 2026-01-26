@@ -1,6 +1,11 @@
 #!/bin/bash
 set -e # Exit the script if any statement returns a non-true return
-CIVITAI=${CIVITAI:-""}
+CIVITAI=${CIVITAI:-"none"}
+CIVTOKEN=""
+if [ $CIVITAI != "none" ]; then
+  $CIVTOKEN = "&token=" + $CIVTOKEN
+fi
+
 
 # COPY WORKFLOW
 echo "SCRIPT: Fetching Workflow"
@@ -67,7 +72,7 @@ fi
 
 cd /workspace/ComfyUI/models/loras
 if [ ! -f "clothes_tryon_qwen-edit-lora" ]; then
-  wget "https://civitai.com/api/download/models/2196278?type=Model&format=SafeTensor&token=$CIVITAI" clothes_tryon_qwen-edit-lora
+  wget "https://civitai.com/api/download/models/2196278?type=Model&format=SafeTensor&token=$CIVTOKEN" clothes_tryon_qwen-edit-lora
 fi
 
 cd /workspace/ComfyUI/models/loras

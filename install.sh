@@ -2,6 +2,7 @@
 set -e # Exit the script if any statement returns a non-true return value
 # Get a fresh copy of scripts in case they've changed since the Docker image was made
 WORKFLOW=${WORKFLOW:-"video_character_replace"}
+CIVITAI=${CIVITAI:-"none"}
 if [ ! -d "workspace" ]; then
   mkdir workspace
 fi
@@ -17,7 +18,7 @@ cd /workspace/going_poddy/scripts/install
   
 # Install selected workflow
 cd /workspace/going_poddy/scripts/workflows
- ./{$WORKFLOW}.sh
+ ./{$WORKFLOW}.sh --$CIVITAI
 
 # Start ComfyUI
 cd /workspace/ComfyUI
