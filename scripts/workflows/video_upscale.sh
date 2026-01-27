@@ -1,11 +1,5 @@
 #!/bin/bash
 set -e # Exit the script if any statement returns a non-true return
-CIVITAI=${CIVITAI:-"none"}
-CIVTOKEN=""
-if [ $CIVITAI != "none" ]; then
-  $CIVTOKEN = &token=$CIVTOKEN
-fi
-
 
 # COPY WORKFLOW
 echo "SCRIPT: Fetching Workflow"
@@ -80,7 +74,7 @@ fi
 
 cd /workspace/ComfyUI/models/upscale_models
 if [ ! -f "stock_photography_wan22_LOW_v1.safetensors" ]; then
-  wget "https://civitai.com/api/download/models/2179627?type=Model&format=SafeTensor$CIVTOKEN"
+  wget "https://civitai.com/api/download/models/2179627?type=Model&format=SafeTensor$1"
 fi
 
 # Update custom nodes
