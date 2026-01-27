@@ -24,6 +24,7 @@ A source for quickly getting the resources you need for specific Runpod ComfyUI 
     cd /workspace
     git clone https://github.com/ndrwmoss/going_poddy
     chmod -R +x /workspace/going_poddy/scripts
+    cd /workspace/going_poddy/scripts
     ```
 9. Copy one of the commands below for the workflow you want and paste it in the terminal, if the command has <mark>&CIVITAI</mark> in it, replace <mark>&CIVITAI</mark> Civitai api key. Press enter, the script will download and install all custom nodes and models the workflow requires.  
 10. Open ComfyUI on the pod, and restart ComfyUI for the changes to take effect, you're now ready to go.
