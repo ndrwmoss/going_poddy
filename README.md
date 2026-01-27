@@ -4,7 +4,7 @@
 A source for quickly getting the resources you need for specific Runpod ComfyUI workflows.
 ## Install
 
-1. Go to the official [Runpod Pytorch 2.8.0 template](https://console.runpod.io/hub/template/runpod-pytorch-2-8-0?id=runpod-torch-v280)  
+1. Go to the official [ComfyUI Sageattention Template (jnxmx/comfy25:new128)](https://console.runpod.io/hub/template/comfyui-sageattention?id=f4sahjc81c)  
 
 2. Click **Configure Pod**.  
 
