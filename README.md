@@ -31,7 +31,7 @@ A source for quickly getting the resources you need for specific Runpod ComfyUI 
 ### Video
 
 #### Character Replace
-    ./workspace/going_poddy/scripts/video_character_replace.sh $CIVITAI
+    ./workspace/going_poddy/scripts/video_character_replace.sh
 
 #### Lipsync
     ./workspace/going_poddy/scripts/video_lipsync.sh
@@ -41,7 +41,7 @@ A source for quickly getting the resources you need for specific Runpod ComfyUI 
 
 ### Photo
 #### Clothing Transfer
-    ./workspace/going_poddy/scripts/photo_clothing_transfer.sh
+    ./workspace/going_poddy/scripts/photo_clothing_transfer.sh $CIVITAI
 
 #### Upscale
     ./workspace/going_poddy/scripts/photo_upscale.sh $CIVITAI
