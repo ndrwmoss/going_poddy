@@ -58,6 +58,11 @@ if [ ! -f "Wan2_2-Animate-14B_fp8_e4m3fn_scaled_KJ.safetensors" ]; then
   wget https://huggingface.co/Kijai/WanVideo_comfy_fp8_scaled/resolve/main/Wan22Animate/Wan2_2-Animate-14B_fp8_e4m3fn_scaled_KJ.safetensors
 fi
 
+cd /workspace/ComfyUI/models/text_encoders
+if [ ! -f "umt5-xxl-enc-bf16.safetensors" ]; then
+  wget https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/umt5-xxl-enc-bf16.safetensors
+fi
+
 cd /workspace/ComfyUI/models/vae
 if [ ! -f "Wan2_1_VAE_bf16.safetensors" ]; then
   wget https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/Wan2_1_VAE_bf16.safetensors
