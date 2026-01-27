@@ -3,7 +3,7 @@ set -e # Exit the script if any statement returns a non-true return
 CIVITAI=${CIVITAI:-"none"}
 CIVTOKEN=""
 if [ $CIVITAI != "none" ]; then
-  $CIVTOKEN = "&token=" + $CIVTOKEN
+  $CIVTOKEN = &token=$CIVTOKEN
 fi
 
 
