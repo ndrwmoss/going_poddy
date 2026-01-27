@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e # Exit the script if any statement returns a non-true return
 
+cd /workspace/going_poddy/scripts/install
+./install_comfy.sh
+
 # COPY WORKFLOW
 echo "SCRIPT: Fetching Workflow"
 cd /workspace/going_poddy/workflows
@@ -43,6 +46,9 @@ if [ ! -d "ComfyUI_essentials" ]; then
   git clone https://github.com/cubiq/ComfyUI_essentials
 fi
 
+# Update custom nodes
+cd /workspace/going_poddy/scripts/install
+./update_comfy.sh
 
 # COPY MODELS
 echo "SCRIPT: Fetching Models"
@@ -77,6 +83,4 @@ if [ ! -f "stock_photography_wan22_LOW_v1.safetensors" ]; then
   wget "https://civitai.com/api/download/models/2179627?type=Model&format=SafeTensor$1"
 fi
 
-# Update custom nodes
-cd /workspace/going_poddy/scripts/install
-./update_comfy.sh
+echo "DONE: RESTART COMFYUI FOR CHANGES TO TAKE EFFECT"

@@ -1,9 +1,12 @@
 #!/bin/bash
 set -e # Exit the script if any statement returns a non-true return
 
+cd /workspace/going_poddy/scripts/install
+./install_comfy.sh
 
 # COPY WORKFLOW
 echo "SCRIPT: Fetching Workflow"
+
 cd /workspace/going_poddy/workflows
 if [ ! -f "/workspace/ComfyUI/user/default/workflows/clothing_transfer.json" ]; then
   mv /workspace/going_poddy/workflows/clothing_transfer.json /workspace/ComfyUI/user/default/workflows
@@ -36,6 +39,10 @@ fi
 if [ ! -d "ComfyUI-mxToolkit" ]; then
   git clone https://github.com/Smirnov75/ComfyUI-mxToolkit
 fi
+
+# Update custom nodes
+cd /workspace/going_poddy/scripts/install
+./update_comfy.sh
 
 # COPY MODELS
 echo "SCRIPT: Fetching Models"
@@ -80,6 +87,4 @@ if [ ! -f "RealESRGAN_x2.pth" ]; then
   wget https://huggingface.co/dtarnow/UPscaler/resolve/main/RealESRGAN_x2plus.pth
 fi
 
-# Update custom nodes
-cd /workspace/going_poddy/scripts/install
-./update_comfy.sh
+echo "DONE: RESTART COMFYUI FOR CHANGES TO TAKE EFFECT"

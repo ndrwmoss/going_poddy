@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e # Exit the script if any statement returns a non-true return
 
+cd /workspace/going_poddy/scripts/install
+./install_comfy.sh
+
 # COPY WORKFLOW
 echo "SCRIPT: Fetching Workflow"
 cd /workspace/going_poddy/workflows
@@ -44,6 +47,10 @@ if [ ! -d "ComfyUI-segment-anything-2" ]; then
   git clone https://github.com/kijai/ComfyUI-segment-anything-2
 fi
 
+# Update custom nodes
+cd /workspace/going_poddy/scripts/install
+./update_comfy.sh
+
 # COPY MODELS
 echo "SCRIPT: Fetching Models"
 cd /workspace/ComfyUI/models/diffusion_models
@@ -85,6 +92,4 @@ if [ ! -f "yolov10m.onnx" ]; then
   wget https://huggingface.co/Wan-AI/Wan2.2-Animate-14B/resolve/main/process_checkpoint/det/yolov10m.onnx
 fi
 
-# Update custom nodes
-cd /workspace/going_poddy/scripts/install
-./update_comfy.sh
+echo "DONE: RESTART COMFYUI FOR CHANGES TO TAKE EFFECT"

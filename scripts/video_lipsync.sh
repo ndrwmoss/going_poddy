@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e # Exit the script if any statement returns a non-true return
 
+cd /workspace/going_poddy/scripts/install
+./install_comfy.sh
+
 # COPY WORKFLOW
 echo "SCRIPT: Fetching Workflow"
 cd /workspace/going_poddy/workflows
@@ -26,6 +29,10 @@ fi
 if [ ! -d "ComfyUI-MelBandRoFormer" ]; then
   git clone https://github.com/kijai/ComfyUI-MelBandRoFormer
 fi
+
+# Update custom nodes
+cd /workspace/going_poddy/scripts/install
+./update_comfy.sh
 
 # COPY MODELS
 cd /workspace/ComfyUI/models/diffusion_models
@@ -63,7 +70,4 @@ if [ ! -f "clip_vision_h.safetensors" ]; then
   wget https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/clip_vision/clip_vision_h.safetensors
 fi
 
-
-# Update custom nodes
-cd /workspace/going_poddy/scripts/install
-./update_comfy.sh
+echo "DONE: RESTART COMFYUI FOR CHANGES TO TAKE EFFECT"

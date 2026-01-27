@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e # Exit the script if any statement returns a non-true return value
+
 cd /
 if [ ! -d "workspace" ] ; then
     mkdir workspace
@@ -21,7 +22,6 @@ cd /workspace/ComfyUI/custom_nodes
 if [ ! -d "ComfyUI-Manager" ]; then
     git clone https://github.com/Comfy-Org/ComfyUI-Manager
 fi
-
 cd /workspace/ComfyUI
 if [ ! -d "user" ]; then
     mkdir user
@@ -61,6 +61,3 @@ cd /workspace/ComfyUI/models
 if [ ! -d "wav2vec2" ]; then
     mkdir wav2vec2
 fi
-
-cd /workspace/going_poddy/scripts/install
-./update_comfy.sh

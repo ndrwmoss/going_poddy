@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e # Exit the script if any statement returns a non-true return
 
+cd /workspace/going_poddy/scripts/install
+./install_comfy.sh
+
 # COPY WORKFLOW
 echo "SCRIPT: Fetching Workflow"
 cd /workspace/going_poddy/workflows
@@ -31,6 +34,9 @@ if [ ! -d "ComfyUI-basic_data_handling" ]; then
   git clone https://github.com/StableLlama/ComfyUI-basic_data_handling
 fi
 
+# Update custom nodes
+cd /workspace/going_poddy/scripts/install
+./update_comfy.sh
 
 # COPY MODELS
 echo "SCRIPT: Fetching Models"
@@ -49,6 +55,4 @@ if [ ! -f "tiled-controlnet-sdxl.safetensors" ]; then
   wget https://huggingface.co/xinsir/controlnet-tile-sdxl-1.0/resolve/main/diffusion_pytorch_model.safetensors tiled-controlnet-sdxl.safetensors
 fi
 
-# Update custom nodes
-cd /workspace/going_poddy/scripts/install
-./update_comfy.sh
+echo "DONE: RESTART COMFYUI FOR CHANGES TO TAKE EFFECT"
