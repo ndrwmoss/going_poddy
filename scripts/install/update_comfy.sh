@@ -2,6 +2,7 @@
 set -e # Exit the script if any statement returns a non-true return value
 echo "SCRIPT: Update ComfyUI and custom_nodes"
 # --- Helper: update repo + pip if changed ---
+# Update custom nodes
 update_and_install_requirements() {
   cd "$1" || return
   local old="$(git rev-parse HEAD 2>/dev/null || echo)"

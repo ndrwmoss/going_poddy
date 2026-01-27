@@ -17,8 +17,8 @@ cd /workspace/going_poddy/scripts/install
 ./install_sage.sh
   
 # Install selected workflow
-cd /workspace/going_poddy/scripts/workflows
- ./$1.sh $2
+#cd /workspace/going_poddy/scripts/workflows
+#./$1.sh $2
 
 # Start ComfyUI
 cd /workspace/ComfyUI
