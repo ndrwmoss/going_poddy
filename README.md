@@ -31,17 +31,17 @@ A source for quickly getting the resources you need for specific Runpod ComfyUI 
 ### Video
 
 #### Character Replace
-    ./workspace/going_poddy/scripts/video_character_replace.sh
+    ./video_character_replace.sh
 
 #### Lipsync
-    ./workspace/going_poddy/scripts/video_lipsync.sh
+    ./video_lipsync.sh
 
 #### Upscale
-    ./workspace/going_poddy/scripts/video_upscale.sh $CIVITAI
+    ./video_upscale.sh $CIVITAI
 
 ### Photo
 #### Clothing Transfer
-    ./workspace/going_poddy/scripts/photo_clothing_transfer.sh $CIVITAI
+    ./photo_clothing_transfer.sh $CIVITAI
 
 #### Upscale
-    ./workspace/going_poddy/scripts/photo_upscale.sh $CIVITAI
+    ./photo_upscale.sh $CIVITAI
