@@ -18,7 +18,7 @@ cd /workspace/going_poddy/scripts/install
   
 # Install selected workflow
 cd /workspace/going_poddy/scripts/workflows
- ./{$WORKFLOW}.sh --$CIVITAI
+ ./$WORKFLOW.sh --$CIVITAI
 
 # Start ComfyUI
 cd /workspace/ComfyUI
