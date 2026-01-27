@@ -15,7 +15,7 @@ fi
 
 # COPY CUSTOM NODES
 echo "SCRIPT: Fetching Custom Nodes"
-cd /workspace/ComfyUI/
+cd /workspace/ComfyUI/custom_nodes
 
 if [ ! -d "ComfyUI-Manager" ]; then
   git clone https://github.com/Comfy-Org/ComfyUI-Manager
