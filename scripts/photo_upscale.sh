@@ -47,7 +47,7 @@ fi
 
 cd /workspace/ComfyUI/models/diffusion_models
 if [ ! -f "juggernaut-sdxl.safetensors" ]; then
-  wget "https://civitai.com/api/download/models/1759168?type=Model&format=SafeTensor&size=full&fp=fp16&token=$1" juggernaut-sdxl.safetensors
+  wget "https://civitai.com/api/download/models/1759168?type=Model&format=SafeTensor&size=full&fp=fp16&token=$1" --content-disposition
 fi
 
 cd /workspace/ComfyUI/models/controlnet

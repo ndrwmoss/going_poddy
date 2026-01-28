@@ -73,8 +73,8 @@ if [ ! -f "Qwen-Image-Lightning-4steps-V2.0.safetensors" ]; then
 fi
 
 cd /workspace/ComfyUI/models/loras
-if [ ! -f "clothes_tryon_qwen-edit-lora" ]; then
-  wget "https://civitai.com/api/download/models/2196278?type=Model&format=SafeTensor&token=$1" clothes_tryon_qwen-edit-lora
+if [ ! -f "clothes_tryon_qwen-edit-lora.safetensors" ]; then
+  wget "https://civitai.com/api/download/models/2196278?type=Model&format=SafeTensor&token=$1" clothes_tryon_qwen-edit-lora.safetensors
 fi
 
 cd /workspace/ComfyUI/models/loras
