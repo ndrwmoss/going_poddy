@@ -80,7 +80,7 @@ fi
 
 cd /workspace/ComfyUI/models/upscale_models
 if [ ! -f "stock_photography_wan22_LOW_v1.safetensors" ]; then
-  wget "https://civitai.com/api/download/models/2179627?type=Model&format=SafeTensor$1"
+  wget "https://civitai.com/api/download/models/2179627?type=Model&format=SafeTensor&token=$1" --content-disposition
 fi
 
 echo "DONE: RESTART COMFYUI FOR CHANGES TO TAKE EFFECT"

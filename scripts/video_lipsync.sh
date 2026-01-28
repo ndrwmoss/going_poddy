@@ -3,7 +3,7 @@ set -e # Exit the script if any statement returns a non-true return
 
 cd /workspace/going_poddy/scripts/install
 ./install_comfy.sh
-
+pip install pyloudnorm
 # COPY WORKFLOW
 echo "SCRIPT: Fetching Workflow"
 cd /workspace/going_poddy/workflows
@@ -34,10 +34,17 @@ fi
 cd /workspace/going_poddy/scripts/install
 ./update_comfy.sh
 
+
+
 # COPY MODELS
 cd /workspace/ComfyUI/models/diffusion_models
 if [ ! -f "MelBandRoformer_fp16.safetensors" ]; then
   wget https://huggingface.co/Kijai/MelBandRoFormer_comfy/resolve/main/MelBandRoformer_fp16.safetensors
+fi
+
+cd /workspace/ComfyUI/models/text_encoders
+if [ ! -f "umt5-xxl-enc-bf16.safetensors" ]; then
+  wget https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/umt5-xxl-enc-bf16.safetensors
 fi
 
 cd /workspace/ComfyUI/models/diffusion_models
