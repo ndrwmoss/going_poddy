@@ -1,6 +1,5 @@
 # Going Poddy
 
-## (WORK IN PROGRESS)
 A source for quickly getting the resources you need for specific Runpod ComfyUI workflows.
 ## Install
 
@@ -28,21 +27,37 @@ A source for quickly getting the resources you need for specific Runpod ComfyUI 
     ```
 9. Copy one of the commands below for the workflow you want and paste it in the terminal, if the command has <mark>&CIVITAI</mark> in it, replace <mark>&CIVITAI</mark> Civitai api key. Press enter, the script will download and install all custom nodes and models the workflow requires.  
 10. Open ComfyUI on the pod, and restart ComfyUI for the changes to take effect, you're now ready to go.
+
+Base Container Size: GB
+
 ## Workflows
 ### Video
 
 #### Character Replace
+The workflow is by [MDMZ](https://www.youtube.com/watch?v=woCP1Q_Htwo), information about how to use the workflow can be found by watching the video in the link.  
+
+<mark>**45 GB container**</mark> - provides enough storage for the workflow and models with a few GB for workflow results.  
+<mark>**24 GB vram, 50 GB ram**</mark> - a lot more of both if processing video at higher than 1280 x 720 resolution, or higher than 300 frames at a time.   
+
     ./video_character_replace.sh
 
 #### Lipsync
+The workflow is by [Blue Spork](https://www.youtube.com/watch?v=LR4lBimS7O4), information about how to use the workflow can be found by watching the video in the link. 
+
+<mark>**45 GB container**</mark> - provides enough storage for the workflow and models with a few GB for workflow results.  
+<mark>**24 GB vram, 50 GB ram**</mark>   - a lot more of both if processing video at higher than 1280 x 720 resolution, or higher than 300 frames at a time.
+
     ./video_lipsync.sh
 
 #### Upscale
+<mark>**45 GB container**</mark> - provides enough storage for the workflow and models with a few GB for workflow results.  
+<mark>**24 GB vram, 50 GB ram**</mark>   - a lot more of both if processing video at higher than 1280 x 720 resolution, or higher than 300 frames at a time.
+
     ./video_upscale.sh $CIVITAI
 
 ### Photo
-#### Clothing Transfer
+#### Clothing Transfer <mark>(**WORK IN PROGRESS**)</mark>
     ./photo_clothing_transfer.sh $CIVITAI
 
-#### Upscale
+#### Upscale <mark>(**WORK IN PROGRESS**)</mark>
     ./photo_upscale.sh $CIVITAI
