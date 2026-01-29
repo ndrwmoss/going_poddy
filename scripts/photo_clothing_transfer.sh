@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e # Exit the script if any statement returns a non-true return
 
-cd /workspace/going_poddy/scripts/install
+cd /install/utilities
 ./install_comfy.sh
 
 # COPY WORKFLOW
@@ -14,7 +14,6 @@ fi
 
 # COPY CUSTOM NODES
 echo "SCRIPT: Fetching Custom Nodes"
-cd /workspace/ComfyUI/custom_nodes
 
 if [ ! -d "ComfyUI-Manager" ]; then
   git clone https://github.com/Comfy-Org/ComfyUI-Manager

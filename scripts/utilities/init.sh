@@ -407,8 +407,6 @@ fi
 echo "pod started"
 
 # --- Launch ComfyUI ---
-cd /install/utilities
-./install_comfy.sh
 cd /workspace/ComfyUI
 
 # Stop placeholder and free :8188 before launching ComfyUI

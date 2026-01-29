@@ -1,8 +1,9 @@
 #!/bin/bash
 set -e # Exit the script if any statement returns a non-true return
 
-cd /workspace/going_poddy/scripts/install
+cd /install/utilities
 ./install_comfy.sh
+
 pip install pyloudnorm
 # COPY WORKFLOW
 echo "SCRIPT: Fetching Workflow"
