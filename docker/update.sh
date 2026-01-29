@@ -13,5 +13,7 @@ fi
 mv /going_poddy/install /
 mv /going_poddy/unistall /
 mv /going_poddy/workflows /
+mv /going_poddy/docker/start_manager.sh /
+
 chmod -R +x install
 rm -r /going_poddy

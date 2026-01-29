@@ -1,27 +1,6 @@
 #!/bin/bash
 set -e # Exit the script if any statement returns a non-true return value
 
-cd /
-if [ ! -d "workspace" ] ; then
-    mkdir workspace
-fi
-
-cd /workspace
-if [ ! -d "ComfyUI" ]; then
-    git clone https://github.com/comfyanonymous/ComfyUI.git
-    cd ComfyUI
-    pip install -r requirements.txt
-fi
-
-cd /workspace/ComfyUI
-if [ ! -d "custom_nodes" ]; then
-    mkdir custom_nodes
-fi
-
-cd /workspace/ComfyUI/custom_nodes
-if [ ! -d "ComfyUI-Manager" ]; then
-    git clone https://github.com/Comfy-Org/ComfyUI-Manager
-fi
 cd /workspace/ComfyUI
 if [ ! -d "user" ]; then
     mkdir user
