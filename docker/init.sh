@@ -71,22 +71,6 @@ mv /going_poddy/install /
 mv /going_poddy/unistall /
 mv /going_poddy/workflows /
 
-if [ ! -f "/update.sh" ]; then
-    mv /going_poddy/docker/update.sh /
-    chmod +x update.sh
-fi
-if [ ! -f "/install_comfy.sh" ]; then
-    mv /going_poddy/docker/install_comfy.sh /
-    chmod +x install_comfy.sh
-fi
-if [ ! -f "/uninstall_comfy.sh" ]; then
-    mv /going_poddy/docker/uninstall_comfy.sh /
-    chmod +x uninstall_comfy.sh
-fi
-if [ ! -f "/start_manager.sh" ]; then
-    mv /going_poddy/docker/start_manager.sh /
-    chmod +x start_manager.sh
-fi
 rm -r /going_poddy
 
 # --- Temporary log page on port 8188 until ComfyUI starts ---

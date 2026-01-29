@@ -8,7 +8,7 @@ cd /
 echo "SCRIPT: Fetching Workflow"
 cd /workspace/going_poddy/workflows
 if [ ! -f "/workspace/ComfyUI/user/default/workflows/upscale_mickmumpitz.json" ]; then
-  mv /workspace/going_poddy/workflows/upscale_mickmumpitz.json /workspace/ComfyUI/user/default/workflows
+  mv /workflows/upscale_mickmumpitz.json /workspace/ComfyUI/user/default/workflows
 fi
 
 # COPY CUSTOM NODES
