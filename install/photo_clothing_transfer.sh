@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e # Exit the script if any statement returns a non-true return
 
-cd /install/utilities
+cd /
 ./install_comfy.sh
 
 # COPY WORKFLOW
