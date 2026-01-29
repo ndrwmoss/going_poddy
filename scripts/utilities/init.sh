@@ -315,12 +315,7 @@ jupyter lab \
   --ServerApp.terminado_settings='{"shell_command":["/bin/bash","-l"]}' \
   &> /jupyter.log &
 
-# Start filebrowser
-filebrowser --address=0.0.0.0 --port=8080 --root=/workspace/ --noauth &
 
-service nginx start
-
-echo "JupyterLab and Filebrowser started; nginx up."
 
 # --- Optional first-boot restore (external scripts) ---
 echo "RESTORE_BACKUP: ${RESTORE_BACKUP:-}"
@@ -403,7 +398,10 @@ if [[ -d /workspace/ComfyUI ]]; then
     done
   fi
 fi
-
+# Start filebrowser
+filebrowser --address=0.0.0.0 --port=8080 --root=/workspace/ --noauth &
+service nginx start
+echo "Filebrowser started, Nginx up."
 echo "pod started"
 
 # --- Launch ComfyUI ---
