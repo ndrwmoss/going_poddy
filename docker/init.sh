@@ -54,7 +54,35 @@ fi
 
 mkdir -p /workspace
 
-./update.sh
+echo "Updating Going Poddy"
+cd /
+git clone https://github.com/ndrwmoss/going_poddy
+if [ -d "/install" ]; then
+    rm -r /install
+fi
+if [ -d "/uninstall" ]; then
+    rm -r /uninstall
+fi
+if [ -d "/workflows" ]; then
+    rm -r /workflows
+fi
+mv /going_poddy/install /
+mv /going_poddy/unistall /
+mv /going_poddy/workflows /
+chmod -R +x install
+if [ ! -f "/update.sh" ]; then
+    mv /going_poddy/docker/update.sh /
+    chmod +x update.sh
+fi
+if [ ! -f "/install_comfy.sh" ]; then
+    mv /going_poddy/docker/install_comfy.sh /
+    chmod +x install_comfy.sh
+fi
+if [ ! -f "/uninstall_comfy.sh" ]; then
+    mv /going_poddy/docker/uninstall_comfy.sh /
+    chmod +x uninstall_comfy.sh
+fi
+rm -r /going_poddy
 
 # --- Temporary log page on port 8188 until ComfyUI starts ---
 start_comfy_placeholder() {
