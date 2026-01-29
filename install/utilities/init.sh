@@ -426,5 +426,5 @@ echo "To install workflows and models, open a new terminal, navigate to the inst
 echo "EXAMPLE:"
 echo "cd /install"
 echo "./video_character_replace.sh"
-echo "When the script is finished downloading custom nodes and modules, open ComfyUI, go to the Manager, and restart ComfyUI, when it's rebooted you're ready to go to work!"
+echo "When the script is finished downloading custom nodes and modules open ComfyUI, go to the Manager, and restart ComfyUI, when it's rebooted you're ready to go to work!"
 sleep infinity
