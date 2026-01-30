@@ -1,5 +1,9 @@
 #!/bin/bash
 set -e # Exit the script if any statement returns a non-true return value
+cd /
+if [ ! -d "temporary" ]; then
+    mkdir temporary
+fi
 
 cd /workspace/ComfyUI
 if [ ! -d "user" ]; then

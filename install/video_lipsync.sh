@@ -5,6 +5,7 @@ cd /
 ./install_comfy.sh
 
 pip install pyloudnorm
+
 # COPY WORKFLOW
 echo "SCRIPT: Fetching Workflow"
 cd /workspace/going_poddy/workflows

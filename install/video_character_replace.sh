@@ -6,13 +6,11 @@ cd /
 
 # COPY WORKFLOW
 echo "SCRIPT: Fetching Workflow"
-cd /workspace/going_poddy/workflows
-if [ ! -f "/workspace/ComfyUI/user/default/workflows/character_replace_mdmz.json" ]; then
-  mv /workspace/going_poddy/workflows/character_replace_mdmz.json /workspace/ComfyUI/user/default/workflows
-fi
+cd /util
+./move_workflow.sh character_replace_mdmz
 
 # COPY CUSTOM NODES
-echo "SCRIPT: Fetching Custom Nodes"
+echo "Installing Custom Nodes"
 cd /workspace/ComfyUI/custom_nodes
 
 if [ ! -d "ComfyUI-Manager" ]; then

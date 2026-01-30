@@ -2,6 +2,7 @@ echo "Updating Going Poddy"
 cd /
 
 git clone https://github.com/ndrwmoss/going_poddy
+
 if [ -d "/install" ]; then
     rm -r /install
 fi
@@ -25,4 +26,8 @@ if [ -d "/workflows" ]; then
 fi
 mv /going_poddy/workflows /
 
+
 rm -r /going_poddy
+
+main.py \
+  --listen 0.0.0.0 --port 8188

@@ -3,8 +3,9 @@ WORKDIR /
 COPY . .
 COPY init.sh /
 COPY update.sh /
-COPY installed.json /
-RUN apt-get install jq && \
-    chmod +x /init.sh && \
+COPY status /
+RUN chmod +x /init.sh && \
     chmod +x /update.sh
+RUN pip3 install nicegui && \
+    apt-get install jq
 CMD [ "/init.sh" ]
