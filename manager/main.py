@@ -2,6 +2,7 @@
 
 from nicegui import ui
 
-ui.label('Hello NiceGUI!')
+ui.label('Going Poddy')
+
 
 ui.run(port=8288)
