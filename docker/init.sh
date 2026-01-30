@@ -10,7 +10,7 @@ chmod -R +x install
 chmod -R +x uninstall
 chmod -R +x util
 
-cd /manager
+cd /going_poddy/manager
 chmod -R +x scripts
 
 main.py --listen 0.0.0.0 --port 8288
