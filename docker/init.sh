@@ -14,5 +14,4 @@ cd /going_poddy/manager
 chmod -R +x scripts
 mv /going_poddy/manager/main.py /
 cd /
-chmod +x main.py
-/manager.py --listen 0.0.0.0 --port 8288
+python main.py
