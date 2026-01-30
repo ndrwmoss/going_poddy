@@ -25,9 +25,3 @@ if [ -d "/workflows" ]; then
     rm -r /workflows
 fi
 mv /going_poddy/workflows /
-
-
-rm -r /going_poddy
-
-main.py \
-  --listen 0.0.0.0 --port 8188

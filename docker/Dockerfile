@@ -1,7 +1,6 @@
 FROM jnxmx/comfy25:new128
 WORKDIR /
 COPY . .
-COPY update.sh /
 COPY init.sh /
 COPY status /
 RUN chmod +x /init.sh && \
