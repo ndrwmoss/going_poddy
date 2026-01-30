@@ -12,6 +12,7 @@ chmod -R +x util
 
 cd /going_poddy/manager
 chmod -R +x scripts
-mv /going_poddy/manager/manager.py /
+mv /going_poddy/manager/main.py /
 cd /
-manager.py --listen 0.0.0.0 --port 8288
+chmod +x main.py
+/manager.py --listen 0.0.0.0 --port 8288
