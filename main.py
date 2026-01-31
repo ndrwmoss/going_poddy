@@ -26,6 +26,5 @@ def getLayout(win = False):
     getBody()
     getFooter()
 
-
 getLayout()
 ui.run(port=8288)
