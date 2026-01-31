@@ -5,9 +5,8 @@ if [ -d "/workspace/going_poddy" ]; then
 fi
 cd /workspace
 git clone https://github.com/ndrwmoss/going_poddy
-cd /workspace/going_poddy/manager
 chmod -R +x /workspace/going_poddy/scripts
-cd /workspace/going_poddy/manager
+cd /workspace/going_poddy/scripts
 ./check_cuda.sh
 ./intall_sage.sh
 ./move_comfy.sh
@@ -16,5 +15,7 @@ cd /workspace/going_poddy/manager
 ./start_nginx.sh
 ./start_jupityer.sh
 ./install_comfy.sh
-
+cd /workspace/ComfyUI
+python main.py --port=8188
+cd /workspace/going_poddy
 python main.py

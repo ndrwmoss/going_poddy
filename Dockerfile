@@ -3,7 +3,6 @@ WORKDIR /
 COPY . .
 RUN pip3 install nicegui
 COPY init.sh /
-COPY state.json /
-COPY resources.json /
 RUN chmod +x /init.sh
+EXPOSE 8188 8288 8888
 CMD [ "/init.sh" ]

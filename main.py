@@ -3,7 +3,6 @@ loaded = _refresh_directories()
 from nicegui import ui
 from gui import startup
 
-
 @ui.refreshable
 def getFooter():
     with ui.row().classes():
@@ -25,6 +24,5 @@ def getLayout(win = False):
     getHeader(win)
     getBody()
     getFooter()
-
 getLayout()
 ui.run(port=8288)
