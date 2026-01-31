@@ -11,11 +11,15 @@
             "url": ""
         }
     },
+    "python": {
+        "name": "command"
+    },
     "workflow": {
         "name": {
             "workflows": {},
             "models": {},
-            "nodes": {}
+            "nodes": {},
+            "python": {}
         }
     }
 }

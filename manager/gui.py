@@ -1,12 +1,4 @@
-
-import sys
-from directory import args_has_argument, get_directory, go_to_directory
-from init import initiate, init
-from gui import startup
 from nicegui import ui
-#Set directories
-dev = initiate(True if args_has_argument(sys.argv, 'dev') else False)
-
 @ui.refreshable
 def getFooter():
     with ui.row().classes():
@@ -29,6 +21,7 @@ def getLayout(win = False):
     getBody()
     getFooter()
 
+def startup():
 
-getLayout()
-ui.run(port=8288)
+    getLayout()
+    ui.run(port=8288)
