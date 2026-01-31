@@ -3,11 +3,9 @@ import os
 import shutil
 import subprocess
 directory = {
-    'init': os.path.split(os.path.abspath(__file__))[0],
     'poddy': '',
     'poddy_scripts': '',
     'poddy_workflows': '',
-    'poddy_manager': '',
     'root': '',
     'workspace': '',
     'comfy': '',
@@ -68,14 +66,17 @@ def directory_down(path, folders): # here 'path' is your path, 'n' is number of 
     for i in range(len(folders)):
         path = path + "\\" + folders[i]
     return path
+# Sets the current working directory
+def go_to_directory(path):
+    os.chdir(path)
+def command(argument_list = ['']):
+    subprocess.call(argument_list, shell=True)
 # Refreshes the program directory list
 def _refresh_directories():
-    directory['init'] = os.path.split(os.path.abspath(__file__))[0]
-    directory['poddy_manager'] = str(directory['init'])
-    directory['poddy_scripts'] = (directory_down(directory['poddy_manager'], ['scripts']))
-    directory['poddy'] = str(directory_up(directory['init'], 1))
+    directory['poddy'] = os.path.split(os.path.abspath(__file__))[0]
+    directory['poddy_scripts'] = (directory_down(directory['poddy'], ['scripts']))
     directory['poddy_workflows'] = (directory_down(directory['poddy'], ['workflows']))
-    directory['root'] = str(directory_up(directory['poddy'], 1))
+    directory['root'] = str(directory_up(directory['poddy'], 2))
     directory['workspace'] = str(directory_down(directory['root'], ['workspace']))
     directory['comfy'] = str(directory_down(directory['workspace'], ['ComfyUI']))
     directory['comfy_user'] = str(directory_down(directory['comfy'], ['user']))
@@ -85,8 +86,3 @@ def _refresh_directories():
     directory['comfy_model'] =  str(directory_down(directory['comfy'], ['models']))
     directory['comfy_pre_install'] =  str(directory_down(directory['root'], ['Comfy']))
     return True
-# Sets the current working directory
-def go_to_directory(path):
-    os.chdir(path)
-def command(argument_list = ['']):
-    subprocess.call(argument_list, shell=True)

@@ -28,5 +28,20 @@ if [[ -d /workspace/ComfyUI ]]; then
       fi
     done
   fi
-  
 fi
+make_dir(parent, child){
+  full_path="$parent/$child"
+  if [ -d "$parent" ]; then
+    if [ ! -d "$full_path" ]; then
+      mkdir "$full_path"
+    fi
+  fi
+}
+make_dir "/workspace/ComfyUI" "user"
+make_dir "/workspace/ComfyUI/user" "default"
+make_dir "/workspace/ComfyUI/user/default" "workflows"
+make_dir "/workspace/ComfyUI" "models"
+make_dir "/workspace/ComfyUI/models" "sam2"
+make_dir "/workspace/ComfyUI/models" "detection"
+make_dir "/workspace/ComfyUI/models" "upscale_models"
+make_dir "/workspace/ComfyUI/models" "wav2vec2"

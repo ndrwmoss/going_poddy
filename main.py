@@ -1,11 +1,8 @@
-
-import sys
-from directory import args_has_argument, get_directory, go_to_directory
-from init import initiate, init
-from gui import startup
+from directory import args_has_argument, _refresh_directories, go_to_directory
+loaded = _refresh_directories()
 from nicegui import ui
-#Set directories
-dev = initiate(True if args_has_argument(sys.argv, 'dev') else False)
+from gui import startup
+
 
 @ui.refreshable
 def getFooter():
