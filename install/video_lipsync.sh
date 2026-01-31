@@ -1,17 +1,10 @@
 #!/bin/bash
 set -e # Exit the script if any statement returns a non-true return
 
-cd /
-./install_comfy.sh
-
 pip install pyloudnorm
 
-# COPY WORKFLOW
-echo "SCRIPT: Fetching Workflow"
-cd /workspace/going_poddy/workflows
-if [ ! -f "/workspace/ComfyUI/user/default/workflows/lipsync_infinite_talk.json" ]; then
-  mv /workspace/going_poddy/workflows/lipsync_infinite_talk.json /workspace/ComfyUI/user/default/workflows
-fi
+cd /scripts
+./move_workflow.sh lipsync_infinite_talk
 
 # COPY CUSTOM NODES
 echo "SCRIPT: Fetching Custom Nodes"
@@ -33,8 +26,8 @@ if [ ! -d "ComfyUI-MelBandRoFormer" ]; then
 fi
 
 # Update custom nodes
-cd /workspace/going_poddy/scripts/install
-./update_comfy.sh
+cd /scripts
+./update_requirements.sh
 
 
 

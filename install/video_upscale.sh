@@ -1,15 +1,9 @@
 #!/bin/bash
 set -e # Exit the script if any statement returns a non-true return
 
-cd /
-./install_comfy.sh
+cd /scripts
+./move_workflow.sh upscale_mickmumpitz
 
-# COPY WORKFLOW
-echo "SCRIPT: Fetching Workflow"
-cd /workspace/going_poddy/workflows
-if [ ! -f "/workspace/ComfyUI/user/default/workflows/upscale_mickmumpitz.json" ]; then
-  mv /workflows/upscale_mickmumpitz.json /workspace/ComfyUI/user/default/workflows
-fi
 
 # COPY CUSTOM NODES
 echo "SCRIPT: Fetching Custom Nodes"
@@ -47,8 +41,8 @@ if [ ! -d "ComfyUI_essentials" ]; then
 fi
 
 # Update custom nodes
-cd /workspace/going_poddy/scripts/install
-./update_comfy.sh
+cd /scripts
+./update_requirements.sh
 
 # COPY MODELS
 echo "SCRIPT: Fetching Models"

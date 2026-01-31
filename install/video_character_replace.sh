@@ -1,18 +1,12 @@
 #!/bin/bash
 set -e # Exit the script if any statement returns a non-true return
 
-cd /
-./install_comfy.sh
-
-# COPY WORKFLOW
-echo "SCRIPT: Fetching Workflow"
-cd /util
+cd /scripts
 ./move_workflow.sh character_replace_mdmz
 
 # COPY CUSTOM NODES
 echo "Installing Custom Nodes"
 cd /workspace/ComfyUI/custom_nodes
-
 if [ ! -d "ComfyUI-Manager" ]; then
   git clone https://github.com/Comfy-Org/ComfyUI-Manager
 fi
@@ -46,8 +40,8 @@ if [ ! -d "ComfyUI-segment-anything-2" ]; then
 fi
 
 # Update custom nodes
-cd /workspace/going_poddy/scripts/install
-./update_comfy.sh
+cd /scripts
+./update_requirements.sh
 
 # COPY MODELS
 echo "SCRIPT: Fetching Models"
