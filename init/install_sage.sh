@@ -11,7 +11,7 @@ print(arch_map.get(cap, "none"))
 EOF
 )
 if [ "$ARCH" != "none" ]; then
-    echo "STAGE: Installing sageattention"
+    echo "Getting Sageattention wheel file"
     WHEEL_FILE=$(find /wheels -type f -name "sageattention-*+${ARCH}-*.whl" | head -n 1)
     if [ -n "$WHEEL_FILE" ]; then
         echo "Installing sageattention wheel for architecture $ARCH"
@@ -21,7 +21,6 @@ if [ "$ARCH" != "none" ]; then
         pip install sageattention==1.0.6
     fi
 else
-    echo "STAGE: Installing sageattention"
     echo "Installing sageattention from pip"
     pip install sageattention==1.0.6
 fi

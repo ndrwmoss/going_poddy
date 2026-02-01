@@ -1,0 +1,246 @@
+{
+    "version": 1.0,
+    "programs": {
+        "qwen_edit_2_2_clothing_transfer": {
+            "installed": 0,
+            "workflows": ["clothing_transfer"],
+            "nodes": ["ComfyUI_Manager", "rgthree-comfy", "ComfyUI-Easy-Use", "ComfyUI-KJNodes", "ComfyUI_UltimateSDUpscale", "ComfyUI-mxToolkit"],
+            "models": ["qwen_image_edit_fp8_e4m3fn", "juggernautXL_juggXIByRundiffusion", "qwen_image_vae", "qwen_2.5_vl_7b_fp8_scaled", "RealESRGAN_x2", "Qwen-Image-Lightning-4steps-V2.0", "extract-outfit_v3", "clothes_tryon_qwen-edit-lora"],
+            "python": null
+        },
+        "sdxl_lightning_photo_upscale": {
+            "installed": 0,
+            "workflows": ["control_net_tiled_upscale_auto"],
+            "nodes": ["ComfyUI_Manager", "ComfyUI-KJNodes", "ComfyUI-Easy-Use", "ComfyUI_essentials", "ComfyUI-basic_data_handling"],
+            "models": ["juggernaut-sdxl", "sdxl_lightning_8step_lora", "tiled-controlnet-sdxl"],
+            "python": null
+        },
+        "wan_2_1_infinitetalk_lip_sync": {
+            "installed": 0,
+            "workflows": ["lipsync_infinite_talk"],
+            "nodes": ["ComfyUI_Manager", "ComfyUI-KJNodes", "ComfyUI-VideoHelperSuite", "ComfyUI-WanVideoWrapper", "ComfyUI-MelBandRoFormer"],
+            "models": ["MelBandRoformer_fp16", "wan_2.1_vae", "clip_vision_h", "lightx2v_I2V_14B_480p_cfg_step_distill_rank64_bf16", "umt5-xxl-enc-bf16", "Wan2_1-InfiniTetalk-Single_fp16", "Wan14Bi2vFusioniX", "wav2vec2-chinese-base_fp16"],
+            "python": ["pyloudnorm"]
+        },
+        "wan_2_2_upscale": {
+            "installed": 0,
+            "workflows": ["upscale_mickmumpitz"],
+            "nodes": ["ComfyUI_Manager", "ComfyUI-VideoHelperSuite", "ComfyUI-KJNodes", "rgthree-comfy", "ComfyUI-Easy-Use", "ComfyUI-Florence2", "ComfyUI_essentials", "ComfyUI_UltimateSDUpscale"],
+            "models": ["wan2.2_t2v_low_noise_14B_fp8_scaled", "low_noise_model", "umt5_xxl_fp8_e4m3fn_scaled", "wan_2.1_vae", "RealESRGAN_x2", "stock_photography_wan22_LOW_v1"],
+            "python": null
+        },
+        "wan_animate_2_2_character_replace": {
+            "installed": 0,
+            "workflows": ["character_replace_mdmz"],
+            "nodes": ["ComfyUI_Manager", "ComfyUI-VideoHelperSuite", "ComfyUI-KJNodes", "ComfyUI-WanVideoWrapper", "ComfyUI-WanAnimatePreprocess", "ComfyUI-WanVideoWrapper", "comfyui-tensorops", "ComfyUI-segment-anything-2"],
+            "models": ["Wan2_2-Animate-14B_fp8_e4m3fn_scaled_KJ", "umt5-xxl-enc-bf16", "Wan2_1_VAE_bf16", "clip_vision_h", "sam2.1_hiera_base_plus", "WanAnimate_relight_lora_fp16", "lightx2v_I2V_14B_480p_cfg_step_distill_rank64_bf16", "vitpose-l-wholebody", "yolov10m"],
+            "python": null
+        }
+    },
+    "nodes": {
+        "ComfyUI_essentials": "https://github.com/cubiq/ComfyUI_essentials",
+        "ComfyUI-Manager": "https://github.com/Comfy-Org/ComfyUI-Manager",
+        "ComfyUI_UltimateSDUpscale": "https://github.com/ssitu/ComfyUI_UltimateSDUpscale",
+        "ComfyUI-basic_data_handling": "https://github.com/StableLlama/ComfyUI-basic_data_handling",
+        "ComfyUI-Easy-Use": "https://github.com/yolain/ComfyUI-Easy-Use",
+        "ComfyUI-Florence2": "https://github.com/kijai/ComfyUI-Florence2",
+        "ComfyUI-KJNodes": "https://github.com/kijai/ComfyUI-KJNodes",
+        "ComfyUI-MelBandRoFormer": "https://github.com/kijai/ComfyUI-MelBandRoFormer",
+        "ComfyUI-mxToolkit": "https://github.com/Smirnov75/ComfyUI-mxToolkit",
+        "ComfyUI-segment-anything-2": "https://github.com/kijai/ComfyUI-segment-anything-2",
+        "comfyui-tensorops": "https://github.com/un-seen/comfyui-tensorops",
+        "ComfyUI-VideoHelperSuite": "https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite",
+        "ComfyUI-WanAnimatePreprocess": "https://github.com/kijai/ComfyUI-WanAnimatePreprocess",
+        "ComfyUI-WanVideoWrapper": "https://github.com/kijai/ComfyUI-WanVideoWrapper",
+        "rgthree-comfy": "https://github.com/rgthree/rgthree-comfy"
+    },
+    "models": {
+        "clip_vision_h": {
+            "url": "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/clip_vision/clip_vision_h.safetensors",
+            "extension": "safetensors",
+            "folder": "clip_vision",
+            "provider": "hf"
+        },
+        "clothes_tryon_qwen-edit-lora": {
+            "url": "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/clip_vision/clip_vision_h.safetensors",
+            "extension": "safetensors",
+            "folder": "loras",
+            "provider": "hf"
+        },
+        "extract-outfit_v3": {
+            "url": "https://huggingface.co/datasets/dubsta/xmas/resolve/main/extract-outfit_v3.safetensors",
+            "extension": "safetensors",
+            "folder": "loras",
+            "provider": "hf"
+        },
+        "juggernaut-sdxl": {
+            "url": "https://civitai.com/api/download/models/1759168?type=Model&format=SafeTensor&size=full&fp=fp16&token=",
+            "extension": "safetensors",
+            "folder": "diffusion_models",
+            "provider": "civ"
+        },
+        "juggernautXL_juggXIByRundiffusion": {
+            "url": "https://huggingface.co/misri/juggernautXL_juggXIByRundiffusion/resolve/main/juggernautXL_juggXIByRundiffusion.safetensors",
+            "extension": "safetensors",
+            "folder": "diffusion_models",
+            "provider": "hf"
+        },
+        "lightx2v_I2V_14B_480p_cfg_step_distill_rank64_bf16": {
+            "url": "https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/Lightx2v/lightx2v_I2V_14B_480p_cfg_step_distill_rank64_bf16.safetensors",
+            "extension": "safetensors",
+            "folder": "loras",
+            "provider": "hf"
+        },
+        "low_noise_model": {
+            "url": "https://huggingface.co/lightx2v/Wan2.2-Lightning/resolve/main/Wan2.2-T2V-A14B-4steps-lora-rank64-Seko-V2.0/low_noise_model.safetensors",
+            "extension": "safetensors",
+            "folder": "loras",
+            "provider": "hf"
+        },
+        "MelBandRoformer_fp16": {
+            "url": "https://huggingface.co/Kijai/MelBandRoFormer_comfy/resolve/main/MelBandRoformer_fp16.safetensors",
+            "extension": "safetensors",
+            "folder": "diffusion_models",
+            "provider": "hf"
+        },
+        "qwen_2.5_vl_7b_fp8_scaled": {
+            "url": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors",
+            "extension": "safetensors",
+            "folder": "text_encoders",
+            "provider": "hf"
+        },
+        "qwen_image_edit_fp8_e4m3fn": {
+            "url": "https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI/resolve/main/split_files/diffusion_models/qwen_image_edit_fp8_e4m3fn.safetensors ",
+            "extension": "safetensors",
+            "folder": "diffusion_models",
+            "provider": "hf"
+        },
+        "qwen_image_vae": {
+            "url": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors",
+            "extension": "safetensors",
+            "folder": "vae",
+            "provider": "hf"
+        },
+        "Qwen-Image-Lightning-4steps-V2.0": {
+            "url": "https://huggingface.co/lightx2v/Qwen-Image-Lightning/resolve/main/Qwen-Image-Lightning-4steps-V2.0.safetensors",
+            "extension": "safetensors",
+            "folder": "loras",
+            "provider": "hf"
+        },
+        "RealESRGAN_x2": {
+            "url": "https://huggingface.co/ai-forever/Real-ESRGAN/resolve/main/RealESRGAN_x2.pth",
+            "extension": "pth",
+            "folder": "upscale_models",
+            "provider": "hf"
+        },
+        "RealESRGAN_x2plus": {
+            "url": "https://huggingface.co/dtarnow/UPscaler/resolve/main/RealESRGAN_x2plus.pth",
+            "extension": "pth",
+            "folder": "upscale_models",
+            "provider": "hf"
+        },
+        "sam2.1_hiera_base_plus": {
+            "url": "https://huggingface.co/Kijai/sam2-safetensors/resolve/main/sam2.1_hiera_base_plus.safetensors",
+            "extension": "safetensors",
+            "folder": "sam2",
+            "provider": "hf"
+        },
+        "sdxl_lightning_8step_lora": {
+            "url": "https://huggingface.co/ByteDance/SDXL-Lightning/resolve/main/sdxl_lightning_8step_lora.safetensors",
+            "extension": "safetensors",
+            "folder": "loras",
+            "provider": "hf"
+        },
+        "stock_photography_wan22_LOW_v1": {
+            "url": "https://civitai.com/api/download/models/2179627?type=Model&format=SafeTensor",
+            "extension": "safetensors",
+            "folder": "upscale_models",
+            "provider": "civ"
+        },
+        "tiled-controlnet-sdxl": {
+            "url": "https://huggingface.co/xinsir/controlnet-tile-sdxl-1.0/resolve/main/diffusion_pytorch_model.safetensors",
+            "extension": "safetensors",
+            "folder": "controlnet",
+            "provider": "hf"
+        },
+        "umt5_xxl_fp8_e4m3fn_scaled": {
+            "url": "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+            "extension": "safetensors",
+            "folder": "clip",
+            "provider": "hf"
+        },
+        "umt5-xxl-enc-bf16": {
+            "url": "https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/umt5-xxl-enc-bf16.safetensors",
+            "extension": "safetensors",
+            "folder": "text_encoders",
+            "provider": "hf"
+        },
+        "vitpose-l-wholebody": {
+            "url": "https://huggingface.co/JunkyByte/easy_ViTPose/resolve/main/onnx/wholebody/vitpose-l-wholebody.onnx",
+            "extension": "onnx",
+            "folder": "detection",
+            "provider": "hf"
+        },
+        "wan_2.1_vae": {
+            "url": "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/vae/wan_2.1_vae.safetensors",
+            "extension": "safetensors",
+            "folder": "vae",
+            "provider": "hf"
+        },
+        "Wan2_1_VAE_bf16": {
+            "url": "https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/Wan2_1_VAE_bf16.safetensors",
+            "extension": "safetensors",
+            "folder": "vae",
+            "provider": "hf"
+        },
+        "Wan2_1-InfiniTetalk-Single_fp16": {
+            "url": "https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/InfiniteTalk/Wan2_1-InfiniTetalk-Single_fp16.safetensors",
+            "extension": "safetensors",
+            "folder": "diffusion_models",
+            "provider": "hf"
+        },
+        "14B_fp8_e4m3fn_scaled_KJ": {
+            "url": "https://huggingface.co/Kijai/WanVideo_comfy_fp8_scaled/resolve/main/Wan22Animate/Wan2_2-Animate-14B_fp8_e4m3fn_scaled_KJ.safetensors",
+            "extension": "safetensors",
+            "folder": "diffusion_models",
+            "provider": "hf"
+        },
+        "wan2.2_t2v_low_noise_14B_fp8_scaled": {
+            "url": "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/diffusion_models/wan2.2_t2v_low_noise_14B_fp8_scaled.safetensors",
+            "extension": "safetensors",
+            "folder": "diffusion_models",
+            "provider": "hf"
+        },
+        "Wan14Bi2vFusioniX": {
+            "url": "https://huggingface.co/vrgamedevgirl84/Wan14BT2VFusioniX/resolve/main/Wan14Bi2vFusioniX.safetensors",
+            "extension": "safetensors",
+            "folder": "diffusion_models",
+            "provider": "hf"
+        },
+        "WanAnimate_relight_lora_fp16": {
+            "url": "https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/LoRAs/Wan22_relight/WanAnimate_relight_lora_fp16.safetensors",
+            "extension": "safetensors",
+            "folder": "loras",
+            "provider": "hf"
+        },
+        "wav2vec2-chinese-base_fp16": {
+            "url": "https://huggingface.co/Kijai/wav2vec2_safetensors/resolve/main/wav2vec2-chinese-base_fp16.safetensors",
+            "extension": "safetensors",
+            "folder": "wav2vec2",
+            "provider": "hf"
+        },
+        "yolov10m": {
+            "url": "https://huggingface.co/Wan-AI/Wan2.2-Animate-14B/resolve/main/process_checkpoint/det/yolov10m.onnx",
+            "extension": "onnx",
+            "folder": "detection",
+            "provider": "hf"
+        }
+
+    },
+    "python": {
+        "pyloudnorm": {
+            "cmd": [""]
+        }
+    }
+}
+

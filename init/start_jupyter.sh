@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /
+$restore = $PWD
 jupyter lab \
   --ip=0.0.0.0 \
   --port=8888 \
@@ -12,3 +12,4 @@ jupyter lab \
   --FileContentsManager.delete_to_trash=False \
   --ServerApp.terminado_settings='{"shell_command":["/bin/bash","-l"]}' \
   &> /jupyter.log &
+cd "$restore"

@@ -1,4 +1,5 @@
 #!/bin/bash
+$restore = $PWD
 if [[ -n "${PUBLIC_KEY:-}" ]]; then
   mkdir -p ~/.ssh
   chmod 700 ~/.ssh
@@ -6,3 +7,4 @@ if [[ -n "${PUBLIC_KEY:-}" ]]; then
   chmod 600 ~/.ssh/authorized_keys
   service ssh start
 fi
+cd "$restore"
