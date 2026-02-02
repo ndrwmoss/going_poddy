@@ -1,0 +1,31 @@
+#!/bin/bash
+set -e # Exit the script if any statement returns a non-true return
+local install="/going_poddy/init"
+
+# INSTALL PYTHON SCRIPTS
+echo "SCRIPT: Setup"
+
+# COPY WORKFLOW
+echo "SCRIPT: Fetching Workflow"
+"${install}"/workflow img_upscale.json
+
+# INSTALL CUSTOM NODES
+echo "SCRIPT: Fetching Custom Nodes"
+# "${install}"/node url
+"${install}"/node https://github.com/Comfy-Org/ComfyUI-Manager
+"${install}"/node https://github.com/kijai/ComfyUI-KJNodes
+"${install}"/node https://github.com/yolain/ComfyUI-Easy-Use
+"${install}"/node https://github.com/cubiq/ComfyUI_essentials
+"${install}"/node https://github.com/StableLlama/ComfyUI-basic_data_handling
+
+# Update custom nodes
+"${install}"/update_nodes.sh
+
+# COPY MODELS
+echo "SCRIPT: Fetching Models"
+# "${install}"/model folder name url civitai
+"${install}"/model diffusion_models juggernaut-sdxl.safetensors "https://civitai.com/api/download/models/1759168?type=Model&format=SafeTensor&size=full&fp=fp16" 1
+"${install}"/model loras sdxl_lightning_8step_lora.safetensors https://huggingface.co/ByteDance/SDXL-Lightning/resolve/main/sdxl_lightning_8step_lora.safetensors
+"${install}"/model controlnet tiled-controlnet-sdxl.safetensors https://huggingface.co/xinsir/controlnet-tile-sdxl-1.0/resolve/main/diffusion_pytorch_model.safetensors
+
+echo "DONE: RESTART COMFYUI FOR CHANGES TO TAKE EFFECT"

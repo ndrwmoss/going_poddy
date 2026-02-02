@@ -1,0 +1,39 @@
+#!/bin/bash
+set -e # Exit the script if any statement returns a non-true return
+local install="/going_poddy/init"
+
+# INSTALL PYTHON SCRIPTS
+echo "SCRIPT: Setup"
+
+# COPY WORKFLOW
+echo "SCRIPT: Fetching Workflow"
+"${install}"/workflow character_replace_mdmz.json
+
+# INSTALL CUSTOM NODES
+echo "SCRIPT: Fetching Custom Nodes"
+# "${install}"/node url
+"${install}"/node https://github.com/Comfy-Org/ComfyUI-Manager
+"${install}"/node https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite
+"${install}"/node https://github.com/kijai/ComfyUI-KJNodes
+"${install}"/node https://github.com/kijai/ComfyUI-WanVideoWrappers
+"${install}"/node https://github.com/kijai/ComfyUI-WanAnimatePreprocess
+"${install}"/node https://github.com/un-seen/comfyui-tensorops
+"${install}"/node https://github.com/kijai/ComfyUI-segment-anything-2
+
+# Update custom nodes
+"${install}"/update_nodes.sh
+
+# COPY MODELS
+echo "SCRIPT: Fetching Models"
+# "${install}"/model folder name url civitai
+"${install}"/model diffusion_models Wan2_2-Animate-14B_fp8_e4m3fn_scaled_KJ.safetensors https://huggingface.co/Kijai/WanVideo_comfy_fp8_scaled/resolve/main/Wan22Animate/Wan2_2-Animate-14B_fp8_e4m3fn_scaled_KJ.safetensors
+"${install}"/model text_encoders umt5-xxl-enc-bf16.safetensors https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/umt5-xxl-enc-bf16.safetensors
+"${install}"/model vae Wan2_1_VAE_bf16.safetensors https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/Wan2_1_VAE_bf16.safetensors
+"${install}"/model clip_vision name https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/clip_vision/clip_vision_h.safetensors
+"${install}"/model sam2 sam2.1_hiera_base_plus.safetensors https://huggingface.co/Kijai/sam2-safetensors/resolve/main/sam2.1_hiera_base_plus.safetensors
+"${install}"/model loras WanAnimate_relight_lora_fp16.safetensors https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/LoRAs/Wan22_relight/WanAnimate_relight_lora_fp16.safetensors
+"${install}"/model loras lightx2v_I2V_14B_480p_cfg_step_distill_rank64_bf16.safetensors https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/Lightx2v/lightx2v_I2V_14B_480p_cfg_step_distill_rank64_bf16.safetensors
+"${install}"/model detection vitpose-l-wholebody.onnx https://huggingface.co/JunkyByte/easy_ViTPose/resolve/main/onnx/wholebody/vitpose-l-wholebody.onnx
+"${install}"/model detection yolov10m.onnx https://huggingface.co/Wan-AI/Wan2.2-Animate-14B/resolve/main/process_checkpoint/det/yolov10m.onnx
+
+echo "DONE: RESTART COMFYUI FOR CHANGES TO TAKE EFFECT"
