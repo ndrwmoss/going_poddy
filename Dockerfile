@@ -22,16 +22,14 @@ RUN mkdir -p $PODDY_ACTIVE/py
 COPY boot $PODDY/boot
 COPY cmd $PODDY/cmd
 COPY workflows $PODDY/workflows
-COPY poddy $PODDY/poddy
+COPY poddy /poddy
 
 # SET EXECUTABLES
 RUN chmod -R +x $PODDY/boot
 RUN chmod -R +x $PODDY/cmd
 RUN find $PODDY/workflows -type f -name "*.install" -exec chmod +x {} +
-RUN chmod +x $PODDY/poddy
+RUN chmod +x /poddy
 
-# ADD PODDY TO PATH
-ENV PATH="$PATH:$PODDY/poddy"
 # ENV PATH="/poddy:${PATH}"
 EXPOSE 8188 8288 8888
 CMD [ "/gpoddy/boot/init" ]
