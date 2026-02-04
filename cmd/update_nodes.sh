@@ -1,0 +1,8 @@
+echo "Updating Custom Nodes"
+for d in ${COMFY_NODES}/*/; do
+    if [[ -d "$d/.git" ]]; then
+        if [[ -f "$d/requirements.txt" ]]; then
+        pip install -r "$d/requirements.txt"
+        fi
+    fi
+done

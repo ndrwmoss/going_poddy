@@ -12,7 +12,6 @@ echo "SCRIPT: Fetching Workflow"
 # INSTALL CUSTOM NODES
 echo "SCRIPT: Fetching Custom Nodes"
 # "${install}"/node url
-"${install}"/node https://github.com/Comfy-Org/ComfyUI-Manager
 "${install}"/node https://github.com/kijai/ComfyUI-KJNodes
 "${install}"/node https://github.com/yolain/ComfyUI-Easy-Use
 "${install}"/node https://github.com/cubiq/ComfyUI_essentials

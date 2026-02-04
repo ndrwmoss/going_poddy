@@ -1,0 +1,22 @@
+#!/bin/bash
+# --- First boot: persist ComfyUI into /workspace and fetch taesd ---
+if [[ ! -d ${COMFY} && -d /Comfy ]]; then
+    echo "Moving ComfyUI to ${COMFY} (first boot only)…"
+    mv /Comfy /workspace/ComfyUI
+else
+    echo "ComfyUI already present at ${COMFY}; skipping copy."
+fi
+# --- Update Comfy ---
+if [[ -f ${COMFY}/requirements.txt ]]; then
+    echo "Updating ComfyUI"
+    pip install -r "${COMFY}/requirements.txt"
+fi
+# --- Install Manager ---
+if [[ ! -d ${COMFY_NODES}/ComfyUI-Manager ]]; then
+    echo "Installing ComfyUI-Manager"
+    git clone https://github.com/Comfy-Org/ComfyUI-Manager
+else
+    echo "ComfyUI already present in /workspace; skipping copy."
+fi
+# --- Create necessary directories ---
+mkdir -p ${COMFY_WORKFLOW}
