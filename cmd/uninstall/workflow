@@ -1,0 +1,5 @@
+#!/bin/bash
+# workflow=${1} variable
+if [ -f $COMFY_WORKFLOW/$1 ]; then
+    rm $COMFY_WORKFLOW/$1
+fi

@@ -1,0 +1,21 @@
+#!/bin/bash
+# ${1}=name
+# ${2}=directory
+# ${3}=url
+
+# Prep location for download
+name=${1}
+sub_directory=${2}
+full_url=${3}
+directory=$COMFY_MODELS/${sub_directory}
+file=${dir}/${1}
+mkdir -p $directory
+
+# Bail if already exists
+if [[ -f $file ]]; then
+    rm $file " already exists, no need to double flush."
+    echo $name " already exists, no need to double flush."
+    exit 0
+else
+    echo $name " doesn't exist, nothing to remove."
+fi

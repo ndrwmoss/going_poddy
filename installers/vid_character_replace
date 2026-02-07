@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# INSTALL PYTHON SCRIPTS
+echo "SCRIPT: python packages"
+
+# INSTALL CUSTOM NODES
+echo "SCRIPT: custom nodes"
+# $1/node url
+$1/node https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite
+$1/node https://github.com/kijai/ComfyUI-KJNodes
+$1/node https://github.com/kijai/ComfyUI-WanVideoWrappers
+$1/node https://github.com/kijai/ComfyUI-WanAnimatePreprocess
+$1/node https://github.com/un-seen/comfyui-tensorops
+$1/node https://github.com/kijai/ComfyUI-segment-anything-2
+
+
+# COPY MODELS
+echo "SCRIPT: models"
+# $1/model name folder url
+$1/model Wan2_2-Animate-14B_fp8_e4m3fn_scaled_KJ.safetensors diffusion_models https://huggingface.co/Kijai/WanVideo_comfy_fp8_scaled/resolve/main/Wan22Animate/Wan2_2-Animate-14B_fp8_e4m3fn_scaled_KJ.safetensors
+$1/model umt5-xxl-enc-bf16.safetensors text_encoders https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/umt5-xxl-enc-bf16.safetensors
+$1/model Wan2_1_VAE_bf16.safetensors vae https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/Wan2_1_VAE_bf16.safetensors
+$1/model clip_vision_h.safetensors clip_vision https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/clip_vision/clip_vision_h.safetensors
+$1/model sam2.1_hiera_base_plus.safetensors sam2 https://huggingface.co/Kijai/sam2-safetensors/resolve/main/sam2.1_hiera_base_plus.safetensors
+$1/model WanAnimate_relight_lora_fp16.safetensors loras https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/LoRAs/Wan22_relight/WanAnimate_relight_lora_fp16.safetensors
+$1/model lightx2v_I2V_14B_480p_cfg_step_distill_rank64_bf16.safetensors loras https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/Lightx2v/lightx2v_I2V_14B_480p_cfg_step_distill_rank64_bf16.safetensors
+$1/model vitpose-l-wholebody.onnx detection https://huggingface.co/JunkyByte/easy_ViTPose/resolve/main/onnx/wholebody/vitpose-l-wholebody.onnx
+$1/model yolov10m.onnx detection https://huggingface.co/Wan-AI/Wan2.2-Animate-14B/resolve/main/process_checkpoint/det/yolov10m.onnx
+# COPY WORKFLOW
+echo "SCRIPT: workflows"
+$1/workflow character_replace_mdmz

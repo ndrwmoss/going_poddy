@@ -2,34 +2,35 @@
 boot=$PODDY/boot
 
 echo "INIT STAGE 1: POPULATING YOUR PODDY"
-python -m pip install --upgrade pip
+#python -m pip install --upgrade pip
 
 echo "INIT STAGE 2: CHECKING YOUR CUDA"
-$boot/cuda
+#$boot/cuda
 
 echo "INIT STAGE 3: INSTALLING YOUR SAGE"
-$boot/sage
+#$boot/sage
 
 echo "INIT STAGE 4: INSTALLING YOUR COMFY"
-$boot/comfy
+#$boot/comfy
 
 echo "INIT STAGE 5: STARTING YOUR SSH"
-$boot/ssh
+#$boot/ssh
 
 echo "INIT STAGE 6: STARTING YOUR NGINX"
-$boot/nginx
+#$boot/nginx
 
 echo "INIT STAGE 7: STARTING YOUR JUPYTER"
-$boot/jupyter
+#$boot/jupyter
 
-/poddy update "https://github.com/ndrwmoss/going_poddy"
+#/poddy update "https://github.com/ndrwmoss/going_poddy"
+
 # Runs installers if INSTALL_PODDY is set to a non-empty string.
-if [[ -n ${PREINSTALL} != none ]]; then
+pre=${PREINSTALL:-"none"}
+if [[ $pre != "none" ]]; then
     echo "Pre-Installing packages"
     /poddy preinstall
 else
     echo "No pre installation packages selected."
-    $PODDY_CMD/update_nodes.sh
 fi
 echo "INIT COMPLETE: STARTING YOUR COMFY"
-python /workspace/ComfyUI/main.py --port=8188
+#python /workspace/ComfyUI/main.py --port=8188

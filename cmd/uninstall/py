@@ -1,0 +1,3 @@
+#!/bin/bash
+# python script=${1} variable
+pip uninstall -y ${1}

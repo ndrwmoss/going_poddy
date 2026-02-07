@@ -3,98 +3,83 @@
 COMFY=${COMFY:-/workspace/ComfyUI}
 COMFY_WORKFLOW=${COMFY_WORKFLOW:-$COMFY/user/default/workflows}
 COMFY_NODES=${COMFY_NODES:-$COMFY/custom_nodes}
-COMFY_MODELS=${$COMFY/models}
-PODDY=${PODDY:-/gpoddy}
+COMFY_MODELS=${COMFY/models}
+PODDY=${PODDY:-/going_poddy}
 PODDY_ACTIVE=${PODDY_ACTIVE:-$PODDY/active}
 PODDY_CMD=${PODDY_CMD:-$PODDY/cmd}
 PODDY_WORKFLOWS=${PODDY_WORKFLOWS:-$PODDY/workflows}
-PORTA_PODDY=${PORTA_PODDY:-$PODDY/porta_poddy}
-GIT_ADDRESS=${GIT_ADDRESS:-"https://github.com/ndrwmoss/going_poddy"}
-PREINSTALL=${PREINSTALL:-none}
+PORTA_PODDY=${PORTA_PODDY:-$PODDY/going_poddy}
+PREINSTALL=${PREINSTALL:-"none"}
+CIVITAI=${CIVITAI:-"none"}
 
-#command = wizard | install | uninstall | update | preinstall | update_nodes | update_poddy
-command=${1:-wizard}
+#command = install | uninstall
+command=${1:-update}
 shift
 function update_poddy() {
     local restore_cwd=${PWD}
-    local addy=${1:-"https://github.com/ndrwmoss/going_poddy"}
-    echo "FLUSHING PODDY"
-    if [[ -d ${PORTA_PODDY} ]]; then
-        rm -r ${PORTA_PODDY}
-    fi
-    mkdir ${PORTA_PODDY}
-    cd ${PORTA_PODDY}
 
+    echo "FLUSHING PODDY"
+    if [[ -d $PORTA_PODDY ]]; then
+        rm -r $PORTA_PODDY
+    fi
+    cd $PODDY
     # DOWNLOAD
     echo "Hydrating Poddy"
-    git clone ${1} .
+    git clone https://github.com/ndrwmoss/going_poddy
 
-    # COPY GOING_PODDY
-    if [[ ${addy} == ${GIT_ADDRESS} ]]; then
-        if [[ -d ${PODDY}/cmd ]]; then
-            rm -R ${PODDY}/cmd
-        fi
-        mv -R ${PORTA_PODDY}/cmd/ ${PODDY}/cmd
+    if [[ -d ${PODDY}/cmd ]]; then
+        rm -R ${PODDY}/cmd
     fi
+    cp -r $PORTA_PODDY/cmd $PODDY/cmd
+
+    if [[ -d ${PODDY}/installers ]]; then
+        rm -R ${PODDY}/installers
+    fi
+    cp -r $PORTA_PODDY/installers $PODDY/installers
+
+    if [[ -d ${PODDY}/workflows ]]; then
+        rm -R ${PODDY}/workflows
+    fi
+    cp -r $PORTA_PODDY/workflows $PODDY/workflows
+
+    chmod -R +x $PODDY/cmd
+    chmod -R +x $PODDY/installers
 
     # COPY NEW WORKFLOWS TO WORKFLOW DIRECTORY
-    for wf in ${PORTA_PODDY}/workflows/*.json; do
-        if [[ -f $wf ]]; then
-            cp -f ${PORTA_PODDY}/workflows/${wf}.json ${PODDY}/workflows/${wf}.json
-            # COPY NEW WORKFLOWS TO COMFY IF ACTIVE
-            if [[ -f ${COMFY_WORKFLOW}/${wf}.json ]]; then
-                cp -f ${PODDY}/workflows/${wf}.json ${COMFY_WORKFLOW}/${wf}.json
-            fi
-        fi
-    done
-
-    # COPY DOWNLOADED INSTALLS TO INSTALL DIRECTORY
-    for inst in ${PORTA_PODDY}/workflows/*.install; do
-        if [[ -f "$inst" ]]; then
-            cp -f ${PORTA_PODDY}/workflows/${inst}.install ${PODDY}/workflows/${inst}.install
+    for wf in ${PODDY_WORKFLOWS}/*.json; do
+        if [[ -f ${COMFY_WORKFLOW}/${wf}.json ]]; then
+            rm ${COMFY_WORKFLOW}/${wf}.json
+            cp -f ${PODDY_WORKFLOWS}/${wf}.json ${COMFY_WORKFLOW}/${wf}.json
         fi
     done
     echo "Poddy Refreshed!"
 
     # REMOVE DOWNLOADED FOLDER
-    rm -r ${PORTA_PODDY}
     cd ${restore_cwd}
 }
-if [[ ${command} == "install" ]]; then
-    for instruction in "$@"; do
-        if [[ -f $PODDY_WORKFLOWS/$instruction.install ]]; then
-            $PODDY_WORKFLOWS/$instruction.install install
-        else
-            echo "Workflow $instruction doesn't exist. No installation took place."
-        fi
-    done
-else if [[ ${command} == "uninstall" ]]; then
-    for instruction in "$@"; do
-        if [[ -f $PODDY_WORKFLOWS/$instruction.install ]]; then
-            $PODDY_WORKFLOWS/$instruction.install uninstall
-        else
-            echo "Workflow $instruction doesn't exist. No uninstallition can happen ."
-        fi
-    done
-else if [[ ${command} == "preinstall" ]]; then
-    for instruction in "${PREINSTALL}"; do
-        if [[ -f $PODDY_WORKFLOWS/$instruction.install ]]; then
-            $PODDY_WORKFLOWS/$instruction.install install
-        else
-            echo "Workflow $instruction doesn't exist. No installation took place."
-        fi
-    done
-else if [[ ${command} == "update_poddy" ]]; then
-    adr=${1:-$GIT_ADDRESS}
-    update_poddy $adr
-else if [[ ${command} == "update_nodes" ]]; then
-    $PODDY_CMD/update_nodes.sh
-else if [[ ${command} == "wizard" ]]; then
-    $PODDY_CMD/wizard.sh
-else
-    if [[ -f $PODDY_CMD/$command.sh ]]; then
-        $PODDY_CMD/$command.sh "$@"
+echo $command
+if [[ $command == update ]]; then
+    update_poddy
+    echo "You now have an updated poddy."
+    echo "In your pod terminal type the following (changing name_of_package_to_install to the actuall package name):"
+    echo "/poddy install name_of_package_to_install"
+    echo "to install a package"
+    echo "or /poddy uninstall and the name of the package to uninstall a package"
+    exit 0
+elif [[ $command == uninstall || $command == install ]]; then
+    shift
+    if [[ -z "$@" ]]; then
+        echo "You flushed up, $command needs parameters"
+        exit 1
     else
-        echo "Flush it! This command is not valid!"
-    fi
+        echo "Your command appears to be valid, dropping it in the poddy."
+        for wf in "$@"; do
+            if [[ -f $PODDY/installers/$wf ]]; then
+                $PODDY/installers/$wf $command
+            fi
+        done
+     fi
+else
+    echo "You flushed up, $command doesn't exist!"
+    exit 1
 fi

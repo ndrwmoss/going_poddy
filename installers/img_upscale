@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# INSTALL PYTHON SCRIPTS
+echo "SCRIPT: python packages"
+
+# INSTALL CUSTOM NODES
+echo "SCRIPT: custom nodes"
+# $1/node url
+$1/node https://github.com/kijai/ComfyUI-KJNodes
+$1/node https://github.com/yolain/ComfyUI-Easy-Use
+$1/node https://github.com/cubiq/ComfyUI_essentials
+$1/node https://github.com/StableLlama/ComfyUI-basic_data_handling
+
+
+# COPY MODELS
+echo "SCRIPT: models"
+# $1/model name folder url
+$1/model juggernaut-sdxl.safetensors diffusion_models https://civitai.com/api/download/models/1759168?type=Model&format=SafeTensor&size=full&fp=fp16
+$1/model sdxl_lightning_8step_lora.safetensors loras https://huggingface.co/ByteDance/SDXL-Lightning/resolve/main/sdxl_lightning_8step_lora.safetensors
+$1/model tiled-controlnet-sdxl.safetensors controlnet https://huggingface.co/xinsir/controlnet-tile-sdxl-1.0/resolve/main/diffusion_pytorch_model.safetensors
+
+# COPY WORKFLOW
+echo "SCRIPT: workflows"
+$1/workflow img_upscale
