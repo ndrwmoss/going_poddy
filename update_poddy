@@ -1,4 +1,3 @@
-
 #!/bin/bash
 COMFY=${COMFY:-/workspace/ComfyUI}
 COMFY_WORKFLOW=${COMFY_WORKFLOW:-$COMFY/user/default/workflows}
@@ -44,7 +43,7 @@ function update_poddy() {
         rm /poddy
     fi
     cp -r $PORTA_PODDY/poddy /poddy
-    
+
     chmod +x $PODDY/poddy
     chmod -R +x $PODDY/cmd
     chmod -R +x $PODDY/installers
