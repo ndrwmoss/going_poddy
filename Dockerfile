@@ -17,6 +17,8 @@ RUN mkdir -p $PODDY
 # INSTALL PODDY
 COPY poddy /poddy
 RUN chmod +x /poddy
+COPY update_poddy /update_poddy
+RUN chmod +x /update_poddy
 
 COPY boot $PODDY/boot
 COPY cmd $PODDY/cmd

@@ -16,7 +16,7 @@ if [[ $command == uninstall || $command == install ]]; then
         echo "Your command appears to be valid, dropping it in the poddy."
         for wf in "$@"; do
             if [[ -f $PODDY/installers/$wf ]]; then
-                $PODDY/installers/$wf $command
+                $PODDY/installers/$wf $PODDY_CMD/$command
             else
                 echo "Oopsy-poopsy: " $wf " doesn't exist"
             fi

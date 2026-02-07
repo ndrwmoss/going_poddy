@@ -30,7 +30,7 @@ if [[ -f /poddy ]]; then
 fi
 cp -r $PORTA_PODDY/poddy /poddy
 
-chmod +x $PODDY/poddy
+chmod +x /poddy
 chmod -R +x $PODDY/cmd
 chmod -R +x $PODDY/installers
 
