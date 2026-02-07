@@ -20,12 +20,14 @@ COPY cmd $PODDY/cmd
 COPY installers $PODDY/installers
 COPY workflows $PODDY/workflows
 COPY poddy /poddy
+COPY update_poddy /update_poddy
 
 # SET EXECUTABLES
 RUN chmod -R +x $PODDY/boot
 RUN chmod -R +x $PODDY/cmd
 RUN chmod -R +x $PODDY/installers
 RUN chmod +x /poddy
+RUN chmod +x /update_poddy
 
 # ENV PATH="/poddy:${PATH}"
 EXPOSE 8188 8288 8888

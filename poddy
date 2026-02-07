@@ -1,73 +1,14 @@
 
 #!/bin/bash
-COMFY=${COMFY:-/workspace/ComfyUI}
-COMFY_WORKFLOW=${COMFY_WORKFLOW:-$COMFY/user/default/workflows}
-COMFY_NODES=${COMFY_NODES:-$COMFY/custom_nodes}
-COMFY_MODELS=${COMFY/models}
 PODDY=${PODDY:-/going_poddy}
-PODDY_ACTIVE=${PODDY_ACTIVE:-$PODDY/active}
-PODDY_CMD=${PODDY_CMD:-$PODDY/cmd}
-PODDY_WORKFLOWS=${PODDY_WORKFLOWS:-$PODDY/workflows}
-PORTA_PODDY=${PORTA_PODDY:-$PODDY/going_poddy}
-PREINSTALL=${PREINSTALL:-"none"}
-CIVITAI=${CIVITAI:-"none"}
 
 #command = install | uninstall
-command=${1:-update}
-shift
-function update_poddy() {
-    local restore_cwd=${PWD}
+command=${1:-error}
 
-    echo "FLUSHING PODDY"
-    if [[ -d $PORTA_PODDY ]]; then
-        rm -r $PORTA_PODDY
-    fi
-    cd $PODDY
-    # DOWNLOAD
-    echo "Hydrating Poddy"
-    git clone https://github.com/ndrwmoss/going_poddy
-
-    if [[ -d ${PODDY}/cmd ]]; then
-        rm -R ${PODDY}/cmd
-    fi
-    cp -r $PORTA_PODDY/cmd $PODDY/cmd
-
-    if [[ -d ${PODDY}/installers ]]; then
-        rm -R ${PODDY}/installers
-    fi
-    cp -r $PORTA_PODDY/installers $PODDY/installers
-
-    if [[ -d ${PODDY}/workflows ]]; then
-        rm -R ${PODDY}/workflows
-    fi
-    cp -r $PORTA_PODDY/workflows $PODDY/workflows
-
-    chmod -R +x $PODDY/cmd
-    chmod -R +x $PODDY/installers
-
-    # COPY NEW WORKFLOWS TO WORKFLOW DIRECTORY
-    for wf in ${PODDY_WORKFLOWS}/*.json; do
-        if [[ -f ${COMFY_WORKFLOW}/${wf}.json ]]; then
-            rm ${COMFY_WORKFLOW}/${wf}.json
-            cp -f ${PODDY_WORKFLOWS}/${wf}.json ${COMFY_WORKFLOW}/${wf}.json
-        fi
-    done
-    echo "Poddy Refreshed!"
-
-    # REMOVE DOWNLOADED FOLDER
-    cd ${restore_cwd}
-}
 echo $command
-if [[ $command == update ]]; then
-    update_poddy
-    echo "You now have an updated poddy."
-    echo "In your pod terminal type the following (changing name_of_package_to_install to the actuall package name):"
-    echo "/poddy install name_of_package_to_install"
-    echo "to install a package"
-    echo "or /poddy uninstall and the name of the package to uninstall a package"
-    exit 0
-elif [[ $command == uninstall || $command == install ]]; then
+if [[ $command == uninstall || $command == install ]]; then
     shift
+    echo $@
     if [[ -z "$@" ]]; then
         echo "You flushed up, $command needs parameters"
         exit 1
