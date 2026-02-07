@@ -1,51 +1,38 @@
 restore_cwd=${PWD}
 #!/bin/bash
-function update_poddy() {
-    local restore_cwd=${PWD}
+echo "FLUSHING PODDY"
+if [[ -d $PORTA_PODDY ]]; then
+    rm -r $PORTA_PODDY
+fi
+cd $PODDY
+# DOWNLOAD
+echo "Hydrating Poddy"
+git clone https://github.com/ndrwmoss/going_poddy
 
-    echo "FLUSHING PODDY"
-    if [[ -d $PORTA_PODDY ]]; then
-        rm -r $PORTA_PODDY
-    fi
-    cd $PODDY
-    # DOWNLOAD
-    echo "Hydrating Poddy"
-    git clone https://github.com/ndrwmoss/going_poddy
+if [[ -d ${PODDY}/cmd ]]; then
+    rm -R ${PODDY}/cmd
+fi
+cp -r $PORTA_PODDY/cmd $PODDY/cmd
 
-    if [[ -d ${PODDY}/cmd ]]; then
-        rm -R ${PODDY}/cmd
-    fi
-    cp -r $PORTA_PODDY/cmd $PODDY/cmd
+if [[ -d ${PODDY}/installers ]]; then
+    rm -R ${PODDY}/installers
+fi
+cp -r $PORTA_PODDY/installers $PODDY/installers
 
-    if [[ -d ${PODDY}/installers ]]; then
-        rm -R ${PODDY}/installers
-    fi
-    cp -r $PORTA_PODDY/installers $PODDY/installers
+if [[ -d ${PODDY}/workflows ]]; then
+    rm -R ${PODDY}/workflows
+fi
+cp -r $PORTA_PODDY/workflows $PODDY/workflows
 
-    if [[ -d ${PODDY}/workflows ]]; then
-        rm -R ${PODDY}/workflows
-    fi
-    cp -r $PORTA_PODDY/workflows $PODDY/workflows
-    
-    if [[ -f /poddy ]]; then
-        rm /poddy
-    fi
-    cp -r $PORTA_PODDY/poddy /poddy
+if [[ -f /poddy ]]; then
+    rm /poddy
+fi
+cp -r $PORTA_PODDY/poddy /poddy
 
-    chmod +x $PODDY/poddy
-    chmod -R +x $PODDY/cmd
-    chmod -R +x $PODDY/installers
+chmod +x $PODDY/poddy
+chmod -R +x $PODDY/cmd
+chmod -R +x $PODDY/installers
 
-    # COPY NEW WORKFLOWS TO WORKFLOW DIRECTORY
-    for wf in ${PODDY_WORKFLOWS}/*.json; do
-        if [[ -f ${COMFY_WORKFLOW}/${wf}.json ]]; then
-            rm ${COMFY_WORKFLOW}/${wf}.json
-            cp -f ${PODDY_WORKFLOWS}/${wf}.json ${COMFY_WORKFLOW}/${wf}.json
-        fi
-    done
-    echo "Poddy Refreshed!"
+echo "Poddy Refreshed!"
 
-    # REMOVE DOWNLOADED FOLDER
-    cd ${restore_cwd}
-}
-update_poddy
+ cd $restore_cwd
