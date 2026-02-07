@@ -1,11 +1,12 @@
-restore_cwd=${PWD}
 #!/bin/bash
 echo "FLUSHING PODDY"
 if [[ -d $PORTA_PODDY ]]; then
     rm -r $PORTA_PODDY
 fi
 cd $PODDY
+
 # DOWNLOAD
+
 echo "Hydrating Poddy"
 git clone https://github.com/ndrwmoss/going_poddy
 
@@ -34,5 +35,3 @@ chmod -R +x $PODDY/cmd
 chmod -R +x $PODDY/installers
 
 echo "Poddy Refreshed!"
-
- cd $restore_cwd
