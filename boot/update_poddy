@@ -1,17 +1,5 @@
-
-COMFY=${COMFY:-/workspace/ComfyUI}
-COMFY_WORKFLOW=${COMFY_WORKFLOW:-$COMFY/user/default/workflows}
-COMFY_NODES=${COMFY_NODES:-$COMFY/custom_nodes}
-COMFY_MODELS=${COMFY/models}
-PODDY=${PODDY:-/going_poddy}
-PODDY_ACTIVE=${PODDY_ACTIVE:-$PODDY/active}
-PODDY_CMD=${PODDY_CMD:-$PODDY/cmd}
-PODDY_WORKFLOWS=${PODDY_WORKFLOWS:-$PODDY/workflows}
-PORTA_PODDY=${PORTA_PODDY:-$PODDY/going_poddy}
-PREINSTALL=${PREINSTALL:-"none"}
-CIVITAI=${CIVITAI:-"none"}
 restore_cwd=${PWD}
-
+#!/bin/bash
 function update_poddy() {
     local restore_cwd=${PWD}
 
