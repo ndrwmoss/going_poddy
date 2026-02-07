@@ -22,13 +22,13 @@ echo "INIT STAGE 6: STARTING YOUR NGINX"
 echo "INIT STAGE 7: STARTING YOUR JUPYTER"
 #$boot/jupyter
 
-#/poddy update "https://github.com/ndrwmoss/going_poddy"
+/poddy_update
 
 # Runs installers if INSTALL_PODDY is set to a non-empty string.
 pre=${PREINSTALL:-"none"}
 if [[ $pre != "none" ]]; then
     echo "Pre-Installing packages"
-    /poddy preinstall
+    /poddy install $pre
 else
     echo "No pre installation packages selected."
 fi
