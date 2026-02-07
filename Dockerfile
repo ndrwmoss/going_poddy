@@ -15,10 +15,9 @@ RUN mv /Comfy $COMFY
 RUN mkdir -p $PODDY
 
 # INSTALL PODDY
-COPY update_poddy /update_poddy
-RUN chmod +x /update_poddy
 COPY poddy /poddy
 RUN chmod +x /poddy
+
 COPY boot $PODDY/boot
 COPY cmd $PODDY/cmd
 COPY installers $PODDY/installers
@@ -28,7 +27,6 @@ COPY workflows $PODDY/workflows
 RUN chmod -R +x $PODDY/boot
 RUN chmod -R +x $PODDY/cmd
 RUN chmod -R +x $PODDY/installers
-
 
 # ENV PATH="/poddy:${PATH}"
 EXPOSE 8188 8288 8888

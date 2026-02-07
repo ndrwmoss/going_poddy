@@ -1,4 +1,4 @@
-#!/bin/bash
+
 COMFY=${COMFY:-/workspace/ComfyUI}
 COMFY_WORKFLOW=${COMFY_WORKFLOW:-$COMFY/user/default/workflows}
 COMFY_NODES=${COMFY_NODES:-$COMFY/custom_nodes}
@@ -60,3 +60,4 @@ function update_poddy() {
     # REMOVE DOWNLOADED FOLDER
     cd ${restore_cwd}
 }
+update_poddy
