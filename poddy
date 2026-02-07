@@ -76,6 +76,8 @@ elif [[ $command == uninstall || $command == install ]]; then
         for wf in "$@"; do
             if [[ -f $PODDY/installers/$wf ]]; then
                 $PODDY/installers/$wf $command
+            else
+                echo "Oopsy-poopsy: " $wf " doesn't exist"
             fi
         done
      fi
