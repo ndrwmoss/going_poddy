@@ -3,5 +3,5 @@ name=$(basename $1)
 
 if [ ! -d $COMFY/custom_nodes/$name ]; then
     echo "Fetching ${name}"
-    git clone $1 /workspace/ComfyUI/custom_nodes/
+    git clone $1 /workspace/ComfyUI/custom_nodes/$name
 fi
