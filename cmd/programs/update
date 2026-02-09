@@ -1,5 +1,5 @@
 #!/bin/bash
-shift
+
 err=0
 for repository in "$@"; do
     name=$(basename $repository)
@@ -13,13 +13,13 @@ for repository in "$@"; do
     # Clone Github repo to porta poddy
     git clone $repository $PORTA_PODDY
     # Check if repository is correctly formatted
-    if [[ -d $PORTA_PODDY/installer && -d $PORTA_PODDY/workflows ]]; then
+    if [[ -d $PORTA_PODDY/installers && -d $PORTA_PODDY/workflows ]]; then
         # Process Installers
         # Copy workflows
         for wf in $PORTA_PODDY/workflows; do
             cp $PORTA_PODDY/workflows/$wf $PODDY/workflows/$wf
         done
-        for ITEM in $PORTA_PODDY/installer; do
+        for ITEM in $PORTA_PODDY/installers/; do
             #Upgrade active package
             if [[ -f $PODDY/active/package/$ITEM ]]; then
                 
@@ -52,8 +52,8 @@ for repository in "$@"; do
             fi
         done
         # Copy installers
-        for inst in $PORTA_PODDY/installer; do
-            cp $PORTA_PODDY/installer/$inst $PODDY/installer/$inst
+        for inst in $PORTA_PODDY/installers; do
+            cp $PORTA_PODDY/installers/$inst $PODDY/installers/$inst
         done
     else
         echo "ERROR: $name repository is not in the appropriate format"
