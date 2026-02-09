@@ -4,25 +4,21 @@ echo "FLUSHING PODDY"
 if [[ -d $PORTA_PODDY ]]; then
     rm -r $PORTA_PODDY
 fi
-cd $PODDY
+
+mkdir -p $PORTA_PODDY
 
 # DOWNLOAD
 echo "Hydrating Poddy"
-git clone https://github.com/ndrwmoss/going_poddy
+git clone https://github.com/ndrwmoss/going_poddy $PORTA_PODDY
 
 echo "Copying Commands"
-if [[ -d ${PODDY}/cmd ]]; then
-    rm -R ${PODDY}/cmd
-fi
 cp -r $PORTA_PODDY/cmd $PODDY/cmd
 chmod -R +x $PODDY/cmd
 
 echo "Copying Poddy"
-if [[ -f /poddy ]]; then
-    rm /poddy
-fi
 cp -r $PORTA_PODDY/poddy /poddy
 chmod +x /poddy
 
-/poddy update
+rm -r $PORTA_PODDY
+/poddy update https://github.com/ndrwmoss/going_poddy
 echo "Poddy Refreshed!"
