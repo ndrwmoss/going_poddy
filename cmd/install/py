@@ -1,3 +1,0 @@
-#!/bin/bash
-# python script=${1} variable
-pip install ${1} --quiet

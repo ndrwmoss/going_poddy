@@ -1,28 +1,57 @@
 
 #!/bin/bash
-PODDY=${PODDY:-/going_poddy}
-
 #command = install | uninstall
-command=${1:-error}
-
-echo $command
-if [[ $command == uninstall || $command == install ]]; then
-    shift
-    echo $@
-    if [[ -z "$@" ]]; then
+command=${1:-empty}
+shift
+has_arguments=true
+if [[ -z "$@" ]]; then
+    has_arguments=false
+fi
+send_status () {
+    if [[ $has_arguments == false ]]; then
         echo "You flushed up, $command needs parameters"
         exit 1
     else
-        echo "Your command appears to be valid, dropping it in the poddy."
-        for wf in "$@"; do
-            if [[ -f $PODDY/installers/$wf ]]; then
-                $PODDY/installers/$wf $PODDY_CMD/$command
-            else
-                echo "Oopsy-poopsy: " $wf " doesn't exist"
-            fi
-        done
-     fi
+        echo "Your command appears to be valid, plopping it in the poddy."
+    fi
+}
+if [[ $command == enable || $command == e ]]; then
+    send_status
+    echo "ENABLING PACKAGES"
+    $PODDY/cmd/programs/packages install "$@"
+    status=$?
+    if [ "$status" -ne 0 ]; then
+        echo "Command failed with status $status"
+    else
+        echo "It took a few jiggles but packages were dropped in your poddy"
+    fi
+elif [[ $command == disable || $comman == d ]]; then
+    send_status
+    echo "DISABLING PACKAGES"
+    $PODDY/cmd/programs/packages uninstall "$@"
+    status=$?
+    if [ "$status" -ne 0 ]; then
+        echo "FAILURE: Command failed with status $status"
+    else
+        echo "SUCCESS: Pipes were replaced, walls were torn down, but at the end of the day your poddy was unclogged of the packages you did not want."
+    fi
+elif [[ $command == update || $command == u ]]; then
+    echo "IMPORTING REPOSITORIES"
+    send_status
+    $PODDY/cmd/programs/import "$@"
+    status=$?
+    if [ "$status" -ne 0 ]; then
+        echo "Command failed with status $status"
+    else
+        echo "SUCCESS: Your respositories were installed/updated. Have a nice bidet."
+    fi
+elif [[ $command == wiz || $command == wizard || $command == w ]]; then  
+    $PODDY/cmd/programs/start_wizard
+elif [[ $command == help || $command == h || $command == empty ]]; then
+    $PODDY/cmd/programs/start_help
 else
-    echo "You flushed up, $command doesn't exist!"
+    echo "You flushed up, $command doesn't exist! Pulling up help."
+    $PODDY/cmd/programs/start_help
+    echo "HELP IS UNDERGOING PLUMBING!"
     exit 1
 fi

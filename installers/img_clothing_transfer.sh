@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# INSTALL PYTHON SCRIPTS
+echo "SCRIPT: python packages"
+
+# COPY WORKFLOW
+echo "SCRIPT: workflows"
+$1/workflow img_clothing_transfer
+
+# INSTALL CUSTOM NODES
+echo "SCRIPT: custom nodes"
+# $1/node url
+$1/node https://github.com/rgthree/rgthree-comfy
+$1/node https://github.com/yolain/ComfyUI-Easy-Use
+$1/node https://github.com/kijai/ComfyUI-KJNodes
+$1/node https://github.com/ssitu/ComfyUI_UltimateSDUpscale
+$1/node https://github.com/Smirnov75/ComfyUI-mxToolkit
+
+# COPY MODELS
+echo "SCRIPT: models"
+# $1/model name folder url
+$1/model qwen_image_edit_fp8_e4m3fn.safetensors diffusion_models https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI/resolve/main/split_files/diffusion_models/qwen_image_edit_fp8_e4m3fn.safetensors
+$1/model juggernautXL_juggXIByRundiffusion.safetensors diffusion_models https://huggingface.co/misri/juggernautXL_juggXIByRundiffusion/resolve/main/juggernautXL_juggXIByRundiffusion.safetensors
+$1/model qwen_image_vae.safetensors vae https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors
+$1/model qwen_2.5_vl_7b_fp8_scaled.safetensors text_encoders https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors
+$1/model Qwen-Image-Lightning-4steps-V2.0.safetensors loras https://huggingface.co/lightx2v/Qwen-Image-Lightning/resolve/main/Qwen-Image-Lightning-4steps-V2.0.safetensors
+$1/model clothes_tryon_qwen-edit-lora.safetensors loras https://civitai.com/api/download/models/2196278?type=Model&format=SafeTensor&token=${CIVITAI}
+$1/model extract-outfit_v3.safetensors loras https://huggingface.co/datasets/dubsta/xmas/resolve/main/extract-outfit_v3.safetensors
+$1/model RealESRGAN_x2.pth upscale_models https://huggingface.co/dtarnow/UPscaler/resolve/main/RealESRGAN_x2plus.pth
+

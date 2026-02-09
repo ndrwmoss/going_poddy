@@ -1,5 +1,5 @@
 #!/bin/bash
-test=${1:-'empty'}
+
 echo "FLUSHING PODDY"
 if [[ -d $PORTA_PODDY ]]; then
     rm -r $PORTA_PODDY
@@ -7,7 +7,6 @@ fi
 cd $PODDY
 
 # DOWNLOAD
-
 echo "Hydrating Poddy"
 git clone https://github.com/ndrwmoss/going_poddy
 
@@ -16,34 +15,14 @@ if [[ -d ${PODDY}/cmd ]]; then
     rm -R ${PODDY}/cmd
 fi
 cp -r $PORTA_PODDY/cmd $PODDY/cmd
-
-echo "Copying Installers"
-if [[ -d ${PODDY}/installers ]]; then
-    rm -R ${PODDY}/installers
-fi
-cp -r $PORTA_PODDY/installers $PODDY/installers
-
-echo "Copying Workflows"
-if [[ -d ${PODDY}/workflows ]]; then
-    rm -R ${PODDY}/workflows
-fi
-cp -r $PORTA_PODDY/workflows $PODDY/workflows
+chmod -R +x $PODDY/cmd
 
 echo "Copying Poddy"
 if [[ -f /poddy ]]; then
     rm /poddy
 fi
 cp -r $PORTA_PODDY/poddy /poddy
-
-
-if [[ $test != 'empty' ]]; then
-    echo "Adding IN PROGRESS installers"
-    cp -r $PORTA_PODDY/in_progress/installers $PODDY/installers
-    cp -r $PORTA_PODDY/in_progress/workflows $PODDY/workflows
-fi
-
 chmod +x /poddy
-chmod -R +x $PODDY/cmd
-chmod -R +x $PODDY/installers
 
+/poddy update
 echo "Poddy Refreshed!"

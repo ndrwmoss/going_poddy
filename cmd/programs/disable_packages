@@ -1,0 +1,35 @@
+#!/bin/bash
+shift
+for pkg in "$@"; do
+    # File exists, process
+    if [[ -f $PODDY/installers/$pkg ]]; then
+        # Create tmp installer packages
+        $PODDY/cmd/installer/parse_installer $PODDY/installers/$pkg current
+        # Install Py
+        while IFS= read -r line; do
+            pip uninstall -y $line
+        done < "$PODDY/active/tmp/current_py"
+        # Install Nodes
+        while IFS= read -r line; do
+            name=$(basename "$line")
+            if [ ! -d $COMFY/custom_nodes/$name ]; then
+                rm -r $COMFY/custom_nodes/$name
+            fi
+        done < "$PODDY/active/tmp/current_node"
+        # Install Models
+        while IFS= read -r line; do
+            if [[ -f $line ]]; then
+                rm $line
+            fi
+        done < "$PODDY/active/tmp/current_model"
+        # Install Workflows
+        while IFS= read -r line; do
+            if [ -f $COMFY/user/default/workflows/$line ]; then
+                rm $COMFY/user/default/workflows/$line
+            fi
+        done < "$PODDY/active/tmp/current_workflow"
+    else
+        exit 1
+    fi
+done
+exit 0

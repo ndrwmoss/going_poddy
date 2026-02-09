@@ -1,0 +1,23 @@
+#!/bin/bash
+file_path=${1}
+text_to_match=${2}
+exists="false"
+index=1
+# Sets exists to an index if the line was found
+while IFS=$' \t' read -r line || [ -n "$line" ] do
+    if [[ "$line" == $text_to_match ]]; then
+        exists=$index
+    fi
+    ((index++))
+done < $file_path
+# If line was found return the index number else return false
+if [[ $exist == "false" ]]; then
+    echo "false"
+    exit 1
+else
+    echo $index
+    exit 0
+fi
+
+
+

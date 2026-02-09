@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#############################################
+# ECHOS number of lines found in the file
+#############################################
+file_path=${1}
+index=0
+# Counts the lines
+while IFS=$' \t' read -r line || [ -n "$line" ] do
+    ((index++))
+done < $file_path
+echo $index
+exit 0

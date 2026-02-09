@@ -1,6 +1,0 @@
-#!/bin/bash
-# workflow=${1} variable
-if [ -f $COMFY_WORKFLOW/$1.json ]; then
-    rm $COMFY_WORKFLOW/$1.json
-fi
-cp $PODDY_WORKFLOWS/$1.json $COMFY_WORKFLOW/$1.json

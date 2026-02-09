@@ -1,0 +1,31 @@
+#!/bin/bash
+# Cean directory
+if [[ -d $PODDY/active/tmp ]]; then
+    rm -f $PODDY/active/tmp
+fi
+# Make directory
+mkdir -p $tmp_directory
+
+touch $PODDY/active/tmp/current_apt
+touch $PODDY/active/tmp/current_py
+touch $PODDY/active/tmp/current_workflow
+touch $PODDY/active/tmp/current_node
+touch $PODDY/active/tmp/current_model
+
+touch $PODDY/active/tmp/new_apt
+touch $PODDY/active/tmp/new_py
+touch $PODDY/active/tmp/new_workflow
+touch $PODDY/active/tmp/new_node
+touch $PODDY/active/tmp/new_model
+
+touch $PODDY/active/tmp/install_apt
+touch $PODDY/active/tmp/install_py
+touch $PODDY/active/tmp/install_workflow
+touch $PODDY/active/tmp/install_node
+touch $PODDY/active/tmp/install_model
+
+touch $PODDY/active/tmp/uninstall_apt
+touch $PODDY/active/tmp/uninstall_py
+touch $PODDY/active/tmp/uninstall_workflow
+touch $PODDY/active/tmp/uninstall_node
+touch $PODDY/active/tmp/uninstall_model
