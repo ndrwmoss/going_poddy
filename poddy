@@ -38,7 +38,7 @@ elif [[ $command == disable || $comman == d ]]; then
 elif [[ $command == update || $command == u ]]; then
     echo "IMPORTING REPOSITORIES"
     send_status
-    $PODDY/cmd/programs/import "$@"
+    $PODDY/cmd/programs/update "$@"
     status=$?
     if [ "$status" -ne 0 ]; then
         echo "Command failed with status $status"
