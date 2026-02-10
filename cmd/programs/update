@@ -56,7 +56,7 @@ for repository in "$@"; do
             fi
         done
         # Copy installers
-        for inst in $PORTA_PODDY/installers; do
+        for inst in $PORTA_PODDY/installers/*; do
             filename=$(basename "$inst")
             cp $PORTA_PODDY/installers/$filename $PODDY/installers
         done
