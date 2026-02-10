@@ -22,6 +22,8 @@ echo "INIT STAGE 6: STARTING YOUR NGINX"
 echo "INIT STAGE 7: STARTING YOUR JUPYTER"
 #$boot/jupyter
 
+mkdir -p $COMFY_WORKFLOW
+
 /poddy update
 
 # Runs installers if INSTALL_PODDY is set to a non-empty string.
