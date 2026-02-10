@@ -39,6 +39,8 @@ elif [[ $command == update || $command == u ]]; then
     echo "IMPORTING REPOSITORIES"
     send_status
     shift
+echo "VARIABLE 0: $0"
+echo "VARIABLE 1: $1"
     $PODDY/cmd/programs/update "$@"
     status=$?
     if [ "$status" -ne 0 ]; then

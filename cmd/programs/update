@@ -1,8 +1,8 @@
 #!/bin/bash
 
 err=0
-echo "VARIABLE 0: $0"
-echo "VARIABLE 1: $1"
+echo "VARIABLE 5: $0"
+echo "VARIABLE 6: $1"
 for repository in "$@"; 
     echo "STATUS: downloading $repository"
     name=$(basename $repository)
