@@ -3,7 +3,7 @@
 err=0
 for repository in "$@"; do
     name=$(basename $repository)
-    echo "STATUS: Fetching $name"
+    echo "STATUS: downloading $name"
     # Delete porta poddy directory if it exists
     if [[ -d $PORTA_PODDY ]]; then
         rm -R $PORTA_PODDY
@@ -15,14 +15,17 @@ for repository in "$@"; do
     # Check if repository is correctly formatted
     if [[ -d $PORTA_PODDY/installers && -d $PORTA_PODDY/workflows ]]; then
         # Process Installers
+        echo "STATUS: $repository's directory structure is formatted correctly"
         # Copy workflows
+        echo "STATUS: copying workflows"
         for wf in $PORTA_PODDY/workflows; do
+            echo "STATUS: copying $wf"
             cp $PORTA_PODDY/workflows/$wf $PODDY/workflows/$wf
         done
         for ITEM in $PORTA_PODDY/installers/; do
             #Upgrade active package
             if [[ -f $PODDY/active/package/$ITEM ]]; then
-                
+            
                 # Prep tmp files
                 echo "STATUS: Upgrading active install"
                 $PODDY/cmd/installer/clean $ITEM
