@@ -1,8 +1,6 @@
 #!/bin/bash
 
 err=0
-echo "VARIABLE 5: $0"
-echo "VARIABLE 6: $1"
 for repository in "$@"; do
     echo "STATUS: downloading $repository"
     name=$(basename $repository)
@@ -21,7 +19,7 @@ for repository in "$@"; do
         echo "STATUS: $repository's directory structure is formatted correctly"
         # Copy workflows
         echo "STATUS: copying workflows"
-        for wf in $PORTA_PODDY/workflows; do
+        for wf in $PORTA_PODDY/workflows/; do
             echo "STATUS: copying $wf"
             cp $PORTA_PODDY/workflows/$wf $PODDY/workflows/$wf
         done
