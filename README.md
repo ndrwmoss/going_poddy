@@ -17,16 +17,8 @@ A source for quickly getting the resources you need for specific Runpod ComfyUI 
 
 7. When the pod has started, click the <mark>Connect</mark> tab and ensure the SSH terminal toggle is turned to <mark>On</mark>.  
 
-8. Open the terminal and paste the following code to install going_poddy on your pod.  
-
-    ```
-    cd /workspace
-    git clone https://github.com/ndrwmoss/going_poddy
-    chmod -R +x /workspace/going_poddy/scripts
-    cd /workspace/going_poddy/scripts
-    ```
-9. Copy one of the commands below for the workflow you want and paste it in the terminal, if the command has <mark>&CIVITAI</mark> in it, replace <mark>&CIVITAI</mark> Civitai api key. Press enter, the script will download and install all custom nodes and models the workflow requires.  
-10. Open ComfyUI on the pod, and restart ComfyUI for the changes to take effect, you're now ready to go.
+8. Copy one of the commands below for the workflow you want and paste it in the terminal, if the command has <mark>&CIVITAI</mark> in it, replace <mark>&CIVITAI</mark> Civitai api key. Press enter, the script will download and install all custom nodes and models the workflow requires.  
+9. Open ComfyUI on the pod, and restart ComfyUI for the changes to take effect, you're now ready to go.
 
 Base Container Size: GB
 
@@ -39,7 +31,7 @@ The workflow is by [MDMZ](https://www.youtube.com/watch?v=woCP1Q_Htwo), informat
 <mark>**45 GB container**</mark> - provides enough storage for the workflow and models with a few GB for workflow results.  
 <mark>**24 GB vram, 50 GB ram**</mark> - a lot more of both if processing video at higher than 1280 x 720 resolution, or higher than 300 frames at a time.   
 
-    ./video_character_replace.sh
+    /poddy video_character_replace
 
 #### Lipsync
 The workflow is by [Blue Spork](https://www.youtube.com/watch?v=LR4lBimS7O4), information about how to use the workflow can be found by watching the video in the link. 
@@ -47,17 +39,17 @@ The workflow is by [Blue Spork](https://www.youtube.com/watch?v=LR4lBimS7O4), in
 <mark>**45 GB container**</mark> - provides enough storage for the workflow and models with a few GB for workflow results.  
 <mark>**24 GB vram, 50 GB ram**</mark>   - a lot more of both if processing video at higher than 1280 x 720 resolution, or higher than 300 frames at a time.
 
-    ./video_lipsync.sh
+    /poddy video_lipsync
 
 #### Upscale
 <mark>**45 GB container**</mark> - provides enough storage for the workflow and models with a few GB for workflow results.  
 <mark>**24 GB vram, 50 GB ram**</mark>   - a lot more of both if processing video at higher than 1280 x 720 resolution, or higher than 300 frames at a time.
 
-    ./video_upscale.sh $CIVITAI
+    /poddy video_upscale.sh
 
 ### Photo
 #### Clothing Transfer <mark>(**WORK IN PROGRESS**)</mark>
-    ./photo_clothing_transfer.sh $CIVITAI
+    /poddy photo_clothing_transfer
 
 #### Upscale <mark>(**WORK IN PROGRESS**)</mark>
-    ./photo_upscale.sh $CIVITAI
+    /poddy photo_upscale
