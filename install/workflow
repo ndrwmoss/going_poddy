@@ -1,6 +1,6 @@
 #!/bin/bash
 workflow=${1:-none}
-if [[ $cmd != none ]]; then
+if [[ $workflow != none ]]; then
     echo "WORKFLOW: $cmd"
     cp $PODDY/workflows/$workflow.json $COMFY_WORKFLOW/
 fi
