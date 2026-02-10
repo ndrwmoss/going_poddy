@@ -20,7 +20,7 @@ for repository in "$@"; do
         # Copy workflows
         echo "STATUS: copying workflows"
         for wf in $PORTA_PODDY/workflows/*; do
-            filename=$(basename "$file")
+            filename=$(basename "$wf")
             echo "STATUS: copying $filename"
             cp $PORTA_PODDY/workflows/${filename} $PODDY/workflows
         done
