@@ -21,12 +21,11 @@ for repository in "$@"; do
         echo "STATUS: copying workflows"
         for wf in $PORTA_PODDY/workflows/*; do
             echo "STATUS: copying $wf"
-            cp $PORTA_PODDY/workflows/$wf $PODDY/workflows/$wf
+            cp $PORTA_PODDY/workflows/$wf $PODDY/workflows/
         done
         for ITEM in $PORTA_PODDY/installers/*; do
             #Upgrade active package
             if [[ -f $PODDY/active/package/$ITEM ]]; then
-            
                 # Prep tmp files
                 echo "STATUS: Upgrading active install"
                 $PODDY/cmd/installer/clean $ITEM
