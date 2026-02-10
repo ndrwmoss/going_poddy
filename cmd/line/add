@@ -1,6 +1,0 @@
-#!/bin/bash
-path=${1}
-caller=${2}
-command='$a\'$caller
-sed -i $command $path
-exit 0

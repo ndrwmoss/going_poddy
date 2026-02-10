@@ -28,7 +28,7 @@ echo "INIT STAGE 7: STARTING YOUR JUPYTER"
 pre=${PREINSTALL:-"none"}
 if [[ $pre != "none" ]]; then
     echo "Pre-Installing packages"
-    /poddy install $pre
+    /poddy add $pre
 else
     echo "No pre installation packages selected."
 fi

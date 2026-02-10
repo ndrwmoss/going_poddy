@@ -1,0 +1,12 @@
+#!/bin/bash
+name=${1:-none}
+folder=${2:-vae}
+url=${3}
+if [[ $cmd != none ]]; then
+    echo "MODEL: $cmd"
+    file=$COMFY/models/$folder/$name
+    if [[ -f $file ]]; then
+        rm $file
+    fi
+fi
+exit 0

@@ -3,55 +3,53 @@
 #command = install | uninstall
 command=${1:-empty}
 shift
-has_arguments=true
-if [[ -z "$@" ]]; then
-    has_arguments=false
-fi
-send_status () {
-    if [[ $has_arguments == false ]]; then
-        echo "You flushed up, $command needs parameters"
-        exit 1
-    else
-        echo "Your command appears to be valid, plopping it in the poddy."
-    fi
-}
-if [[ $command == enable || $command == e ]]; then
-    send_status
-    echo "ENABLING PACKAGES"
-    $PODDY/cmd/programs/packages install "$@"
-    status=$?
-    if [ "$status" -ne 0 ]; then
-        echo "Command failed with status $status"
-    else
-        echo "It took a few jiggles but packages were dropped in your poddy"
-    fi
-elif [[ $command == disable || $comman == d ]]; then
-    send_status
-    echo "DISABLING PACKAGES"
-    $PODDY/cmd/programs/packages uninstall "$@"
-    status=$?
-    if [ "$status" -ne 0 ]; then
-        echo "FAILURE: Command failed with status $status"
-    else
-        echo "SUCCESS: Pipes were replaced, walls were torn down, but at the end of the day your poddy was unclogged of the packages you did not want."
-    fi
+if [[ $command == add || $command == a ]]; then
+    for arg in "$@"; do
+        echo "INSTALLING: $arg"
+        $PODDY/installers/$arg install
+    done
+elif [[ $command == remove || $command == r ]]; then
+    for arg in "$@"; do
+        echo "UNINSTALLING: $arg"
+        $PODDY/installers/$arg uninstall
+    done
 elif [[ $command == update || $command == u ]]; then
-    echo "IMPORTING REPOSITORIES"
-    send_status
-    $PODDY/cmd/programs/update "$@"
-    status=$?
-    if [ "$status" -ne 0 ]; then
-        echo "Command failed with status $status"
-    else
-        echo "SUCCESS: Your respositories were installed/updated. Have a nice bidet."
+    echo "UPDATING"
+    if [[ -d $PORTA_PODDY ]]; then
+        rm -r $PORTA_PODDY
     fi
-elif [[ $command == wiz || $command == wizard || $command == w ]]; then  
-    $PODDY/cmd/programs/start_wizard
-elif [[ $command == help || $command == h || $command == empty ]]; then
-    $PODDY/cmd/programs/start_help
-else
-    echo "You flushed up, $command doesn't exist! Pulling up help."
-    $PODDY/cmd/programs/start_help
-    echo "HELP IS UNDERGOING PLUMBING!"
-    exit 1
+    if [[ -d $PODDY/uninstall ]]; then
+        rm -r $PODDY/uninstall
+    fi
+    if [[ -d $PODDY/installer ]]; then
+        rm -r $PODDY/installer
+    fi
+    if [[ -d $PODDY/installers ]]; then
+        rm -r $PODDY/installers
+    fi
+    if [[ -d $PODDY/workflows ]]; then
+        rm -r $PODDY/workflows
+    fi
+
+    mkdir -p $PORTA_PODDY
+    git clone https://github.com/ndrwmoss/going_poddy $PORTA_PODDY
+    cp -r $PORTA_PODDY/install $PODDY/install
+    cp -r $PORTA_PODDY/uninstall $PODDY/uninstall
+    cp -r $PORTA_PODDY/installers $PODDY/installers
+    cp -r $PORTA_PODDY/workflows $PODDY/workflows
+    chmod -R +x $PODDY/install
+    chmod -R +x $PODDY/uninstall
+    chmod -R +x $PODDY/installers
+    if [[ $1 == test ]]; then
+        if [[ -d $PODDY/installers ]]; then
+            rm -r $PODDY/installers
+        fi
+        if [[ -d $PODDY/workflows ]]; then
+            rm -r $PODDY/workflows
+        fi
+        cp -r $PORTA_PODDY/wip/installers $PODDY/installers
+        cp -r $PORTA_PODDY/wip/workflows $PODDY/workflows
+        chmod -R +x $PODDY/installers
+    fi
+    rm -r $PORTA_PODDY
 fi

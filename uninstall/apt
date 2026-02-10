@@ -1,0 +1,8 @@
+#!/bin/bash
+cmd=${1:-none}
+if [[ $cmd != none ]]; then
+     echo "APT: $cmd"
+     apt -qq purge $cmd
+     apt -qq autoremove
+fi
+exit 0
