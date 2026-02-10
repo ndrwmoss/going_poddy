@@ -22,7 +22,7 @@ for repository in "$@"; do
         for wf in $PORTA_PODDY/workflows/*; do
             filename=$(basename "$wf")
             echo "STATUS: copying $filename"
-            cp $PORTA_PODDY/workflows/${filename} $PODDY/workflows
+            cp $filename $PODDY/workflows
         done
         for ITEM in $PORTA_PODDY/installers/*; do
             #Upgrade active package
