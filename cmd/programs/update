@@ -1,7 +1,8 @@
 #!/bin/bash
 
 err=0
-for repository in "$@"; do
+for repository in "$@"; 
+    echo "STATUS: downloading $repository"
     name=$(basename $repository)
     echo "STATUS: downloading $name"
     # Delete porta poddy directory if it exists
