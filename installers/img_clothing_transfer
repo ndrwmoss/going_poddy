@@ -1,6 +1,7 @@
 #!/bin/bash
 # parameter 1 = install | uninstall
 process=$PODDY/${1:-install}
+echo $process
 
 # INSTALL APT
 echo "SCRIPT: apt packages"
