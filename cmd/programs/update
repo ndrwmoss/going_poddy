@@ -3,7 +3,7 @@
 err=0
 echo "VARIABLE 5: $0"
 echo "VARIABLE 6: $1"
-for repository in "$@"; 
+for repository in "$@"; do
     echo "STATUS: downloading $repository"
     name=$(basename $repository)
     echo "STATUS: downloading $name"
