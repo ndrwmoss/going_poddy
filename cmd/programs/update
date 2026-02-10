@@ -57,7 +57,8 @@ for repository in "$@"; do
         done
         # Copy installers
         for inst in $PORTA_PODDY/installers; do
-            cp $PORTA_PODDY/installers/$inst $PODDY/installers/$inst
+            filename=$(basename "$inst")
+            cp $PORTA_PODDY/installers/$filename $PODDY/installers
         done
     else
         echo "ERROR: $name repository is not in the appropriate format"
