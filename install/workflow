@@ -2,6 +2,6 @@
 workflow=${1:-none}
 if [[ $cmd != none ]]; then
     echo "WORKFLOW: $cmd"
-    cp $PODDY/workflows/$workflow $COMFY_WORKFLOW/
+    cp $PODDY/workflows/$workflow.json $COMFY_WORKFLOW/
 fi
 exit 0

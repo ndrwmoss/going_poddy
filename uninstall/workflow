@@ -2,6 +2,6 @@
 workflow=${1:-none}
 echo "WORKFLOW: $cmd"
 if [[ -f $COMFY_WORKFLOW/$workflow ]]; then
-    rm $COMFY_WORKFLOW/$workflow
+    rm $COMFY_WORKFLOW/$workflow.json
 fi
 exit 0

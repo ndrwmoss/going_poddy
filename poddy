@@ -34,10 +34,10 @@ elif [[ $command == update || $command == u ]]; then
     mkdir -p $PORTA_PODDY
     git clone https://github.com/ndrwmoss/going_poddy $PORTA_PODDY
     echo "INSTALLING UPGRADES"
-    cp -r $PORTA_PODDY/install $PODDY/install
-    cp -r $PORTA_PODDY/uninstall $PODDY/uninstall
-    cp -r $PORTA_PODDY/installers $PODDY/installers
-    cp -r $PORTA_PODDY/workflows $PODDY/workflows
+    cp -r $PORTA_PODDY/install $PODDY
+    cp -r $PORTA_PODDY/uninstall $PODDY
+    cp -r $PORTA_PODDY/installers $PODDY
+    cp -r $PORTA_PODDY/workflows $PODDY
     chmod -R +x $PODDY/install
     chmod -R +x $PODDY/uninstall
     chmod -R +x $PODDY/installers
@@ -49,8 +49,8 @@ elif [[ $command == update || $command == u ]]; then
         if [[ -d $PODDY/workflows ]]; then
             rm -r $PODDY/workflows
         fi
-        cp -r $PORTA_PODDY/wip/installers $PODDY/installers
-        cp -r $PORTA_PODDY/wip/workflows $PODDY/workflows
+        cp -r $PORTA_PODDY/wip/installers $PODDY
+        cp -r $PORTA_PODDY/wip/workflows $PODDY
         chmod -R +x $PODDY/installers
     fi
     rm -r $PORTA_PODDY
