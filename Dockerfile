@@ -17,6 +17,10 @@ RUN mv /Comfy $COMFY
 COPY poddy /poddy
 RUN chmod +x /poddy
 
+# INSTALL STARTUP
+COPY poddy /poddy_starter
+RUN chmod +x /poddy_starter
+
 # SET FOLDERS
 COPY boot $PODDY/boot
 COPY install $PODDY/install
@@ -31,4 +35,4 @@ RUN chmod -R +x $PODDY/uninstall
 RUN chmod -R +x $PODDY/installers
 
 EXPOSE 8188 8288 8888
-CMD [ "/going_poddy/boot/init" ]
+CMD [ "/poddy_starter" ]

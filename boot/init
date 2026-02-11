@@ -3,36 +3,38 @@ boot=$PODDY/boot
 
 /poddy update
 
-echo "INIT STAGE 1: POPULATING YOUR PODDY"
+echo "INIT: POPULATING YOUR PODDY"
 python -m pip install --upgrade pip
+python -m pip install triton
+python -c "import triton; print(triton.__version__)"
 
-echo "INIT STAGE 2: CHECKING YOUR CUDA"
+echo "INIT: CUDA"
 $boot/cuda
 
-echo "INIT STAGE 3: INSTALLING YOUR SAGE"
+echo "INIT: SAGE"
 $boot/sage
 
-echo "INIT STAGE 4: INSTALLING YOUR COMFY"
+echo "INIT: COMFY"
 $boot/comfy
 
-echo "INIT STAGE 5: STARTING YOUR SSH"
+echo "INIT: SSH"
 $boot/ssh
 
-echo "INIT STAGE 6: STARTING YOUR NGINX"
+echo "INIT: NGINX"
 $boot/nginx
 
-echo "INIT STAGE 7: STARTING YOUR JUPYTER"
+echo "INIT: JUPYTER"
 $boot/jupyter
 
-mkdir -p $COMFY_WORKFLOW
+
 
 # Runs installers if INSTALL_PODDY is set to a non-empty string.
 pre=${PREINSTALL:-"none"}
 if [[ $pre != "none" ]]; then
-    echo "Pre-Installing packages"
+    echo "INIT: Pre-Installing packages"
     /poddy add $pre
 else
-    echo "No pre installation packages selected."
+    echo "INIT: No pre installation packages selected."
 fi
 echo "INIT COMPLETE: STARTING YOUR COMFY"
 python /workspace/ComfyUI/main.py --port=8188

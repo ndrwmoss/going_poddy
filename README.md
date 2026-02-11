@@ -41,7 +41,7 @@ The workflow is by [MDMZ](https://www.youtube.com/watch?v=woCP1Q_Htwo), informat
 <mark>**45 GB container**</mark> - provides enough storage for the workflow and models with a few GB for workflow results.  
 <mark>**24 GB vram, 50 GB ram**</mark> - a lot more of both if processing video at higher than 1280 x 720 resolution, or higher than 300 frames at a time.   
 
-    /poddy video_character_replace
+    /poddy vid_character_replace
 
 #### Lipsync
 The workflow is by [Blue Spork](https://www.youtube.com/watch?v=LR4lBimS7O4), information about how to use the workflow can be found by watching the video in the link. 
@@ -49,17 +49,17 @@ The workflow is by [Blue Spork](https://www.youtube.com/watch?v=LR4lBimS7O4), in
 <mark>**45 GB container**</mark> - provides enough storage for the workflow and models with a few GB for workflow results.  
 <mark>**24 GB vram, 50 GB ram**</mark>   - a lot more of both if processing video at higher than 1280 x 720 resolution, or higher than 300 frames at a time.
 
-    /poddy video_lipsync
+    /poddy vid_lipsync
 
 #### Upscale
 <mark>**45 GB container**</mark> - provides enough storage for the workflow and models with a few GB for workflow results.  
 <mark>**24 GB vram, 50 GB ram**</mark>   - a lot more of both if processing video at higher than 1280 x 720 resolution, or higher than 300 frames at a time.
 
-    /poddy video_upscale.sh
+    /poddy vid_upscale.sh
 
 ### Photo
 #### Clothing Transfer <mark>(**WORK IN PROGRESS**)</mark>
     /poddy img_clothing_transfer
 
 #### Upscale <mark>(**WORK IN PROGRESS**)</mark>
-    /poddy photo_upscale
+    /poddy img_upscale

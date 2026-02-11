@@ -17,4 +17,4 @@ if [[ -f ${COMFY_NODES}/ComfyUI-Manager/requirements.txt ]]; then
     pip install -r ${COMFY_NODES}/ComfyUI-Manager/requirements.txt
 fi
 # --- Create necessary directories ---
-mkdir -p ${COMFY_WORKFLOW}
+mkdir -p $COMFY_WORKFLOW
