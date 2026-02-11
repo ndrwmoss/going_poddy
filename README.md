@@ -4,7 +4,7 @@ A pod template for Runpod: Cuda 12.8 Nunchaku 1.3 Sage Attention ComfyUI preinst
 ## Install
 Go to the official [ComfyUI Sageattention Template (jnxmx/comfy25:new128)](https://console.runpod.io/hub/template/comfyui-sageattention?id=f4sahjc81c). It will run right out of the package with Cuda, Nunchaku, Sage Attention, and ComfyUI already installed and ready to use, but if you want more in depth workflows installed that include models such as WAN, FLUX, and QWEN, then contiue below.  
 
-### PREINSTALL models  
+### Preinstall Models  
 
 1. Click **Configure Pod**.  
 
@@ -21,22 +21,17 @@ Go to the official [ComfyUI Sageattention Template (jnxmx/comfy25:new128)](https
 
 6. Scroll to the bottom of deployment page and click <mark>Deploy</mark>.  
 
-### POST INSTALL / UNINSTALL
-If you want to **install** packages after the pod has been booted, open up a terminal and type:
+### Install/Uninstall models after boot
+If you want to **install** packages after the pod has been booted, open up a terminal and type:  
+
 `/poddy install [space_sperated_list of_packages_to_install]`
 
-If you want to **uninstall** packages after the pod has been booted, open up a terminal and type:
+If you want to **uninstall** packages after the pod has been booted, open up a terminal and type:  
+
 `/poddy uninstall [space_sperated_list of_packages_to_uninstall]`
 
 
-
-7. When the pod has started, click the <mark>Connect</mark> tab and ensure the SSH terminal toggle is turned to <mark>On</mark>.  
-
-8. Copy one of the commands below for the workflow you want and paste it in the terminal, if the command has <mark>&CIVITAI</mark> in it, replace <mark>&CIVITAI</mark> Civitai api key. Press enter, the script will download and install all custom nodes and models the workflow requires.  
-9. Open ComfyUI on the pod, and restart ComfyUI for the changes to take effect, you're now ready to go.
-
-Base Container Size: GB
-
+## Base Container Size: 12GB
 ## Workflows
 ### Video
 
@@ -64,7 +59,7 @@ The workflow is by [Blue Spork](https://www.youtube.com/watch?v=LR4lBimS7O4), in
 
 ### Photo
 #### Clothing Transfer <mark>(**WORK IN PROGRESS**)</mark>
-    /poddy photo_clothing_transfer
+    /poddy img_clothing_transfer
 
 #### Upscale <mark>(**WORK IN PROGRESS**)</mark>
     /poddy photo_upscale
