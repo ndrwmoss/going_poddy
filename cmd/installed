@@ -1,0 +1,43 @@
+#!/bin/bash
+
+#################################################################################
+#   Extracts a category's (apt, py, workflow, node, model) item list            
+#   into a single file to easily iterate through all items currently installed  
+#   by category. The file is stored as the category's name and                  
+#   is stored in the tmp folder. Example: $PODDY/tmp/installed/apt              
+#################################################################################
+
+
+
+
+# ADDS DATA TO TMP FILES
+create () {
+    # apt | py | workflow | node | model
+    category=${1}
+    # Iterate DIRECTORY
+    for file in $PODDY/active/*; do
+        if [ -f "$file" ]; then
+            echo "Processing file: $file"
+            # Iterate FILE
+            while IFS= read -r line; do
+                words=($line)
+                first_word=${words[0]}
+                output=none
+                # Check LINE
+                if [[ $first_word == $category ]]; then
+                    # Check if line already exists
+                    if [[ ! grep -q -x -F $SEARCH_LINE $FILE_PATH]]; then
+                        # Write to output file if line doesn't exist
+                        echo $line >> $PODDY/tmp/installed/$category
+                    fi
+                fi
+            done < $file
+        fi
+    done
+}
+create apt
+create py
+create model
+create node
+create workflow
+

@@ -1,3 +1,5 @@
+
+echo "GOING PODDY 0.9"
 echo "GETTING A FRESH PODDY"
 if [[ -d $PORTA_PODDY ]]; then
     rm -r $PORTA_PODDY

@@ -1,0 +1,45 @@
+#!/bin/bash
+
+#################################################################################
+#   Compares the pkg item list to a list of all the items currently installed   
+#   and makes a file called 'uninstall.tmp' in the tmp directory. This file has 
+#   a list of all the items that need uninstalled without uninstalling items    
+#   needed by other packages                                                    
+#################################################################################
+# REMOVE EXISTING TMP FILES
+if [[ -d $PODDY/tmp ]]; then
+    rm -R $PODDY/tmp
+fi
+
+# MAKE TMP DIRECTORY
+mkdir -p $PODDY/tmp/installed
+mkdir -p $PODDY/tmp/process
+mkdir -p $PODDY/tmp/upgrade_install
+mkdir -p $PODDY/tmp/upgrade_uninstall
+
+
+# MAKE NEW/CLEAN TMP FILES
+touch $PODDY/tmp/installed/apt
+touch $PODDY/tmp/installed/py
+touch $PODDY/tmp/installed/model
+touch $PODDY/tmp/installed/node
+touch $PODDY/tmp/installed/workflow
+
+touch $PODDY/tmp/process/apt
+touch $PODDY/tmp/process/py
+touch $PODDY/tmp/process/model
+touch $PODDY/tmp/process/node
+touch $PODDY/tmp/process/workflow
+
+touch $PODDY/tmp/upgrade_install/apt
+touch $PODDY/tmp/upgrade_install/py
+touch $PODDY/tmp/upgrade_install/model
+touch $PODDY/tmp/upgrade_install/node
+touch $PODDY/tmp/upgrade_install/workflow
+
+touch $PODDY/tmp/upgrade_uninstall/apt
+touch $PODDY/tmp/upgrade_uninstall/py
+touch $PODDY/tmp/upgrade_uninstall/model
+touch $PODDY/tmp/upgrade_uninstall/node
+touch $PODDY/tmp/upgrade_uninstall/workflow
+

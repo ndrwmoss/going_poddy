@@ -27,6 +27,9 @@ COPY install $PODDY/install
 COPY uninstall $PODDY/uninstall
 COPY installers $PODDY/installers
 COPY workflows $PODDY/workflows
+COPY active $PODDY/active
+COPY cmd $PODDY/cmd
+COPY tmp $PODDY/tmp
 
 # SET EXECUTABLES
 RUN chmod -R +x $PODDY/boot

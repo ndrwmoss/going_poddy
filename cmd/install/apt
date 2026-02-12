@@ -1,0 +1,7 @@
+#!/bin/bash
+cmd=${1:-none}
+if [[ $cmd != none ]]; then
+    echo "APT: $cmd"
+    apt-get -y -qq install $cmd
+fi
+exit 0

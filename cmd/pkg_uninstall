@@ -1,0 +1,30 @@
+#!/bin/bash
+
+#################################################################################
+#   Compares the pkg item list to a list of all the items currently installed   
+#   and makes a file called 'install.tmp' in the tmp directory. This file has   
+#   a list of all the items that need installed without duplicating installs    
+#################################################################################
+
+pkg=${1:-none}
+
+# Make sure package is installed
+if [[ -f $PODDY/active/$pkg ]]; then
+
+    # Set up tmp folder
+    $PODDY/cmd/clear_tmp
+
+    # Move pkg from active to tmp directory as pkg
+    cp $PODDY/active/$pkg $PODDY/tmp/pkg
+
+    # Make already installed list
+    $PODDY/cmd/installed
+
+    # Compare tmp pkg against installed list, collecting any lines that are not already installed into '$PODDY/tmp/process/ folder'
+
+    # Run uninstallers
+
+    
+fi
+
+

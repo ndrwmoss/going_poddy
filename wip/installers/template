@@ -1,0 +1,25 @@
+#!/bin/bash
+# parameter 1 = install | uninstall
+process=$PODDY/${1:-install}
+
+# INSTALL APT
+echo "SCRIPT: apt packages"
+# $process/apt apt
+
+# INSTALL PYTHON SCRIPTS
+echo "SCRIPT: python packages"
+# $process/py pyt
+
+# COPY WORKFLOW
+echo "SCRIPT: workflows"
+# $process/workflow workflow
+
+# INSTALL CUSTOM NODES
+echo "SCRIPT: custom nodes"
+# $process/node url
+
+# COPY MODELS
+echo "SCRIPT: models"
+# $process/model name folder url
+
+echo "COMPLETE"

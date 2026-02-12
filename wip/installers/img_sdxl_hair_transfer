@@ -1,0 +1,34 @@
+#!/bin/bash
+# parameter 1 = install | uninstall
+process=$PODDY/${1:-install}
+
+# INSTALL APT
+echo "SCRIPT: apt packages"
+# $process/apt apt
+
+# INSTALL PYTHON SCRIPTS
+echo "SCRIPT: python packages"
+# $process/py pyt
+
+# COPY WORKFLOW
+echo "SCRIPT: workflows"
+# $process/workflow workflow
+$process/workflow sdxl_hair_transfer
+
+# INSTALL CUSTOM NODES
+echo "SCRIPT: custom nodes"
+# $process/node url
+
+$process/node https://github.com/mav-rik/facerestore_cf
+$process/node https://github.com/lldacing/ComfyUI_StableHair_ll
+$process/node https://github.com/cubiq/ComfyUI_essentials
+$process/node https://github.com/yolain/ComfyUI-Easy-Use
+$process/node https://github.com/a-und-b/ComfyUI_LoRA_from_URL
+
+# COPY MODELS
+echo "SCRIPT: models"
+# $process/model name folder url
+$process/model realisticVisionV60B1_v51VAE.safetensors diffusion_models https://huggingface.co/khaimd123/realisticVisionV60B1_v51VAE/resolve/5314c8485d833085571162c6bd3664eabdc6b25f/realisticVisionV60B1_v51VAE.safetensors
+
+echo "COMPLETE"
+

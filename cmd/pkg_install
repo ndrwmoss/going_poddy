@@ -1,0 +1,24 @@
+#!/bin/bash
+
+#################################################################################
+#   Compares the pkg item list to a list of all the items currently installed   
+#   and makes a file called 'uninstall.tmp' in the tmp directory. This file has 
+#   a list of all the items that need uninstalled without uninstalling items    
+#   needed by other packages                                                    
+#################################################################################
+
+pkg=${1:-none}
+
+if [[ ! -f $PODDY/active/$pkg ]]; then
+    # Set up tmp folder
+    $PODDY/cmd/clear_tmp
+
+    # Make already installed list
+
+    # Compare $pkg against installed list, collecting any lines that are not already installed into '$PODDY/cmd/tmp/process.tmp'
+
+    # Run installers
+
+    # Copy pkg to $PODDY/active
+
+fi
