@@ -1,0 +1,98 @@
+#!/bin/bash
+
+#################################################################################                                            
+#################################################################################
+
+pkg=${1}
+
+# Clear temp files
+if [[ -f $PODDY/tmp/install ]]; then
+    rm $PODDY/tmp/install
+fi
+if [[ -f $PODDY/tmp/uninstall ]]; then
+    rm $PODDY/tmp/uninstall
+fi
+if [[ -f $PODDY/tmp/upgrade_install ]]; then
+    rm $PODDY/tmp/upgrade_install
+fi
+if [[ -f $PODDY/tmp/upgrade_uninstall ]]; then
+    rm $PODDY/tmp/upgrade_uninstall
+fi
+touch $PODDY/tmp/install
+touch $PODDY/tmp/uninstall
+touch $PODDY/tmp/upgrade_install
+touch $PODDY/tmp/upgrade_uninstall
+
+# Make already installed list
+echo "INSTALL: Making Installed List"
+$PODDY/cmd/get_currently_installed
+
+# Compare differences to find items for uninstallation
+while IFS= read -r old_line; do
+    is_same=false
+    while IFS= read -r new_line; 
+        if [[ $new_line == $old_line ]]; then
+            is_same=true
+        fi
+    done < $PORTA_PODDY/installers/$pkg.install
+    if [[ $is_same == false ]]; then
+        echo $old_line >> $PODDY/tmp/upgrade_uninstall
+    fi
+done < $PODDY/active/$pkg.install
+
+
+# UNINSTALL
+while IFS= read -r line; do
+    add_to_file=false
+    # Iterate ACTIVE DIRECTORY
+    for active_file in $PODDY/active/*; do
+        if [ -f $active_file ]; then
+            echo "UNINSTALL: checking $active_file"
+            # Iterate CURRENT FILE
+            while IFS= read -r other_pkg_line; 
+                if [[ $other_pkg_line == $line ]]; then
+                    add_to_file=true
+                fi
+            done < $active_file
+        fi
+    done
+    if [[ rem == true ]]; then
+        echo $line >> $PODDY/tmp/uninstall
+    fi
+done < $PODDY/tmp/upgrade_uninstall
+
+# Compare differences to find items for installation
+while IFS= read -r new_line; do
+    is_same=false
+    while IFS= read -r old_line; 
+        if [[ $old_line == $new_line ]]; then
+            is_same=true
+        fi
+    done < $PODDY/active/$pkg.install
+    if [[ $is_same == false ]]; then
+        echo $new_line >> $PODDY/tmp/upgrade_install
+    fi
+done < $PORTA_PODDY/installers/$pkg.install
+
+# INSTALL
+while IFS= read -r line; do
+    add_to_file=true
+    # Iterate CURRENT FILE
+    while IFS= read -r other_pkg_line; 
+        if [[ $other_pkg_line == $line ]]; then
+            add_to_file=false
+        fi
+    done < $PODDY/tmp/installed
+    if [[ $add_to_file == true ]]; then
+        echo $line >> $PODDY/tmp/install
+    fi
+done < $PODDY/tmp/upgrade_install
+
+# Run installers
+$PODDY/cmd/process
+
+# Copy pkg to $PODDY/active
+/cp $PORTA_PODDY/installers/$pkg $PODDY/installers/$pkg
+/cp $PORTA_PODDY/installers/$pkg $PODDY/active/$pkg
+
+echo "SUCCESSFULLY UPGRADED: $pkg"

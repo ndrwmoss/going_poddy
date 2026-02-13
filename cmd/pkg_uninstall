@@ -10,21 +10,53 @@ pkg=${1:-none}
 
 # Make sure package is installed
 if [[ -f $PODDY/active/$pkg ]]; then
+    # Clear temp files
+    if [[ -f $PODDY/tmp/install ]]; then
+        rm $PODDY/tmp/install
+    fi
+    if [[ -f $PODDY/tmp/uninstall ]]; then
+        rm $PODDY/tmp/uninstall
+    fi
+    touch $PODDY/tmp/install
+    touch $PODDY/tmp/uninstall
 
-    # Set up tmp folder
-    $PODDY/cmd/clear_tmp
-
-    # Move pkg from active to tmp directory as pkg
+    # Move pkg from active to tmp directory
+    echo "UNINSTALL: Moving package"
     cp $PODDY/active/$pkg $PODDY/tmp/pkg
 
     # Make already installed list
-    $PODDY/cmd/installed
+    echo "UNINSTALL: Making Installed List"
+    $PODDY/cmd/get_currently_installed
 
-    # Compare tmp pkg against installed list, collecting any lines that are not already installed into '$PODDY/tmp/process/ folder'
+    # Compare tmp pkg against installed list, collecting any lines that are not already installed
+    echo "UNINSTALL: Checking installed packages for identical items"
+    # Iterate lines in uninstall pkg
+    while IFS= read -r line; do
+        add_to_file=false
+        # Iterate ACTIVE DIRECTORY
+        for active_file in $PODDY/active/*; do
+            if [ -f $active_file ]; then
+                echo "UNINSTALL: checking $active_file"
+                # Iterate CURRENT FILE
+                while IFS= read -r other_pkg_line; 
+                    if [[ $other_pkg_line == $line ]]; then
+                        add_to_file=true
+                    fi
+                done < $active_file
+            fi
+        done
+        if [[ rem == true ]]; then
+            echo $line >> $PODDY/tmp/uninstall
+        fi
+    done < $PODDY/tmp/pkg
 
-    # Run uninstallers
+    # Run installers
+    $PODDY/cmd/process
 
+    # Remove tmp pkg
+    rm $PODDY/tmp/pkg
     
+    echo "SUCCESSFULLY UNINSTALLED: $pkg"
+else
+    echo "ERROR: PACKAGE IS NOT INSTALLED"
 fi
-
-

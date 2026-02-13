@@ -23,8 +23,6 @@ RUN chmod +x /poddy_starter
 
 # SET FOLDERS
 COPY boot $PODDY/boot
-COPY install $PODDY/install
-COPY uninstall $PODDY/uninstall
 COPY installers $PODDY/installers
 COPY workflows $PODDY/workflows
 COPY active $PODDY/active
@@ -33,9 +31,7 @@ COPY tmp $PODDY/tmp
 
 # SET EXECUTABLES
 RUN chmod -R +x $PODDY/boot
-RUN chmod -R +x $PODDY/install
-RUN chmod -R +x $PODDY/uninstall
-RUN chmod -R +x $PODDY/installers
+RUN chmod -R +x $PODDY/cmd
 
 EXPOSE 8188 8288 8888
 CMD [ "/poddy_starter" ]

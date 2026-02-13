@@ -1,7 +1,0 @@
-#!/bin/bash
-workflow=${1:-none}
-echo "WORKFLOW: $workflow"
-if [[ -f ${COMFY_WORKFLOW}/${workflow}.json ]]; then
-    rm ${COMFY_WORKFLOW}/${workflow}.json
-fi
-exit 0

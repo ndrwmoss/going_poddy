@@ -1,0 +1,123 @@
+##!/bin/bash
+
+# UNINSTALL APT
+while IFS= read -r line; do
+    arr=($line)
+    if [[ ${arr[0]} == apt ]]; then
+        apt -qq purge ${arr[1]}
+        apt -qq autoremove
+    fi
+done < $PODDY/tmp/uninstall
+
+# UNINSTALL PIP
+while IFS= read -r line; do
+    arr=($line)
+    if [[ ${arr[0]} == py ]]; then
+        pip uninstall ${arr[1]} --yes --quiet
+    fi
+done < $PODDY/tmp/uninstall
+
+# UNINSTALL NODE
+while IFS= read -r line; do
+    if [[ ${arr[0]} == node ]]; then
+        arr=($line)
+        name=$(basename ${arr[1]})
+        if [ -d $COMFY/custom_nodes/$name ]; then
+            rm -r $COMFY/custom_nodes/$name
+        fi
+    fi
+done < $PODDY/tmp/uninstall
+
+# UNINSTALL MODEL
+while IFS= read -r line; do
+    if [[ ${arr[0]} == model ]]; then
+        arr=($line)
+        file=$COMFY/models/${arr[2]}/${arr[1]}
+        if [[ -f $file ]]; then
+            rm $file
+        fi
+    fi
+done < $PODDY/tmp/uninstall
+
+# UNINSTALL WORKFLOWS
+while IFS= read -r line; do
+    if [[ ${arr[0]} == workflow ]]; then
+        arr=($line)
+        if [[ -f $COMFY_WORKFLOW/${arr[1]} ]]; then
+            rm $COMFY_WORKFLOW/${arr[1]}
+        fi
+    fi
+done < $PODDY/tmp/uninstall
+
+# INSTALL APT
+while IFS= read -r line; do
+    arr=($line)
+    if [[ ${arr[0]} == apt ]]; then
+        apt-get -y -qq install ${arr[1]}
+    fi
+done < $PODDY/tmp/install
+
+# INSTALL PIP
+while IFS= read -r line; do
+    arr=($line)
+    if [[ ${arr[0]} == py ]]; then
+        pip install ${arr[1]} --quiet
+    fi
+done < $PODDY/tmp/install
+
+# INSTALL NODES
+while IFS= read -r line; do
+    arr=($line)
+    if [[ ${arr[0]} == node ]]; then
+        name=$(basename ${arr[1]})
+        if [ ! -d $COMFY/custom_nodes/$name ]; then
+            git clone ${arr[1]} $COMFY/custom_nodes/$name
+        fi
+    fi
+done < $PODDY/tmp/install
+
+# INSTALL MODELS
+while IFS= read -r line; do
+    if [[ ${arr[0]} == node ]]; then
+        arr=($line)
+        name= ${arr[1]}
+        folder= ${arr[2]}
+        url= ${arr[3]}
+        echo "MODEL: $name"
+        file=$COMFY/models/$folder/$name
+        mkdir -p $COMFY/models/$folder
+        # Bail if already exists
+        if [[ ! -f $file ]]; then
+            # Extract domain name
+            domain=$(echo "$url" | sed -E 's|(https://)?([^/]+).*|\2|')
+            domain=$(basename -s ".com" $domain)
+            domain=$(basename -s ".co" $domain)
+            # Download
+            if [[ $domain == "civitai" ]]; then
+                # CIVITAI
+                token=${CIVITAI:-"none"}
+                civitai_url="$url&token=$CIVITAI"
+                if [[ $token == "none" ]]; then
+                    echo "$name requires the CIVITAI environmental variable set"
+                else
+                    echo "downloading $url to $file"
+                    wget -O $file $civitai_url
+                fi
+            else
+                # HUGGINGFACE
+                echo "downloading $url to $file"
+                wget -O $file $url
+            fi
+        fi
+    fi
+done < $PODDY/tmp/install
+
+# INSTALL WORKFLOW
+while IFS= read -r line; do
+    arr=($line)
+    if [[ ${arr[0]} == workflow ]]; then
+        if [ -f $PODDY/workflow/${arr[1]} ]; then
+            \cp $PODDY/workflow/${arr[1]} $COMFY_WORKFLOW/${arr[1]}
+        fi
+    fi
+done < $PODDY/tmp/install

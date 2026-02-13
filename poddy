@@ -6,52 +6,13 @@ shift
 if [[ $command == add || $command == a ]]; then
     for arg in "$@"; do
         echo "INSTALLING: $arg"
-        $PODDY/installers/$arg install
+        $PODDY/cmd/pkg_install $arg
     done
 elif [[ $command == remove || $command == r ]]; then
     for arg in "$@"; do
         echo "UNINSTALLING: $arg"
-        $PODDY/installers/$arg uninstall
+        $PODDY/cmd/pkg_uninstall $arg
     done
 elif [[ $command == update || $command == u ]]; then
-    echo "UPDATING"
-    if [[ -d $PORTA_PODDY ]]; then
-        rm -r $PORTA_PODDY
-    fi
-    if [[ -d $PODDY/uninstall ]]; then
-        rm -r $PODDY/uninstall
-    fi
-    if [[ -d $PODDY/installer ]]; then
-        rm -r $PODDY/installer
-    fi
-    if [[ -d $PODDY/installers ]]; then
-        rm -r $PODDY/installers
-    fi
-    if [[ -d $PODDY/workflows ]]; then
-        rm -r $PODDY/workflows
-    fi
-
-    mkdir -p $PORTA_PODDY
-    git clone https://github.com/ndrwmoss/going_poddy $PORTA_PODDY
-    echo "INSTALLING UPGRADES"
-    cp -r $PORTA_PODDY/install $PODDY
-    cp -r $PORTA_PODDY/uninstall $PODDY
-    cp -r $PORTA_PODDY/installers $PODDY
-    cp -r $PORTA_PODDY/workflows $PODDY
-    chmod -R +x $PODDY/install
-    chmod -R +x $PODDY/uninstall
-    chmod -R +x $PODDY/installers
-    if [[ $1 == test ]]; then
-        echo "Installing WIP items"
-        if [[ -d $PODDY/installers ]]; then
-            rm -r $PODDY/installers
-        fi
-        if [[ -d $PODDY/workflows ]]; then
-            rm -r $PODDY/workflows
-        fi
-        cp -r $PORTA_PODDY/wip/installers $PODDY
-        cp -r $PORTA_PODDY/wip/workflows $PODDY
-        chmod -R +x $PODDY/installers
-    fi
-    rm -r $PORTA_PODDY
+    $PODDY/cmd/update $arg
 fi
