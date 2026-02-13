@@ -26,8 +26,6 @@ $boot/nginx
 echo "INIT: JUPYTER"
 $boot/jupyter
 
-
-
 # Runs installers if INSTALL_PODDY is set to a non-empty string.
 pre=${PREINSTALL:-"none"}
 if [[ $pre != "none" ]]; then
