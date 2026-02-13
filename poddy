@@ -15,4 +15,7 @@ elif [[ $command == remove || $command == r ]]; then
     done
 elif [[ $command == update || $command == u ]]; then
     $PODDY/cmd/update $arg
+
+else
+    $PODDY/cmd/wiz
 fi
