@@ -1,0 +1,45 @@
+#!/bin/bash
+# format tmp lists
+$PODDY/cmd/wizard/get_install_lists
+# selection options array
+options=()
+# check if list has items
+make_list () {
+    i=0
+    while IFS= read -r line; do
+        # Only process non-empty lines for the menu
+        if [[ -n $line ]]; then
+            ((i++))
+        fi
+    done < $1
+    if [[ $i != 0 ]]; then
+        options+=($2)
+    fi
+}
+make_list $PODDY/tmp/wiz_available add
+make_list $PODDY/tmp/wiz_installed removed
+options+=(update)
+options+=(add_repository)
+
+
+# Use 'dialog --menu' to present the options
+# The output (selected tag) is redirected from stderr to stdout and captured in 'choice'
+exec 3>&1 # Save current stdout to fd 3
+choice=$(dialog --title "Select a Line" --menu "Choose a line from the file:" 20 60 15 "${options[@]}" 2>&1 >&3)
+exec 3>&- # Restore stdout
+
+clear # Clear the dialog box from the terminal
+
+# Check if the user cancelled
+if [[ -z "$choice" ]]; then
+    echo "cancel"
+else
+    # Find the selected line in the original array (adjust index by -1)
+    # Note: The original options array has tags and descriptions, we need the description
+    # The 'choice' variable holds the tag (the number)
+    selected_choice=$($choice - 1)
+    selected_line=${options[$selected_choice]}
+    echo $selected_line
+fi
+
+exit 0

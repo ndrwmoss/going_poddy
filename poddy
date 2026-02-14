@@ -19,3 +19,5 @@ elif [[ $command == update || $command == u ]]; then
 else
     $PODDY/cmd/wiz
 fi
+
+exit 0

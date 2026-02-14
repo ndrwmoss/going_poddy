@@ -1,0 +1,22 @@
+#!/bin/bash
+on=true
+set_command () {
+    cmd=$($PODDY/cmd/wizard/main_menu)
+    if [[ $cmd == update ]]; then
+        $PODDY/cmd/update
+    elif [[ $cmd == add ]]; then
+        $PODDY/cmd/wizard/repo
+    elif [[ $cmd == add ]]; then
+        $PODDY/cmd/wizard/install
+    elif [[ $cmd == remove ]]; then
+        $PODDY/cmd/wizard/uninstall
+    else
+        on=false
+    fi
+}
+while [[ $on == true ]]; do
+    set_command()
+done
+
+echo "Exiting Poddy Wizard"
+exit 0
