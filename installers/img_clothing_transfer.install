@@ -1,18 +1,9 @@
-# apt apt
-
-# py py
-
-# workflow workflow
 workflow img_clothing_transfer
-
-# node url
 node https://github.com/rgthree/rgthree-comfy
 node https://github.com/yolain/ComfyUI-Easy-Use
 node https://github.com/kijai/ComfyUI-KJNodes
 node https://github.com/ssitu/ComfyUI_UltimateSDUpscale
 node https://github.com/Smirnov75/ComfyUI-mxToolkit
-
-# model name folder url
 model qwen_image_edit_fp8_e4m3fn.safetensors diffusion_models https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI/resolve/main/split_files/diffusion_models/qwen_image_edit_fp8_e4m3fn.safetensors
 model juggernautXL_juggXIByRundiffusion.safetensors diffusion_models https://huggingface.co/misri/juggernautXL_juggXIByRundiffusion/resolve/main/juggernautXL_juggXIByRundiffusion.safetensors
 model qwen_image_vae.safetensors vae https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors

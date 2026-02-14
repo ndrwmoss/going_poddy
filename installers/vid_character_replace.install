@@ -1,19 +1,10 @@
-# apt apt
-
-# py pyt
-
-# workflow workflow
 workflow character_replace_mdmz
-
-# node url
 node https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite
 node https://github.com/kijai/ComfyUI-KJNodes
 node https://github.com/kijai/ComfyUI-WanVideoWrappers
 node https://github.com/kijai/ComfyUI-WanAnimatePreprocess
 node https://github.com/un-seen/comfyui-tensorops
 node https://github.com/kijai/ComfyUI-segment-anything-2
-
-# model name folder url
 model Wan2_2-Animate-14B_fp8_e4m3fn_scaled_KJ.safetensors diffusion_models https://huggingface.co/Kijai/WanVideo_comfy_fp8_scaled/resolve/main/Wan22Animate/Wan2_2-Animate-14B_fp8_e4m3fn_scaled_KJ.safetensors
 model umt5-xxl-enc-bf16.safetensors text_encoders https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/umt5-xxl-enc-bf16.safetensors
 model Wan2_1_VAE_bf16.safetensors vae https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/Wan2_1_VAE_bf16.safetensors
