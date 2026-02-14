@@ -9,7 +9,7 @@ ENV PODDY=/going_poddy
 ENV PORTA_PODDY=$PODDY/porta_poddy
 ENV PREINSTALL="none"
 ENV CIVITAI="none"
-
+ENV REPO="none"
 # MOVE COMFY
 RUN mv /Comfy $COMFY
 
@@ -18,7 +18,7 @@ COPY poddy /poddy
 RUN chmod +x /poddy
 
 # INSTALL STARTUP
-COPY poddy /poddy_starter
+COPY poddy_starter /poddy_starter
 RUN chmod +x /poddy_starter
 
 # SET FOLDERS

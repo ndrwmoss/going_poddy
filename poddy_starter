@@ -6,17 +6,12 @@ if [[ -d $PORTA_PODDY ]]; then
 fi
 mkdir -p $PORTA_PODDY
 git clone https://github.com/ndrwmoss/going_poddy $PORTA_PODDY
-cp -r $PORTA_PODDY/install $PODDY
-cp -r $PORTA_PODDY/uninstall $PODDY
 cp -r $PORTA_PODDY/installers $PODDY
 cp -r $PORTA_PODDY/workflows $PODDY
 cp -r $PORTA_PODDY/boot $PODDY
 cp -r $PORTA_PODDY/cmd $PODDY
-cp -r $PORTA_PODDY/poddy /poddy
+cp $PORTA_PODDY/poddy /poddy
 
-chmod -R +x $PODDY/install
-chmod -R +x $PODDY/uninstall
-chmod -R +x $PODDY/installers
 chmod -R +x $PODDY/boot
 chmod -R +x $PODDY/cmd
 chmod -R +x /poddy

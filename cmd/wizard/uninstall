@@ -11,7 +11,7 @@ MENU_ITEMS=()
 for i in ${!LINES[@]}; do
     # Tags for dialog menu start from 1 (bash arrays from 0, so i+1)
     TAG=$((i + 1)) 
-    DESCRIPTION="${LINES[$i]}"
+    DESCRIPTION=${LINES[$i]}
     MENU_ITEMS+=($TAG $DESCRIPTION)
 done
 
