@@ -1,6 +1,9 @@
 #!/bin/bash
 boot=$PODDY/boot
 
+echo "INIT: CUDA"
+$boot/cuda
+
 # Runs update if REPO is set to a non-empty string.
 rep=${REPO:-"none"}
 if [[ $rep != "none" ]]; then
@@ -23,9 +26,6 @@ echo "INIT: POPULATING YOUR PODDY"
 python -m pip install --upgrade pip
 python -m pip install triton
 python -c "import triton; print(triton.__version__)"
-
-echo "INIT: CUDA"
-$boot/cuda
 
 echo "INIT: SAGE"
 $boot/sage
