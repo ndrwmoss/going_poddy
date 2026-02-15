@@ -13,6 +13,7 @@ done < $PODDY/tmp/uninstall
 while IFS= read -r line; do
     arr=($line)
     if [[ ${arr[0]} == py ]]; then
+        echo "Uninstalling Python: ${arr[1]}"
         python -m pip uninstall ${arr[1]} --yes --quiet
     fi
 done < $PODDY/tmp/uninstall
@@ -23,6 +24,7 @@ while IFS= read -r line; do
         arr=($line)
         name=$(basename ${arr[1]})
         if [ -d $COMFY/custom_nodes/$name ]; then
+            echo "Uninstalling Custom Node: $name"
             rm -r $COMFY/custom_nodes/$name
         fi
     fi
@@ -34,6 +36,7 @@ while IFS= read -r line; do
         arr=($line)
         file=$COMFY/models/${arr[2]}/${arr[1]}
         if [[ -f $file ]]; then
+            echo "Uninstalling Model: ${arr[1]}"
             rm $file
         fi
     fi
@@ -44,6 +47,7 @@ while IFS= read -r line; do
     if [[ ${arr[0]} == workflow ]]; then
         arr=($line)
         if [[ -f $COMFY_WORKFLOW/${arr[1]}.json ]]; then
+            echo "Uninstalling Workflow: ${arr[1]}"
             rm $COMFY_WORKFLOW/${arr[1]}.json
         fi
     fi
@@ -53,6 +57,7 @@ done < $PODDY/tmp/uninstall
 while IFS= read -r line; do
     arr=($line)
     if [[ ${arr[0]} == apt ]]; then
+        echo "Installing Apt: ${arr[1]}"
         apt-get -y -qq install ${arr[1]}
     fi
 done < $PODDY/tmp/install
@@ -61,6 +66,7 @@ done < $PODDY/tmp/install
 while IFS= read -r line; do
     arr=($line)
     if [[ ${arr[0]} == py ]]; then
+        echo "Installing Python: ${arr[1]}"
         python -m pip install ${arr[1]} --quiet
     fi
 done < $PODDY/tmp/install
@@ -71,6 +77,7 @@ while IFS= read -r line; do
     if [[ ${arr[0]} == node ]]; then
         name=$(basename ${arr[1]})
         if [ ! -d $COMFY/custom_nodes/$name ]; then
+            echo "Installing Custom Node: ${arr[1]}"
             git clone ${arr[1]} $COMFY/custom_nodes/$name
         fi
     fi
@@ -117,8 +124,7 @@ done < $PODDY/tmp/install
 while IFS= read -r line; do
     arr=($line)
     if [[ ${arr[0]} == workflow ]]; then
-        if [ -f $PODDY/workflow/${arr[1]}.json ]; then
-            \cp $PODDY/workflow/${arr[1]}.json $COMFY_WORKFLOW/${arr[1]}.json
-        fi
+        echo "Installing Workflow: ${arr[1]}"
+        \cp $PODDY/workflow/${arr[1]}.json $COMFY_WORKFLOW/${arr[1]}.json
     fi
 done < $PODDY/tmp/install

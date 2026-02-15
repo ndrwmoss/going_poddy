@@ -31,7 +31,7 @@ If you want to **uninstall** packages after the pod has been booted, open up a t
 `/poddy uninstall [space_sperated_list of_packages_to_uninstall]`
 
 
-## Base Container Size: 12GB
+## Base Container Size: 11GB
 ## Workflows
 ### Video
 
