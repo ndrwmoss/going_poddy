@@ -41,17 +41,18 @@ menu_items+=("4" "Add 3rd party repo")
 
 # --- Display the dialog menu ---
 # 2>&1 >/dev/tty redirects dialog's output to the terminal, and captures user selection to $tmpfile
-dialog --clear --title "$TITLE" --menu "$PROMPT" \
+dialog --clear --title $TITLE --menu $PROMPT \
     $DIALOG_HEIGHT $DIALOG_WIDTH $MENU_HEIGHT \
-    "${menu_items[@]}" 2> "$tmpfile"
+    ${menu_items[@]} 2> $tmpfile
 
 # --- Process user selection ---
 return_status=$?
 selection=$(cat "$tmpfile")
+echo $return_status
+echo $selection
 if [[ $return_status == 0 ]]; then
     echo $selection
     selected_filename="${menu_items[$selection]}"
-    dialog --msgbox "You selected: $selection\nFull path: $(pwd)/$selected_filename" 10 60
 else
     exit 0
 fi
