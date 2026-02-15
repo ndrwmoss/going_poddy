@@ -92,7 +92,7 @@ done < $PODDY/tmp/upgrade_install
 $PODDY/cmd/process
 
 # Copy pkg to $PODDY/active
-/cp $PORTA_PODDY/installers/$pkg $PODDY/installers/$pkg
-/cp $PORTA_PODDY/installers/$pkg $PODDY/active/$pkg
+/cp $PORTA_PODDY/installers/$pkg.install $PODDY/installers/$pkg.install
+/cp $PORTA_PODDY/installers/$pkg.install $PODDY/active/$pkg.install
 
 echo "SUCCESSFULLY UPGRADED: $pkg"

@@ -20,12 +20,12 @@ chmod -R +x $PODDY/cmd
 
 # Set the github download
 address=${1:-https://github.com/ndrwmoss/going_poddy}
-
 # shortcut for testing address
 if [[ $1 == test ]]; then
     address=https://github.com/ndrwmoss/testing_poddy
 fi
-
+echo "$1"
+echo "$address"
 # If it's an external repository
 repo_error () {
          echo "The repository should have 2 folders: workflows and installers."
@@ -55,7 +55,7 @@ echo "Moving workflows."
 # copy and overwrite all workflows from the repo
 \cp -r $PORTA_PODDY/workflows $PODDY
 
-echo "Moving insallrtd."
+echo "Moving installers."
 # check all files in the installers
 for file in $PORTA_PODDY/installers/*.install; do
     filename=$(basename $file)
