@@ -37,6 +37,10 @@ else
     # Find the selected line in the original array (adjust index by -1)
     # Note: The original options array has tags and descriptions, we need the description
     # The 'choice' variable holds the tag (the number)
+    echo "${options[0]}"
+    echo "${options[1]}"
+    echo "${options[2]}"
+    echo "${options[3]}"
     echo "$choice"
     cho=$($choice-1)
     echo "$cho"
