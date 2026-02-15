@@ -14,10 +14,18 @@ elif [[ $command == remove || $command == r ]]; then
         echo "UNINSTALLING: $arg"
         $PODDY/cmd/pkg_uninstall $arg
     done
+    $PODDY/cmd/refresh_comfy_nodes
 elif [[ $command == update || $command == u ]]; then
     $PODDY/cmd/update $2
 else
-    $PODDY/cmd/wiz
+    echo "INVALID COMMAND"
+    echo "To install a package use the following:"
+    echo "/poddy add name_of_package package2 package3 etc"
+    echo "To uninstall a package use the same as above, but replace 'add' with 'remove'"
+    echo "To udpate the packages use the following:"
+    echo "/poddy update"
+    echo "If you want to add a 3rd party repo's installers/workflows use the following:"
+    echo "/poddy udpate url_of_github_repo"
 fi
 
 exit 0

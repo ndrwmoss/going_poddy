@@ -1,0 +1,10 @@
+#!/bin/bash
+#!/bin/bash
+if [[ -f $COMFY/requirements.txt ]]; then
+    pip install -r $COMFY/requirements.txt
+fi
+for item in $COMFY/custom_nodes/*; do
+    if [[ -f $COMFY/custom_nodes/$item/requirements.txt ]]; then
+        pip install -r $COMFY/custom_nodes/$item/requirements.txt
+    fi
+done
