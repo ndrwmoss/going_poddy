@@ -32,7 +32,7 @@ if [[ ! -f $PODDY/active/$pkg && -f $PODDY/installers/$pkg ]]; then
         # Iterate installed file
         echo "INSTALL: checking $active_file"
         # Iterate CURRENT FILE
-        while IFS= read -r other_pkg_line; 
+        while IFS= read -r other_pkg_line; do
             if [[ $other_pkg_line == $line ]]; then
                 add_to_file=false
             fi
