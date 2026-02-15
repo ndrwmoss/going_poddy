@@ -37,6 +37,7 @@ repo_error () {
 
 if [[ $address != https://github.com/ndrwmoss/going_poddy ]]; then
     clean
+    echo "FETCHING 3RD PARTY REPO"
     git clone $address $PORTA_PODDY
     # Check workflows directory
     if [[ ! -d $PORTA_PODDY/workflows ]]; then
@@ -54,16 +55,18 @@ echo "Moving workflows."
 # copy and overwrite all workflows from the repo
 \cp -r $PORTA_PODDY/workflows $PODDY
 
+echo "Moving insallrtd."
 # check all files in the installers
 for file in $PORTA_PODDY/installers/*.install; do
+    filename=$(basename $file)
     # UPGRADE
-    if [[ -f $PODDY/active/$file.install ]]; then
-         echo "Upgrading $file"
-        $PODDY/cmd/pkg_upgrade $file
+    if [[ -f $PODDY/active/$filename.install ]]; then
+        echo "Upgrading $filename"
+        $PODDY/cmd/pkg_upgrade $filename
     # MOVE
     else
-        echo "Moving $file"
-        \cp $PORTA_PODDY/installers/$file $PODDY/installers/$file
+        echo "MOVING: $filename"
+        \cp $PORTA_PODDY/installers/$filename.install $PODDY/installers/$filename.install
     fi
 done
 

@@ -14,7 +14,8 @@ set_command () {
         on=false
     fi
 }
-while [[ $on == true ]]; do
+while [ $on == true ]
+do
     set_command()
 done
 

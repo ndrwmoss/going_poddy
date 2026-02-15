@@ -1,8 +1,7 @@
-FROM ubuntu:24.04
-ENV DEBIAN_FRONTEND=noninteractive
+FROM jnxmx/comfy25:new128
 WORKDIR /
-RUN apt update
-RUN apt install -y git
+COPY . .
+
 # CREATE VARIABLES
 ENV COMFY=/workspace/ComfyUI
 ENV COMFY_WORKFLOW=$COMFY/user/default/workflows
@@ -12,8 +11,7 @@ ENV PREINSTALL="none"
 ENV CIVITAI="none"
 ENV REPO="none"
 # MOVE COMFY
-RUN mkdir -p /workspace/ComfyUI/user/default/workflows
-RUN mkdir -p /workspace/ComfyUI/custom_nodes
+RUN mv /Comfy $COMFY
 
 # INSTALL PODDY
 COPY poddy /poddy
@@ -35,5 +33,5 @@ COPY tmp $PODDY/tmp
 RUN chmod -R +x $PODDY/boot
 RUN chmod -R +x $PODDY/cmd
 
-EXPOSE 8188 8888
+EXPOSE 8188 8288 8888
 CMD [ "/poddy_starter" ]
