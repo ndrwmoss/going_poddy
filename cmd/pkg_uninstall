@@ -9,7 +9,7 @@
 pkg=${1:-none}
 
 # Make sure package is installed
-if [[ -f $PODDY/active/$pkg ]]; then
+if [[ -f $PODDY/active/$pkg.install ]]; then
     # Clear temp files
     if [[ -f $PODDY/tmp/install ]]; then
         rm $PODDY/tmp/install
@@ -22,7 +22,7 @@ if [[ -f $PODDY/active/$pkg ]]; then
 
     # Move pkg from active to tmp directory
     echo "UNINSTALL: Moving package"
-    cp $PODDY/active/$pkg $PODDY/tmp/pkg
+    mv $PODDY/active/$pkg.install $PODDY/tmp/pkg
 
     # Make already installed list
     echo "UNINSTALL: Making Installed List"
