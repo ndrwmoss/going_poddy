@@ -37,8 +37,7 @@ else
     # Find the selected line in the original array (adjust index by -1)
     # Note: The original options array has tags and descriptions, we need the description
     # The 'choice' variable holds the tag (the number)
-    selected_choice=$($choice-1)
-    selected_line=${options[$selected_choice]}
+    selected_line=${options[$choice-1]}
     echo $selected_line
 fi
 
