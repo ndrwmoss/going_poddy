@@ -1,8 +1,22 @@
 #!/bin/bash
-# format tmp lists
-$PODDY/cmd/wizard/get_install_lists
-# selection options array
-options=()
+# --- Configuration ---
+DIALOG_HEIGHT=20
+DIALOG_WIDTH=60
+MENU_HEIGHT=15
+TITLE="Select a file"
+PROMPT="Choose a file to display its full path:"
+
+# Use a temporary file for dialog output
+if [[ -f $PODDY/tmp/mm_tmp ]]; then
+    rm $PODDY/tmp/mm_tmp
+fi
+touch $PODDY/tmp/mm_tmp
+tmpfile=$PODDY/tmp/mm_tmp
+
+
+# Prepare menu items (tag item format: 'tag' 'description')
+# The tag is the value returned by dialog.
+menu_items=()
 # check if list has items
 make_list () {
     i=0
@@ -13,39 +27,35 @@ make_list () {
         fi
     done < $1
     if [[ $i != 0 ]]; then
-        options+=($2 $3)
+        if [[ $1 == $PODDY/tmp/wiz_available ]]; then
+            menu_items+=("1" "Install")
+        else
+            menu_items+=("2" "Uninstall")
+        fi
     fi
 }
-make_list $PODDY/tmp/wiz_available 1 add
-make_list $PODDY/tmp/wiz_installed 2 remove
-options+=(3 update)
-options+=(4 add_repository)
+make_list $PODDY/tmp/wiz_available
+make_list $PODDY/tmp/wiz_installed
+menu_items+=("3" "Update")
+menu_items+=("4" "Add 3rd party repo")
 
+# --- Display the dialog menu ---
+# 2>&1 >/dev/tty redirects dialog's output to the terminal, and captures user selection to $tmpfile
+dialog --clear --title "$TITLE" --menu "$PROMPT" \
+    $DIALOG_HEIGHT $DIALOG_WIDTH $MENU_HEIGHT \
+    "${menu_items[@]}" 2> "$tmpfile"
 
-# Use 'dialog --menu' to present the options
-# The output (selected tag) is redirected from stderr to stdout and captured in 'choice'
-exec 3>&1 # Save current stdout to fd 3
-choice=$(dialog --title "Select a Line" --menu "Choose a line from the file:" 20 60 15 ${options[@]} 2>&1 >&3)
-exec 3>&- # Restore stdout
-
-clear # Clear the dialog box from the terminal
-
-# Check if the user cancelled
-if [[ -z "$choice" ]]; then
-    echo "cancel"
+# --- Process user selection ---
+return_status=$?
+selection=$(cat "$tmpfile")
+if [[ $return_status == 0 ]]; then
+    echo $selection
+    selected_filename="${menu_items[$selection]}"
+    dialog --msgbox "You selected: $selection\nFull path: $(pwd)/$selected_filename" 10 60
+        ;;
 else
-    # Find the selected line in the original array (adjust index by -1)
-    # Note: The original options array has tags and descriptions, we need the description
-    # The 'choice' variable holds the tag (the number)
-    echo ${options[0]}
-    echo ${options[1]}
-    echo ${options[2]}
-    echo ${options[3]}
-    echo $choice
-    cho=$($choice-1)
-    echo "$cho"
-    selected_line=${options[$cho]}
-    echo $selected_line
+    exit 0
 fi
 
-exit 0
+# Clean up the temporary file (handled by the trap command)
+rm $PODDY/tmp/mm_tmp

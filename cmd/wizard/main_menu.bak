@@ -1,0 +1,56 @@
+#!/bin/bash
+# format tmp lists
+$PODDY/cmd/wizard/get_install_lists
+# selection options array
+options=()
+# check if list has items
+make_list () {
+    i=0
+    while IFS= read -r line; do
+        # Only process non-empty lines for the menu
+        if [[ -n $line ]]; then
+            ((i++))
+        fi
+    done < $1
+    if [[ $i != 0 ]]; then
+        if [[ $1 == $PODDY/tmp/wiz_available ]]; then
+            menu_items+=("install" "Install a package to ComfyUI. This will install all models, custom nodes, workflows and python programs the packages uses, unless it is also used by another installed package and then it does nothing since the item is already installed.")
+        else
+            menu_items+=("uninstall" "Uninstall a package already installed to ComfyUI. This will clear remove all models, custom nodes, workflows and python programs the packages uses, unless it is also used by another installed package.")
+        fi
+        menu_items+=($2 $3)
+    fi
+}
+make_list $PODDY/tmp/wiz_available
+make_list $PODDY/tmp/wiz_installed
+menu_items+=("update" "Updates the default workflows and installers, and underlying installer software of Going Poddy.")
+menu_items+=("add_repository" "Adds a 3rd party Github repository of workflows and installers to Going Poddy. Once downloaded the 3rd party repo can be used by typing '/poddy install name_of_package_in_3rd_party_installers_folder' just like you would a default Going Poddy package.")
+
+
+# Use 'dialog --menu' to present the options
+# The output (selected tag) is redirected from stderr to stdout and captured in 'choice'
+exec 3>&1 # Save current stdout to fd 3
+choice=$(dialog --title "Select a Line" --menu "Choose a line from the file:" 20 60 15 ${options[@]} 2>&1 >&3)
+exec 3>&- # Restore stdout
+
+clear # Clear the dialog box from the terminal
+
+# Check if the user cancelled
+if [[ -z "$choice" ]]; then
+    echo "cancel"
+else
+    # Find the selected line in the original array (adjust index by -1)
+    # Note: The original options array has tags and descriptions, we need the description
+    # The 'choice' variable holds the tag (the number)
+    echo ${options[0]}
+    echo ${options[1]}
+    echo ${options[2]}
+    echo ${options[3]}
+    echo $choice
+    cho=$($choice-1)
+    echo "$cho"
+    selected_line=${options[$cho]}
+    echo $selected_line
+fi
+
+exit 0
