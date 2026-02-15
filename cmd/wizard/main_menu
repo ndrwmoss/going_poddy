@@ -52,7 +52,6 @@ if [[ $return_status == 0 ]]; then
     echo $selection
     selected_filename="${menu_items[$selection]}"
     dialog --msgbox "You selected: $selection\nFull path: $(pwd)/$selected_filename" 10 60
-        ;;
 else
     exit 0
 fi
