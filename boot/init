@@ -44,4 +44,4 @@ $boot/jupyter
 
 echo "INIT COMPLETE: STARTING YOUR COMFY ON PORT 8188"
 
-python /workspace/ComfyUI/main.py --port=8188
+python /workspace/ComfyUI/main.py
