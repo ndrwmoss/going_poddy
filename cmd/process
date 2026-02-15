@@ -13,7 +13,7 @@ done < $PODDY/tmp/uninstall
 while IFS= read -r line; do
     arr=($line)
     if [[ ${arr[0]} == py ]]; then
-        pip uninstall ${arr[1]} --yes --quiet
+        python pip uninstall ${arr[1]} --yes --quiet
     fi
 done < $PODDY/tmp/uninstall
 
@@ -61,7 +61,7 @@ done < $PODDY/tmp/install
 while IFS= read -r line; do
     arr=($line)
     if [[ ${arr[0]} == py ]]; then
-        pip install ${arr[1]} --quiet
+        python pip install ${arr[1]} --quiet
     fi
 done < $PODDY/tmp/install
 
