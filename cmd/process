@@ -78,8 +78,8 @@ done < $PODDY/tmp/install
 
 # INSTALL MODELS
 while IFS= read -r line; do
+    arr=($line)
     if [[ ${arr[0]} == model ]]; then
-        arr=($line)
         name= ${arr[1]}
         folder= ${arr[2]}
         url= ${arr[3]}

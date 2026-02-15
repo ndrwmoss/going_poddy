@@ -8,7 +8,7 @@
 #################################################################################
 
 # Clear temp files
-if [[ -f $PODDY/tmp/install ]]; then
+if [[ -f $PODDY/tmp/installed ]]; then
     rm $PODDY/tmp/installed
 fi
 touch $PODDY/tmp/installed
