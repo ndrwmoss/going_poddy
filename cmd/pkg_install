@@ -8,8 +8,21 @@
 #################################################################################
 
 pkg=${1:-none}
+echo "Checking $pkg"
+active=false
+exists=false
+if [[ -f $PODDY/active/$pkg]]; then
+    active=true
+    echo "$pkg is already active"
+fi
+if [[ -f $PODDY/installers/$pkg ]]; then
+    exists=true
+else
+    echo "installer does not exist"
+fi
 
-if [[ ! -f $PODDY/active/$pkg && -f $PODDY/installers/$pkg ]]; then
+if [[ $exists == true && $active == false ]]; then
+    echo "preparing install"
     # Clear temp files
     if [[ -f $PODDY/tmp/install ]]; then
         rm $PODDY/tmp/install
