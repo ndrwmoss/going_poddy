@@ -13,13 +13,13 @@ make_list () {
         fi
     done < $1
     if [[ $i != 0 ]]; then
-        options+=($2)
+        options+=($2 $3)
     fi
 }
-make_list $PODDY/tmp/wiz_available add
-make_list $PODDY/tmp/wiz_installed remove
-options+=(update)
-options+=(add_repository)
+make_list $PODDY/tmp/wiz_available 1 add
+make_list $PODDY/tmp/wiz_installed 2 remove
+options+=(3 update)
+options+=(4 add_repository)
 
 
 # Use 'dialog --menu' to present the options
