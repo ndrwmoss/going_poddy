@@ -1,6 +1,24 @@
 #!/bin/bash
 boot=$PODDY/boot
 
+# Runs update if REPO is set to a non-empty string.
+rep=${REPO:-"none"}
+if [[ $rep != "none" ]]; then
+    echo "INIT: Fetching $rep"
+    /poddy update $rep
+else
+    echo "INIT: No 3rd party repository to download. If you'd like to add a 3rd party repository open a terminal and type /poddy to open the wizard where you can add new repositories."
+fi
+
+# Runs installers if PREINSTALL is set to a non-empty string.
+pre=${PREINSTALL:-"none"}
+if [[ $pre != "none" ]]; then
+    echo "INIT: installing selected Going Poddy packages"
+    /poddy add $pre
+else
+    echo "INIT: Going Poddy packages selected. To install packages open a terminal and type /poddy to open the Going Poddy wizard where you can select packages to install."
+fi
+
 echo "INIT: POPULATING YOUR PODDY"
 python -m pip install --upgrade pip
 python -m pip install triton
@@ -24,22 +42,6 @@ $boot/nginx
 echo "INIT: JUPYTER"
 $boot/jupyter
 
-# Runs update if REPO is set to a non-empty string.
-rep=${REPO:-"none"}
-if [[ $rep != "none" ]]; then
-    echo "INIT: Fetching $rep"
-    /poddy update $rep
-else
-    echo "INIT: No 3rd party repository to download. If you'd like to add a 3rd party repository open a terminal and type /poddy to open the wizard where you can add new repositories."
-fi
+echo "INIT COMPLETE: STARTING YOUR COMFY ON PORT 8188"
 
-# Runs installers if PREINSTALL is set to a non-empty string.
-pre=${PREINSTALL:-"none"}
-if [[ $pre != "none" ]]; then
-    echo "INIT: installing selected Going Poddy packages"
-    /poddy add $pre
-else
-    echo "INIT: Going Poddy packages selected. To install packages open a terminal and type /poddy to open the Going Poddy wizard where you can select packages to install."
-fi
-echo "INIT COMPLETE: STARTING YOUR COMFY"
 python /workspace/ComfyUI/main.py --port=8188

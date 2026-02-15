@@ -13,7 +13,7 @@ done < $PODDY/tmp/uninstall
 while IFS= read -r line; do
     arr=($line)
     if [[ ${arr[0]} == py ]]; then
-        python3 -m pip uninstall ${arr[1]} --yes --quiet
+        python -m pip uninstall ${arr[1]} --yes --quiet
     fi
 done < $PODDY/tmp/uninstall
 
@@ -61,7 +61,7 @@ done < $PODDY/tmp/install
 while IFS= read -r line; do
     arr=($line)
     if [[ ${arr[0]} == py ]]; then
-        python3 -m pip install ${arr[1]} --quiet
+        python -m pip install ${arr[1]} --quiet
     fi
 done < $PODDY/tmp/install
 
@@ -101,12 +101,12 @@ while IFS= read -r line; do
                     echo "$name requires the CIVITAI environmental variable set"
                 else
                     echo "downloading $url to $file"
-                    wget -O $file $civitai_url
+                    wget -O --no-verbose --show-progress --progress=bar:force:noscroll $file $civitai_url
                 fi
             else
                 # HUGGINGFACE
                 echo "downloading $url to $file"
-                wget -O $file $url
+                wget -O --no-verbose --show-progress --progress=bar:force:noscroll $file $url
             fi
         fi
     fi

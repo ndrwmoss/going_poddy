@@ -33,5 +33,5 @@ COPY tmp $PODDY/tmp
 RUN chmod -R +x $PODDY/boot
 RUN chmod -R +x $PODDY/cmd
 
-EXPOSE 8188 8888
+EXPOSE 8080 8188 8888
 CMD [ "/poddy_starter" ]
