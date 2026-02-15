@@ -2,20 +2,20 @@
 #!/bin/bash
 #command = install | uninstall
 command=${1:-empty}
-shift
 if [[ $command == add || $command == a ]]; then
+    shift
     for arg in "$@"; do
         echo "INSTALLING: $arg"
         $PODDY/cmd/pkg_install $arg
     done
 elif [[ $command == remove || $command == r ]]; then
+    shift
     for arg in "$@"; do
         echo "UNINSTALLING: $arg"
         $PODDY/cmd/pkg_uninstall $arg
     done
 elif [[ $command == update || $command == u ]]; then
-    $PODDY/cmd/update $arg
-
+    $PODDY/cmd/update $2
 else
     $PODDY/cmd/wiz
 fi
