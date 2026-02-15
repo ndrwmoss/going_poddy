@@ -95,13 +95,12 @@ while IFS= read -r line; do
             # Download
             if [[ $domain == "civitai" ]]; then
                 # CIVITAI
-                token=${RUNPOD_SECRET_CIVITAI:-"none"}
-                civitai_url="$url&token=$CIVITAI"
+                token=${CIVITAI:-"none"}
                 if [[ $token == "none" ]]; then
                     echo "$name requires the CIVITAI environmental variable set"
                 else
                     echo "downloading $url to $file"
-                    wget -O $file $civitai_url--no-verbose --show-progress --progress=bar:force:noscroll 
+                    wget -O $file $url&token=$CIVITAI --no-verbose --show-progress --progress=bar:force:noscroll 
                 fi
             else
                 # HUGGINGFACE
