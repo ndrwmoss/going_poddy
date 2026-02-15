@@ -16,7 +16,7 @@ set_command () {
 }
 while [ $on == true ]
 do
-    set_command()
+    set_command
 done
 
 echo "Exiting Poddy Wizard"
