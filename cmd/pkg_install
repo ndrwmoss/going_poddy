@@ -11,11 +11,11 @@ pkg=${1:-none}
 echo "Checking $pkg"
 active=false
 exists=false
-if [[ -f $PODDY/active/$pkg ]]; then
+if [[ -f $PODDY/active/$pkg.install ]]; then
     active=true
     echo "$pkg is already active"
 fi
-if [[ -f $PODDY/installers/$pkg ]]; then
+if [[ -f $PODDY/installers/$pkg.install ]]; then
     exists=true
 else
     echo "installer does not exist"
@@ -53,13 +53,13 @@ if [[ $exists == true && $active == false ]]; then
         if [[ $add_to_file == true ]]; then
             echo $line >> $PODDY/tmp/install
         fi
-    done < $PODDY/installers/$pkg
+    done < $PODDY/installers/$pkg.install
     
     # Run installers
     $PODDY/cmd/process
 
     # Copy pkg to $PODDY/active
-    cp $PODDY/installers/$pkg $PODDY/active/$pkg
+    cp $PODDY/installers/$pkg.install $PODDY/active/$.install
 
     echo "SUCCESSFULLY INSTALLED: $pkg"
 fi
