@@ -11,7 +11,7 @@ pkg=${1:-none}
 echo "Checking $pkg"
 active=false
 exists=false
-if [[ -f $PODDY/active/$pkg]]; then
+if [[ -f $PODDY/active/$pkg ]]; then
     active=true
     echo "$pkg is already active"
 fi
