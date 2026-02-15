@@ -14,10 +14,7 @@ set_command () {
         on=false
     fi
 }
-while [ $on == true ]
-do
-    set_command
-done
+set_command
 
 echo "Exiting Poddy Wizard"
 exit 0

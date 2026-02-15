@@ -17,7 +17,7 @@ make_list () {
     fi
 }
 make_list $PODDY/tmp/wiz_available add
-make_list $PODDY/tmp/wiz_installed removed
+make_list $PODDY/tmp/wiz_installed remove
 options+=(update)
 options+=(add_repository)
 
