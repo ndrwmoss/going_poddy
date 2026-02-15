@@ -101,12 +101,12 @@ while IFS= read -r line; do
                     echo "$name requires the CIVITAI environmental variable set"
                 else
                     echo "downloading $url to $file"
-                    wget -O --no-verbose --show-progress --progress=bar:force:noscroll $file $civitai_url
+                    wget --no-verbose --show-progress --progress=bar:force:noscroll -O $file $civitai_url
                 fi
             else
                 # HUGGINGFACE
                 echo "downloading $url to $file"
-                wget -O --no-verbose --show-progress --progress=bar:force:noscroll $file $url
+                wget --no-verbose --show-progress --progress=bar:force:noscroll -O $file $url
             fi
         fi
     fi
