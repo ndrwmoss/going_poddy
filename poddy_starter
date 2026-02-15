@@ -19,4 +19,4 @@ chmod -R +x /poddy
 rm -r $PORTA_PODDY
 echo "CLEANED PODDY"
 
-$PODDY/cmd/boot/init
+$PODDY/boot/init
