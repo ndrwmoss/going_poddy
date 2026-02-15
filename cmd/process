@@ -84,6 +84,8 @@ while IFS= read -r line; do
         folder=${arr[2]}
         url=${arr[3]}
         echo "MODEL: $name"
+        echo "FOLDER: $folder"
+        echo "URL: $url"
         file=$COMFY/models/$folder/$name
         mkdir -p $COMFY/models/$folder
         # Bail if already exists

@@ -59,7 +59,7 @@ if [[ $exists == true && $active == false ]]; then
     $PODDY/cmd/process
 
     # Copy pkg to $PODDY/active
-    cp $PODDY/installers/$pkg.install $PODDY/active/$.install
+    cp $PODDY/installers/$pkg.install $PODDY/active/$pkg.install
 
     echo "SUCCESSFULLY INSTALLED: $pkg"
 fi
