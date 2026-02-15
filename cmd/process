@@ -43,8 +43,8 @@ done < $PODDY/tmp/uninstall
 while IFS= read -r line; do
     if [[ ${arr[0]} == workflow ]]; then
         arr=($line)
-        if [[ -f $COMFY_WORKFLOW/${arr[1]} ]]; then
-            rm $COMFY_WORKFLOW/${arr[1]}
+        if [[ -f $COMFY_WORKFLOW/${arr[1]}.json ]]; then
+            rm $COMFY_WORKFLOW/${arr[1]}.json
         fi
     fi
 done < $PODDY/tmp/uninstall
@@ -115,8 +115,8 @@ done < $PODDY/tmp/install
 while IFS= read -r line; do
     arr=($line)
     if [[ ${arr[0]} == workflow ]]; then
-        if [ -f $PODDY/workflow/${arr[1]} ]; then
-            \cp $PODDY/workflow/${arr[1]} $COMFY_WORKFLOW/${arr[1]}
+        if [ -f $PODDY/workflow/${arr[1]}.json ]; then
+            \cp $PODDY/workflow/${arr[1]}.json $COMFY_WORKFLOW/${arr[1]}.json
         fi
     fi
 done < $PODDY/tmp/install
