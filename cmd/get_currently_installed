@@ -24,7 +24,7 @@ for file in $PODDY/active/*; do
             # Check CURRENT LINE
             if [[ $command == apt || $command == py || $command == model || $command == node || $command == workflow ]]; then
                 # Check if line already exists
-                exists=$($PODDY/cmd/line_exists $line $PODDY/tmp/installed)
+                exists=$($PODDY/cmd/line_exists $line)
                 if [[ $exists == false ]]; then
                     # Write to output file if line doesn't exist
                     echo $line >> $PODDY/tmp/installed
