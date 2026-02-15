@@ -44,4 +44,4 @@ $boot/jupyter
 
 echo "INIT COMPLETE: STARTING YOUR COMFY ON PORT 8188"
 
-python /workspace/ComfyUI/main.py
+python /workspace/ComfyUI/main.py --use-sage-attention --listen --port=8188
