@@ -1,0 +1,8 @@
+while IFS= read -r line; do
+    if [[ $line == $1 ]]; then
+        echo "true"
+        exit 0
+    fi
+done < $2
+echo "false"
+exit 0
