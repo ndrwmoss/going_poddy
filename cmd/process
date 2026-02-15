@@ -80,9 +80,9 @@ done < $PODDY/tmp/install
 while IFS= read -r line; do
     arr=($line)
     if [[ ${arr[0]} == model ]]; then
-        name= ${arr[1]}
-        folder= ${arr[2]}
-        url= ${arr[3]}
+        name=${arr[1]}
+        folder=${arr[2]}
+        url=${arr[3]}
         echo "MODEL: $name"
         file=$COMFY/models/$folder/$name
         mkdir -p $COMFY/models/$folder
