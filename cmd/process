@@ -94,7 +94,8 @@ while IFS= read -r line; do
             fi
         else
             name=$(basename ${arr[1]})
-            comfy node install $name
+            
+            comfy --workspace=/workspace/ComfyUI node install $name
         fi
     fi
 done < $PODDY/tmp/install
@@ -147,14 +148,14 @@ while IFS= read -r line; do
                     if [[ $civ == "none" ]]; then
                         echo "$name requires the CIVITAI_API_TOKEN environmental variable set"
                     else
-                        comfy model download --$url --$folder --$CIVITAI_API_TOKEN
+                        comfy --workspace=/workspace/ComfyUI model download --$url --$folder --$CIVITAI_API_TOKEN
                     fi
                 else
                     # HF
                     if [[ $civ == "none" ]]; then
                         echo "$name requires the HF_API_TOKEN environmental variable set"
                     else
-                        comfy model download --$url --$folder --$HF_API_TOKEN
+                        comfy --workspace=/workspace/ComfyUI model download --$url --$folder --$HF_API_TOKEN
                     fi
                 fi
             fi
