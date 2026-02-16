@@ -1,8 +1,0 @@
-while IFS= read -r line; do
-    if [[ $line == $1 ]]; then
-        echo "true"
-        exit 0
-    fi
-done < $PODDY/tmp/installed
-echo "false"
-exit 0
