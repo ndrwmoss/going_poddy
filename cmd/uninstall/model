@@ -1,0 +1,7 @@
+##!/bin/bash
+if [[ -f $COMFY/models/$2/$1 ]]; then
+    echo "Uninstalling Model: $1"
+    rm $COMFY/models/$2/$1
+else
+    echo "$1 not installed"
+fi

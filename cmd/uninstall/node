@@ -1,0 +1,6 @@
+##!/bin/bash
+name=$(basename ${1})
+if [ -d $COMFY/custom_nodes/$name ]; then
+    echo "Uninstalling Custom Node: $name"
+    rm -r $COMFY/custom_nodes/$name
+fi

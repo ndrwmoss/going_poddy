@@ -1,0 +1,3 @@
+#!/bin/bash
+echo "Installing Workflow: ${1}"
+\cp $PODDY/workflows/${1}.json $COMFY_WORKFLOW/${1}.json

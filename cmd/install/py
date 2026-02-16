@@ -1,0 +1,3 @@
+#!/bin/bash
+echo "Installing Python: ${arr[1]}"
+python -m pip install ${arr[1]} --quiet

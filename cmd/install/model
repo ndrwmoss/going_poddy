@@ -1,0 +1,33 @@
+#!/bin/bash
+name=${1}
+folder=${2}
+url=${3}
+civ=${CIVITAI_API_TOKEN:-"none"}
+hf=${HF_API_TOKEN:-"none"}
+echo "MODEL: $name"
+echo "FOLDER: $folder"
+echo "URL: $url"
+file=$COMFY/models/$folder/$name
+mkdir -p $COMFY/models/$folder
+# Extract domain name
+if [[ -f $file ]]; then
+    echo "model already exists"
+else
+    domain=$(echo "$url" | sed -E 's|(https://)?([^/]+).*|\2|')
+    domain=$(basename -s ".com" $domain)
+    domain=$(basename -s ".co" $domain)
+    # Download
+    if [[ $domain == "civitai" ]]; then
+        # CIVITAI
+        if [[ $civ == "none" ]]; then
+            echo "$name requires the CIVITAI environmental variable set"
+        else
+            echo "downloading $url to $file"
+            wget -O $file "$url&token=$CIVITAI_API_TOKEN" --no-verbose --show-progress --progress=bar:force:noscroll 
+        fi
+    else
+        # HUGGINGFACE
+        echo "downloading $url to $file"
+        wget -O $file $url --no-verbose --show-progress --progress=bar:force:noscroll 
+    fi
+fi

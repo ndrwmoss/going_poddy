@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# SETUP
+c=$PODDY/cmd/{1:-install}
+
+# WORKFLOWS
+$c/workflow img_upscale
+
+
+# NODES
+$c/node https://github.com/kijai/ComfyUI-KJNodes
+$c/node https://github.com/yolain/ComfyUI-Easy-Use
+$c/node https://github.com/cubiq/ComfyUI_essentials
+$c/node https://github.com/StableLlama/ComfyUI-basic_data_handling
+
+# MODELS
+$c/model juggernaut-sdxl.safetensors diffusion_models https://civitai.com/api/download/models/1759168?type=Model&format=SafeTensor&size=full&fp=fp16
+$c/model sdxl_lightning_8step_lora.safetensors loras https://huggingface.co/ByteDance/SDXL-Lightning/resolve/main/sdxl_lightning_8step_lora.safetensors
+$c/model tiled-controlnet-sdxl.safetensors controlnet https://huggingface.co/xinsir/controlnet-tile-sdxl-1.0/resolve/main/diffusion_pytorch_model.safetensors

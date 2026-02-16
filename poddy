@@ -2,27 +2,30 @@
 #!/bin/bash
 #command = install | uninstall
 command=${1:-empty}
-if [[ $command == add || $command == a ]]; then
-    shift
-    for arg in "$@"; do
-        echo "INSTALLING: $arg"
-        $PODDY/cmd/pkg_install $arg
-    done
-    comfy node update all
-elif [[ $command == remove || $command == r ]]; then
-    shift
-    for arg in "$@"; do
-        echo "UNINSTALLING: $arg"
-        $PODDY/cmd/pkg_uninstall $arg
-    done
-    comfy node update all
-elif [[ $command == update || $command == u ]]; then
-    $PODDY/cmd/update $2
+location=${2:-none}
+if [[ $command == add || $command == a || $command == install || $command == i ]]; then
+    echo "UNINSTALLING: $location"
+    if [[ -f $PODDY/installers/$location ]]; then
+        $PODDY/installers/$location install
+        comfy node update all
+    else
+        echo "Not a valid installer"
+    fi
+elif [[ $command == remove || $command == r || $command == uninstall || $command == u ]]; then
+    echo "UNINSTALLING: $location"
+    if [[ -f $PODDY/installers/$location ]]; then
+        $PODDY/installers/$location uninstall
+        comfy node update all
+    else
+        echo "Not a valid uninstaller"
+    fi
+elif [[ $command == update ]]; then
+    $PODDY/boot/update $location
     comfy node update all
 else
     echo "INVALID COMMAND"
     echo "To install a package use the following:"
-    echo "/poddy add name_of_package package2 package3 etc"
+    echo "/poddy add name_of_package"
     echo "To uninstall a package use the same as above, but replace 'add' with 'remove'"
     echo "To udpate the packages use the following:"
     echo "/poddy update"
