@@ -79,6 +79,8 @@ while IFS= read -r line; do
         if [ ! -d $COMFY/custom_nodes/$name ]; then
             echo "Installing Custom Node: ${arr[1]}"
             git clone ${arr[1]} $COMFY/custom_nodes/$name
+        else
+            echo "${arr[1]} already exists"
         fi
     fi
 done < $PODDY/tmp/install
@@ -125,6 +127,6 @@ while IFS= read -r line; do
     arr=($line)
     if [[ ${arr[0]} == workflow ]]; then
         echo "Installing Workflow: ${arr[1]}"
-        \cp $PODDY/workflow/${arr[1]}.json $COMFY_WORKFLOW/${arr[1]}.json
+        \cp $PODDY/workflows/${arr[1]}.json $COMFY_WORKFLOW/${arr[1]}.json
     fi
 done < $PODDY/tmp/install
