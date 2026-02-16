@@ -8,7 +8,8 @@ ENV COMFY_WORKFLOW=$COMFY/user/default/workflows
 ENV PODDY=/going_poddy
 ENV PORTA_PODDY=$PODDY/porta_poddy
 ENV PREINSTALL="none"
-ENV CIVITAI="none"
+ENV CIVITAI_API_TOKEN="none"
+ENV HF_API_TOKEN="none"
 ENV REPO="none"
 # MOVE COMFY
 RUN mv /Comfy $COMFY

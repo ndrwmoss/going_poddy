@@ -8,17 +8,17 @@ if [[ $command == add || $command == a ]]; then
         echo "INSTALLING: $arg"
         $PODDY/cmd/pkg_install $arg
     done
-    $PODDY/cmd/refresh_comfy_nodes
+    comfy node update all
 elif [[ $command == remove || $command == r ]]; then
     shift
     for arg in "$@"; do
         echo "UNINSTALLING: $arg"
         $PODDY/cmd/pkg_uninstall $arg
     done
-    $PODDY/cmd/refresh_comfy_nodes
+    comfy node update all
 elif [[ $command == update || $command == u ]]; then
     $PODDY/cmd/update $2
-    $PODDY/cmd/refresh_comfy_nodes
+    comfy node update all
 else
     echo "INVALID COMMAND"
     echo "To install a package use the following:"

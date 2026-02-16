@@ -34,10 +34,17 @@ done < $PODDY/tmp/uninstall
 while IFS= read -r line; do
     if [[ ${arr[0]} == model ]]; then
         arr=($line)
-        file=$COMFY/models/${arr[2]}/${arr[1]}
-        if [[ -f $file ]]; then
-            echo "Uninstalling Model: ${arr[1]}"
-            rm $file
+        model=${arr[1]}
+        folder=${arr[2]}
+        if [[ $model == -c ]]; then
+            model=${arr[2]}
+            folder=${arr[3]}
+        fi
+        if [[ -f $COMFY/models/$folder/$model ]]; then
+            echo "Uninstalling Model: $model"
+            rm $COMFY/models/$folder/$model
+        else
+            echo "$model not installed"
         fi
     fi
 done < $PODDY/tmp/uninstall
@@ -74,13 +81,20 @@ done < $PODDY/tmp/install
 # INSTALL NODES
 while IFS= read -r line; do
     arr=($line)
-    if [[ ${arr[0]} == node ]]; then
-        name=$(basename ${arr[1]})
-        if [ ! -d $COMFY/custom_nodes/$name ]; then
-            echo "Installing Custom Node: ${arr[1]}"
-            git clone ${arr[1]} $COMFY/custom_nodes/$name
+    type=${arr[0]}
+    if [[ $type == node ]]; then
+        if [[ ${arr[1]} == -c ]]; then
+            echo "Custom Install Node"
+            name=$(basename ${arr[2]})
+            if [ ! -d $COMFY/custom_nodes/$name ]; then
+                echo "Installing Custom Node: $name"
+                git clone ${arr[2]} $COMFY/custom_nodes/$name
+            else
+                echo "$name already exists"
+            fi
         else
-            echo "${arr[1]} already exists"
+            name=$(basename ${arr[1]})
+            comfy node install $name
         fi
     fi
 done < $PODDY/tmp/install
@@ -88,37 +102,66 @@ done < $PODDY/tmp/install
 # INSTALL MODELS
 while IFS= read -r line; do
     arr=($line)
-    if [[ ${arr[0]} == model ]]; then
-        name=${arr[1]}
-        folder=${arr[2]}
-        url=${arr[3]}
-        echo "MODEL: $name"
-        echo "FOLDER: $folder"
-        echo "URL: $url"
-        file=$COMFY/models/$folder/$name
-        mkdir -p $COMFY/models/$folder
-        # Bail if already exists
+    type=${arr[0]}
+    if [[ $type == model ]]; then
         if [[ ! -f $file ]]; then
-            # Extract domain name
-            domain=$(echo "$url" | sed -E 's|(https://)?([^/]+).*|\2|')
-            domain=$(basename -s ".com" $domain)
-            domain=$(basename -s ".co" $domain)
-            # Download
-            if [[ $domain == "civitai" ]]; then
-                # CIVITAI
-                token=${CIVITAI:-"none"}
-                if [[ $token == "none" ]]; then
-                    echo "$name requires the CIVITAI environmental variable set"
+            name=${arr[1]}
+            folder=${arr[2]}
+            url=${arr[3]}
+            civ=${CIVITAI_API_TOKEN:-"none"}
+            hf=${HF_API_TOKEN:-"none"}
+            if [[ ${arr[1]} == -c ]]; then
+                echo "Custom Install Model"
+                name=${arr[2]}
+                folder=${arr[3]}
+                url=${arr[4]}
+                echo "MODEL: $name"
+                echo "FOLDER: $folder"
+                echo "URL: $url"
+                file=$COMFY/models/$folder/$name
+                mkdir -p $COMFY/models/$folder
+                # Extract domain name
+                domain=$(echo "$url" | sed -E 's|(https://)?([^/]+).*|\2|')
+                domain=$(basename -s ".com" $domain)
+                domain=$(basename -s ".co" $domain)
+                # Download
+                if [[ $domain == "civitai" ]]; then
+                    # CIVITAI
+                    if [[ $civ == "none" ]]; then
+                        echo "$name requires the CIVITAI environmental variable set"
+                    else
+                        echo "downloading $url to $file"
+                        wget -O $file "$url&token=$CIVITAI" --no-verbose --show-progress --progress=bar:force:noscroll 
+                    fi
                 else
+                    # HUGGINGFACE
                     echo "downloading $url to $file"
-                    wget -O $file "$url&token=$CIVITAI" --no-verbose --show-progress --progress=bar:force:noscroll 
+                    wget -O $file $url --no-verbose --show-progress --progress=bar:force:noscroll 
                 fi
             else
-                # HUGGINGFACE
-                echo "downloading $url to $file"
-                wget -O $file $url --no-verbose --show-progress --progress=bar:force:noscroll 
+                domain=$(echo "$url" | sed -E 's|(https://)?([^/]+).*|\2|')
+                domain=$(basename -s ".com" $domain)
+                domain=$(basename -s ".co" $domain)
+                if [[ $domain == "civitai" ]]; 
+                    # CIVITAI
+                    if [[ $civ == "none" ]]; then
+                        echo "$name requires the CIVITAI_API_TOKEN environmental variable set"
+                    else
+                        comfy model download --$url --$folder --$CIVITAI_API_TOKEN
+                    fi
+                else
+                    # HF
+                    if [[ $civ == "none" ]]; then
+                        echo "$name requires the HF_API_TOKEN environmental variable set"
+                    else
+                        comfy model download --$url --$folder --$HF_API_TOKEN
+                    fi
+                fi
             fi
+        else
+            echo "model already exists"
         fi
+        # Bail if already exists
     fi
 done < $PODDY/tmp/install
 
