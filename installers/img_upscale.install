@@ -1,8 +1,8 @@
 workflow img_upscale
-node https://github.com/kijai/ComfyUI-KJNodes
-node https://github.com/yolain/ComfyUI-Easy-Use
-node https://github.com/cubiq/ComfyUI_essentials
-node https://github.com/StableLlama/ComfyUI-basic_data_handling
+#node https://github.com/kijai/ComfyUI-KJNodes
+#node https://github.com/yolain/ComfyUI-Easy-Use
+#node https://github.com/cubiq/ComfyUI_essentials
+#node https://github.com/StableLlama/ComfyUI-basic_data_handling
 model juggernaut-sdxl.safetensors diffusion_models https://civitai.com/api/download/models/1759168?type=Model&format=SafeTensor&size=full&fp=fp16
 model sdxl_lightning_8step_lora.safetensors loras https://huggingface.co/ByteDance/SDXL-Lightning/resolve/main/sdxl_lightning_8step_lora.safetensors
 model tiled-controlnet-sdxl.safetensors controlnet https://huggingface.co/xinsir/controlnet-tile-sdxl-1.0/resolve/main/diffusion_pytorch_model.safetensors
