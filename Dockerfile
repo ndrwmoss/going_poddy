@@ -1,4 +1,4 @@
-FROM jnxmx/comfy25:new128
+FROM runpod/pytorch:1.0.2-cu1281-torch280-ubuntu2404
 WORKDIR /
 COPY . .
 
@@ -11,8 +11,15 @@ ENV PREINSTALL="none"
 ENV CIVITAI_API_TOKEN="none"
 ENV HF_API_TOKEN="none"
 ENV REPO="none"
-# MOVE COMFY
-RUN mv /Comfy $COMFY
+
+RUN mkdir -p /workspace
+RUN apt install python3 git ffmpeg
+RUN pip install comfy-cli
+RUN comfy --workspace=/workspace/ install -y
+RUN cd /workspace/ComfyUI/custom_nodes
+RUN git clone https://github.com/mit-han-lab/ComfyUI-nunchaku nunchaku_nodes
+RUN cd nunchaku_nodes
+RUN pip install -r requirements.txt
 
 # INSTALL PODDY
 COPY poddy /poddy
