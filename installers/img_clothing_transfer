@@ -22,3 +22,6 @@ $c/model Qwen-Image-Lightning-4steps-V2.0.safetensors loras https://huggingface.
 $c/model clothes_tryon_qwen-edit-lora.safetensors loras https://civitai.com/api/download/models/2196278?type=Model&format=SafeTensor&token=${CIVITAI}
 $c/model extract-outfit_v3.safetensors loras https://huggingface.co/datasets/dubsta/xmas/resolve/main/extract-outfit_v3.safetensors
 $c/model RealESRGAN_x2plus.pth upscale_models https://huggingface.co/dtarnow/UPscaler/resolve/main/RealESRGAN_x2plus.pth
+
+# INSTALL PACKAGE
+$c/package img_clothing_transfer
