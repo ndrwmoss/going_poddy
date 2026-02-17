@@ -1,0 +1,15 @@
+#!/bin/bash
+# --- Update Comfy ---
+if [[ -f ${COMFY}/requirements.txt ]]; then
+    echo "Updating ComfyUI"
+    pip install -r ${COMFY}/requirements.txt
+fi
+
+
+for dir in $COMFY/custom_nodes/*; do
+  echo "Processing directory: $dir"
+  if [[ -f $COMFY/custom_nodes/$dir/requirements.txt ]]; then
+    pip install -r $COMFY/custom_nodes/$dir/requirements.txt
+  fi
+  # Add your commands here
+done
