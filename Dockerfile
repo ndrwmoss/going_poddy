@@ -27,5 +27,11 @@ RUN chmod -R +x $PODDY/boot
 RUN chmod -R +x $PODDY/cmd
 RUN chmod -R +x $PODDY/installers
 
+# MAKE ACTIVE DIRECTORY
+RUN mkdir -p $PODDY/active/py \
+    mkdir -p $PODDY/active/node \
+    mkdir -p $PODDY/active/model \
+    mkdir -p $PODDY/active/package
+
 EXPOSE 8080 8188 8888
 CMD [ "/workspace/going_poddy/boot/init" ]

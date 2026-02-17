@@ -1,11 +1,10 @@
 #!/bin/bash
-
 # SETUP
-
 c=$PODDY/cmd/${1:-install}
 
 # WORKFLOWS
 $c/workflow img_clothing_transfer
+$c/workflow img_clothing_extract
 
 # NODES
 $c/node https://github.com/rgthree/rgthree-comfy
