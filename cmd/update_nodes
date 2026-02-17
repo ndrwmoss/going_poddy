@@ -13,3 +13,4 @@ for dir in $COMFY/custom_nodes/*; do
   fi
   # Add your commands here
 done
+
