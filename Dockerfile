@@ -2,7 +2,6 @@ FROM jnxmx/comfy25:new128
 WORKDIR /
 COPY . .
 RUN mv Comfy /workspace/ComfyUI
-
 # CREATE VARIABLES
 ENV COMFY=/workspace/ComfyUI
 ENV COMFY_WORKFLOW=$COMFY/user/default/workflows
