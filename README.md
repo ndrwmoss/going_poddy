@@ -33,27 +33,27 @@ A CUDA 12.8, ComfyUI, Sage Attention Runpod pod with quick installs for Wan 2.2,
 The workflow is by [MDMZ](https://www.youtube.com/watch?v=woCP1Q_Htwo), information about how to use the workflow can be found by watching the video in the link.  
 <mark>disk space: **base container size + 35 GB**</mark>    
 
-    /poddy i video_character_replace
+    /poddy i vid_character_replace
 
 ### Lipsync
 The workflow is by [Blue Spork](https://www.youtube.com/watch?v=LR4lBimS7O4), information about how to use the workflow can be found by watching the video in the link.  
 <mark>disk space: **base container size + 35 GB**</mark>   
 
-    /poddy i video_lipsync
+    /poddy i vid_lipsync
 
 ### Upscale
 <mark>disk space: **base container size + 35 GB**</mark>   
 
-    /poddy i video_upscale
+    /poddy i vid_upscale
 
 ##
 # Photo
 ### Clothing Transfer
 <mark>disk space: **base container size + 35 GB**</mark>    
 
-    /poddy i photo_clothing_transfer
+    /poddy i img_clothing_transfer
 
 ### Upscale
 <mark>disk space: **base container size + 35 GB**</mark>      
 
-    /poddy i photo_upscale
+    /poddy i img_upscale

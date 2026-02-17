@@ -49,5 +49,5 @@ $PODDY/boot/jupyter
 
 echo "INIT COMPLETE: STARTING YOUR COMFY ON PORT 8188"
 
-comfy --workspace=$COMFY launch --use-sage-attention --listen --port=8188
-#python /workspace/ComfyUI/main.py --use-sage-attention --listen --port=8188
+#comfy --workspace=$COMFY launch --use-sage-attention --listen --port=8188
+python $COMFY/main.py --use-sage-attention --listen --port=8188
