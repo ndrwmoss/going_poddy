@@ -28,8 +28,10 @@ else
 fi
 
 echo "INIT: POPULATING YOUR PODDY"
-#python -m pip install --upgrade pip
+pip install --upgrade pip
+pip install onnxruntime-gpu
 #python -m pip install triton
+
 
 echo "INIT: SAGE"
 $PODDY/boot/sage
