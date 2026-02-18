@@ -8,6 +8,11 @@ $c/workflow vid_character_and_bg_replace
 $c/workflow vid_character_replace
 
 # NODES
+$c/node https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite
+$c/node https://github.com/kijai/ComfyUI-KJNodes
+$c/node https://github.com/kijai/ComfyUI-WanVideoWrappers
+$c/node https://github.com/un-seen/comfyui-tensorops
+$c/node https://github.com/kijai/ComfyUI-segment-anything-2
 $c/node https://github.com/kijai/ComfyUI-WanAnimatePreprocess
 
 # MODELS

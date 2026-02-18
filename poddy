@@ -8,7 +8,6 @@ if [[ $command == add || $command == a || $command == install || $command == i ]
     echo "INSTALLING: $location"
     if [[ -f $PODDY/installers/$location ]]; then
         $PODDY/installers/$location install
-        $PODDY/cmd/update_nodes
     else
         echo "Not a valid installer"
     fi
@@ -16,13 +15,11 @@ elif [[ $command == remove || $command == r || $command == uninstall || $command
     echo "UNINSTALLING: $location"
     if [[ -f $PODDY/installers/$location ]]; then
         $PODDY/installers/$location uninstall
-        $PODDY/cmd/update_nodes
     else
         echo "Not a valid uninstaller"
     fi
 elif [[ $command == update ]]; then
     $PODDY/boot/update $location
-    $PODDY/cmd/update_nodes
 else
     echo "INVALID COMMAND"
 fi
