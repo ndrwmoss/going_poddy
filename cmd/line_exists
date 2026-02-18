@@ -1,0 +1,14 @@
+#!/bin/bash
+check_line=$1
+file=$2
+iteration=1
+while IFS= read -r line
+do
+    if [[ $line == $check_line ]]; then
+        echo $iteration
+        exit 0
+    fi
+    ((iteration++))
+done < $file
+echo "false"
+exit 0
