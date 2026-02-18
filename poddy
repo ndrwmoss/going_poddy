@@ -3,20 +3,107 @@
 #command = install | uninstall
 command=${1:-empty}
 location=${2:-none}
-
+civ=${CIVITAI_API_TOKEN:-"none"}
 if [[ $command == add || $command == a || $command == install || $command == i ]]; then
     echo "INSTALLING: $location"
     if [[ -f $PODDY/installers/$location ]]; then
-        $PODDY/installers/$location install
+        # LOOP lines of installer file
+        while IFS= read -r line; do
+            # Check if already installed
+            shared=$($PODDY/cmd/is_shared $line)
+            if [[ $shared == false ]]; then
+                # make array of words in the line
+                words_array=($line)
+                type=${words_array[0]}
+                command=${words_array[1]}
+                # INSTALL PY
+                if [[ $type == py ]]; then
+                    python -m pip install $command --quiet
+                # INSTALL NODE
+                elif [[ $type == node ]]; then
+                    name=$(basename $command)
+                    if [ ! -d $COMFY/custom_nodes/$name ]; then
+                        echo "INSTALLING CUSTOM NODE: $name"
+                        git clone $command $COMFY/custom_nodes/$name
+                    else
+                        echo "ALREADY INSTALLED: $name"
+                    fi
+                # INSTALL MODEL
+                elif [[ $type == model ]]; then
+                    folder=${words_array[2]}
+                    url=${words_array[3]}
+                    file=$COMFY/models/$folder/$command
+                    # Extract domain name
+                    if [[ -f $file ]]; then
+                        echo "model already exists"
+                    else
+                        domain=$(echo "$url" | sed -E 's|(https://)?([^/]+).*|\2|')
+                        domain=$(basename -s ".com" $domain)
+                        domain=$(basename -s ".co" $domain)
+                        # Download
+                        if [[ $domain == "civitai" ]]; then
+                            # CIVITAI
+                            if [[ $civ == "none" ]]; then
+                                echo "$name requires the CIVITAI environmental variable set"
+                            else
+                                echo "downloading $url to $file"
+                                wget -O $file "$url&token=$CIVITAI_API_TOKEN" --no-verbose --show-progress --progress=bar:force:noscroll 
+                            fi
+                        else
+                            # HUGGINGFACE
+                            echo "downloading $url to $file"
+                            wget -O $file $url --no-verbose --show-progress --progress=bar:force:noscroll 
+                        fi
+                    fi
+                fi
+            fi
+        done < $PODDY/installers/$location
+        /cp $PODDY/installers/$location $PODDY/active/$location
     else
         echo "Not a valid installer"
     fi
 elif [[ $command == remove || $command == r || $command == uninstall || $command == u ]]; then
-    echo "UNINSTALLING: $location"
+    echo "INSTALLING: $location"
     if [[ -f $PODDY/installers/$location ]]; then
-        $PODDY/installers/$location uninstall
+        # LOOP lines of installer file
+        while IFS= read -r line; do
+            # Check if already installed
+            shared=$($PODDY/cmd/is_shared $line)
+            if [[ $shared == false ]]; then
+                # make array of words in the line
+                words_array=($line)
+                type=${words_array[0]}
+                command=${words_array[1]}
+                # INSTALL PY
+                if [[ $type == py ]]; then
+                    python -m pip uninstall $command --yes --quiet
+                # INSTALL NODE
+                elif [[ $type == node ]]; then
+                    name=$(basename $command)
+                    if [[ -d $COMFY/custom_nodes/$name ]]; then
+                        echo "Uninstalling Custom Node: $name"
+                        rm -r $COMFY/custom_nodes/$name
+                    else
+                        echo "NOT INSTALLED: $name"
+                    fi
+                # INSTALL MODEL
+                elif [[ $type == model ]]; then
+                    folder=${words_array[2]}
+                    file=$COMFY/models/$folder/$command
+                    if [[ -f $file ]]; then
+                        echo "Uninstalling Model: $command"
+                        rm $file
+                    else
+                        echo "$command not installed"
+                    fi
+                fi
+            fi
+        done < $PODDY/installers/$location
+        if [[ -f $PODDY/active/$location ]]; then
+            rm $PODDY/active/$location
+        fi
     else
-        echo "Not a valid uninstaller"
+        echo "Not a valid installer"
     fi
 elif [[ $command == update ]]; then
     $PODDY/boot/update $location

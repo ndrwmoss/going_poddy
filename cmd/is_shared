@@ -1,0 +1,11 @@
+#!/bin/bash
+for file in $PODDY/active/*; do
+    while IFS= read -r line; do
+        if [[ $line == $1 ]]; then
+            echo "true"
+            exit 0
+        fi
+    done < $file
+done
+echo "false"
+exit 0

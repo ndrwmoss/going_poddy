@@ -38,6 +38,7 @@ $PODDY/boot/sage
 
 echo "INIT: COMFY"
 $PODDY/boot/comfy
+mkdir -p $COMFY_WORKFLOW
 
 echo "INIT: SSH"
 $PODDY/boot/ssh
