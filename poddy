@@ -61,7 +61,7 @@ if [[ $command == add || $command == a || $command == install || $command == i ]
                 echo "Package is shared"
             fi
         done < $PODDY/installers/$location
-        /cp $PODDY/installers/$location $PODDY/active/$location
+        \cp $PODDY/installers/$location $PODDY/active/$location
     else
         echo "Not a valid installer"
     fi
