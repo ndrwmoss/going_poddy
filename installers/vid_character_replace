@@ -8,7 +8,6 @@ $c/workflow vid_character_and_bg_replace
 $c/workflow vid_character_replace
 
 # NODES
-
 $c/node https://github.com/kijai/ComfyUI-WanAnimatePreprocess
 
 # MODELS

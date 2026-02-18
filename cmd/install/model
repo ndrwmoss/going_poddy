@@ -4,11 +4,11 @@ folder=${2}
 url=${3}
 civ=${CIVITAI_API_TOKEN:-"none"}
 hf=${HF_API_TOKEN:-"none"}
+mkdir -p $COMFY/models/$folder
 echo "MODEL: $name"
 echo "FOLDER: $folder"
 echo "URL: $url"
 file=$COMFY/models/$folder/$name
-mkdir -p $COMFY/models/$
 
 # Extract domain name
 if [[ -f $file ]]; then
