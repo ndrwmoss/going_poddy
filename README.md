@@ -31,7 +31,9 @@ A CUDA 12.8, ComfyUI, Sage Attention Runpod pod with quick installs for Wan 2.2,
 
 ### Character Replace
 The workflow is by [MDMZ](https://www.youtube.com/watch?v=woCP1Q_Htwo), information about how to use the workflow can be found by watching the video in the link.  
-<mark>disk space: **base container size + 35 GB**</mark>    
+<mark>disk space: **35 GB**</mark>  
+<mark>VRAM: **32 GB**</mark>
+<mark>RAM: **Requires a 40 series card or above**</mark>
 
     /poddy i vid_character_replace
 

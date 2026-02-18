@@ -21,6 +21,11 @@ COPY boot $PODDY/boot
 COPY cmd $PODDY/cmd
 COPY installers $PODDY/installers
 COPY workflows $PODDY/workflows
+RUN mkdir -p $PODDY/active/node \
+    mkdir -p $PODDY/active/model \
+    mkdir -p $PODDY/active/py \
+    mkdir -p $PODDY/active/package \
+    mkdir -p $PODDY/tmp
 
 # SET EXECUTABLES
 RUN chmod -R +x $PODDY/boot
