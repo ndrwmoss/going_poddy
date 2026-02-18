@@ -3,7 +3,6 @@
 echo "INIT: CUDA"
 $PODDY/boot/cuda
 
-
 rep=${REPO:-"none"}
 $PODDY/boot/system
 
@@ -15,12 +14,14 @@ if [[ $rep == "none" ]]; then
     echo "Updating Poddy"
     $PODDY/boot/update
 elif [[ $rep == test ]]; then
-    echo "Grabbing test workflows"
+    echo "Updating Poddy"
     $PODDY/boot/update
+    echo "Grabbing test workflows"
     $PODDY/boot/update test
 else
-    echo "updating 3rd party repo"
+    echo "Updating Poddy"
     $PODDY/boot/update
+    echo "Grabbing $rep workflows"
     $PODDY/boot/update $rep
 fi
 
