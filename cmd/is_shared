@@ -1,17 +1,13 @@
 #!/bin/bash
 dir=$PODDY/active
-if [[ -d $dir ]]; then
-    for file in $dir/*; do
-        while IFS= read -r line; do
-            if [[ $line == $1 ]]; then
-                echo "true"
-                exit 0
-            fi
-        done < $file
-    done
-else
-    echo "active doesn't exist"
-    mkdir -p $PODDY/active
-fi
+mkdir -p $dir
+for file in "$dir/*"; do
+    while IFS= read -r line; do
+        if [[ $line == $1 ]]; then
+            echo "true"
+            exit 0
+        fi
+    done < $file
+done
 echo "false"
 exit 0
