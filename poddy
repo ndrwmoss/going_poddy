@@ -16,8 +16,16 @@ if [[ $command == add || $command == a || $command == install || $command == i ]
                 words_array=($line)
                 type=${words_array[0]}
                 command=${words_array[1]}
+                # INSTALL WORKFLOW
+                if [[ $type == workflow ]]; then
+                    if [[ -f $PODDY/installers/$command.json ]]; then
+                        echo "Copying $command from Going Poddy workflow folder to ComfyUI's workflow folder"
+                        \cp $PODDY/installers/$command.json $COMFY_WORKFLOW/$command.json
+                    else
+                        echo "$command isn't in the Going Poddy workflow folder. Cannot be installed."
+                    fi
                 # INSTALL PY
-                if [[ $type == py ]]; then
+                elif [[ $type == py ]]; then
                     echo "INSTALLING PYTHON: $name"
                     python -m pip install $command --quiet
                 # INSTALL NODE
@@ -78,7 +86,13 @@ elif [[ $command == remove || $command == r || $command == uninstall || $command
                 type=${words_array[0]}
                 command=${words_array[1]}
                 # INSTALL PY
-                if [[ $type == py ]]; then
+                if [[ $type == workflow ]]; then
+                    if [[ -f $COMFY_WORKFLOW/$command.json ]]; then
+                        rm $COMFY_WORKFLOW/$command.json
+                    else
+                        echo "$command isn't in the ComfyUI workflows folder, apparently it was never installed."
+                    fi
+                elif [[ $type == py ]]; then
                     echo "Uninstalling Python: $name"
                     python -m pip uninstall $command --yes --quiet
                 # INSTALL NODE

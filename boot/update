@@ -9,10 +9,12 @@ if [[ -d $PORTA_PODDY ]]; then
 fi
 mkdir -p $PORTA_PODDY
 git clone $location $PORTA_PODDY
-\cp -r $PORTA_PODDY/installers $PODDY
-\cp -r $PORTA_PODDY/workflows $PODDY
 
-chmod -R +x $PODDY/installers
-
-rm -r $PORTA_PODDY
-echo "UPDATE COMPLETE"
+if [[ -d $PORTA_PODDY/installers && -d $PORTA_PODDY/workflows]]; then
+    \cp -r $PORTA_PODDY/installers $PODDY
+    \cp -r $PORTA_PODDY/workflows $PODDY
+    rm -r $PORTA_PODDY
+    echo "UPDATE COMPLETE"
+else
+    echo "INVALID REPOSITORY"
+fi

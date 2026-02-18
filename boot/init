@@ -11,17 +11,12 @@ $PODDY/boot/comfy
 
 # Runs update.
 if [[ $rep == "none" ]]; then
-    echo "Updating Poddy"
     $PODDY/boot/update
 elif [[ $rep == test ]]; then
-    echo "Updating Poddy"
     $PODDY/boot/update
-    echo "Grabbing test workflows"
     $PODDY/boot/update test
 else
-    echo "Updating Poddy"
     $PODDY/boot/update
-    echo "Grabbing $rep workflows"
     $PODDY/boot/update $rep
 fi
 
@@ -37,13 +32,9 @@ fi
 echo "INIT: POPULATING YOUR PODDY"
 pip install --upgrade pip
 pip install onnxruntime-gpu
-#python -m pip install triton
-
 
 echo "INIT: SAGE"
 $PODDY/boot/sage
-
-
 
 echo "INIT: SSH"
 $PODDY/boot/ssh
@@ -55,6 +46,4 @@ echo "INIT: JUPYTER"
 $PODDY/boot/jupyter
 
 echo "INIT COMPLETE: STARTING YOUR COMFY ON PORT 8188"
-
-#comfy --workspace=$COMFY launch --use-sage-attention --listen --port=8188
 python $COMFY/main.py --use-sage-attention --listen --port=8188
