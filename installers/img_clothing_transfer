@@ -1,24 +1,20 @@
-#!/bin/bash
-# SETUP
-c=$PODDY/cmd/${1:-install}
-
 # WORKFLOWS
-$c/workflow img_clothing_transfer
-$c/workflow img_clothing_extract
+workflow img_clothing_transfer
+workflow img_clothing_extract
 
 # NODES
-$c/node https://github.com/rgthree/rgthree-comfy
-$c/node https://github.com/yolain/ComfyUI-Easy-Use
-$c/node https://github.com/kijai/ComfyUI-KJNodes
-$c/node https://github.com/ssitu/ComfyUI_UltimateSDUpscale
-$c/node https://github.com/Smirnov75/ComfyUI-mxToolkit
+node https://github.com/rgthree/rgthree-comfy
+node https://github.com/yolain/ComfyUI-Easy-Use
+node https://github.com/kijai/ComfyUI-KJNodes
+node https://github.com/ssitu/ComfyUI_UltimateSDUpscale
+node https://github.com/Smirnov75/ComfyUI-mxToolkit
 
 # MODELS
-$c/model qwen_image_edit_fp8_e4m3fn.safetensors diffusion_models https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI/resolve/main/split_files/diffusion_models/qwen_image_edit_fp8_e4m3fn.safetensors
-$c/model juggernautXL_juggXIByRundiffusion.safetensors checkpoints https://huggingface.co/misri/juggernautXL_juggXIByRundiffusion/resolve/main/juggernautXL_juggXIByRundiffusion.safetensors
-$c/model qwen_image_vae.safetensors vae https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors
-$c/model qwen_2.5_vl_7b_fp8_scaled.safetensors text_encoders https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors
-$c/model Qwen-Image-Lightning-4steps-V2.0.safetensors loras https://huggingface.co/lightx2v/Qwen-Image-Lightning/resolve/main/Qwen-Image-Lightning-4steps-V2.0.safetensors
-$c/model clothes_tryon_qwen-edit-lora.safetensors loras https://civitai.com/api/download/models/2196278?type=Model&format=SafeTensor&token=${CIVITAI}
-$c/model extract-outfit_v3.safetensors loras https://huggingface.co/datasets/dubsta/xmas/resolve/main/extract-outfit_v3.safetensors
-$c/model RealESRGAN_x2plus.pth upscale_models https://huggingface.co/dtarnow/UPscaler/resolve/main/RealESRGAN_x2plus.pth
+model qwen_image_edit_fp8_e4m3fn.safetensors diffusion_models https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI/resolve/main/split_files/diffusion_models/qwen_image_edit_fp8_e4m3fn.safetensors
+model juggernautXL_juggXIByRundiffusion.safetensors checkpoints https://huggingface.co/misri/juggernautXL_juggXIByRundiffusion/resolve/main/juggernautXL_juggXIByRundiffusion.safetensors
+model qwen_image_vae.safetensors vae https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors
+model qwen_2.5_vl_7b_fp8_scaled.safetensors text_encoders https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors
+model Qwen-Image-Lightning-4steps-V2.0.safetensors loras https://huggingface.co/lightx2v/Qwen-Image-Lightning/resolve/main/Qwen-Image-Lightning-4steps-V2.0.safetensors
+model clothes_tryon_qwen-edit-lora.safetensors loras https://civitai.com/api/download/models/2196278?type=Model&format=SafeTensor&token=${CIVITAI}
+model extract-outfit_v3.safetensors loras https://huggingface.co/datasets/dubsta/xmas/resolve/main/extract-outfit_v3.safetensors
+model RealESRGAN_x2plus.pth upscale_models https://huggingface.co/dtarnow/UPscaler/resolve/main/RealESRGAN_x2plus.pth
