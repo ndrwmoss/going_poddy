@@ -2,12 +2,14 @@
 dir=$PODDY/active
 mkdir -p $dir
 for file in $dir/; do
-    while IFS= read -r line; do
-        if [[ $line == $1 ]]; then
-            echo "true"
-            exit 0
-        fi
-    done < $file
+    if [[ -f $file ]]; then
+        while IFS= read -r line; do
+            if [[ $line == $1 ]]; then
+                echo "true"
+                exit 0
+            fi
+        done < $file
+    fi
 done
 echo "false"
 exit 0
