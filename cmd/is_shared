@@ -1,7 +1,7 @@
 #!/bin/bash
-
-if [[ -d $PODDY/active ]]; then
-    for file in $PODDY/active/*; do
+dir=$PODDY/active
+if [[ -d $dir ]]; then
+    for file in $dir/*; do
         while IFS= read -r line; do
             if [[ $line == $1 ]]; then
                 echo "true"
