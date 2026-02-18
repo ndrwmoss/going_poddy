@@ -18,6 +18,7 @@ if [[ $command == add || $command == a || $command == install || $command == i ]
                 command=${words_array[1]}
                 # INSTALL PY
                 if [[ $type == py ]]; then
+                    echo "INSTALLING PYTHON: $name"
                     python -m pip install $command --quiet
                 # INSTALL NODE
                 elif [[ $type == node ]]; then
@@ -56,6 +57,8 @@ if [[ $command == add || $command == a || $command == install || $command == i ]
                         fi
                     fi
                 fi
+            else
+                echo "Package is shared"
             fi
         done < $PODDY/installers/$location
         /cp $PODDY/installers/$location $PODDY/active/$location
@@ -76,6 +79,7 @@ elif [[ $command == remove || $command == r || $command == uninstall || $command
                 command=${words_array[1]}
                 # INSTALL PY
                 if [[ $type == py ]]; then
+                    echo "Uninstalling Python: $name"
                     python -m pip uninstall $command --yes --quiet
                 # INSTALL NODE
                 elif [[ $type == node ]]; then
@@ -97,6 +101,8 @@ elif [[ $command == remove || $command == r || $command == uninstall || $command
                         echo "$command not installed"
                     fi
                 fi
+            else
+                echo "Package is shared"
             fi
         done < $PODDY/installers/$location
         if [[ -f $PODDY/active/$location ]]; then

@@ -7,13 +7,19 @@ $PODDY/boot/cuda
 rep=${REPO:-"none"}
 $PODDY/boot/system
 
+echo "INIT: COMFY"
+$PODDY/boot/comfy
+
 # Runs update.
 if [[ $rep == "none" ]]; then
+    echo "Updating Poddy"
     $PODDY/boot/update
-elif [[ $REPO == test ]]; then
+elif [[ $rep == test ]]; then
+    echo "Grabbing test workflows"
     $PODDY/boot/update
     $PODDY/boot/update test
 else
+    echo "updating 3rd party repo"
     $PODDY/boot/update
     $PODDY/boot/update $rep
 fi
@@ -36,9 +42,7 @@ pip install onnxruntime-gpu
 echo "INIT: SAGE"
 $PODDY/boot/sage
 
-echo "INIT: COMFY"
-$PODDY/boot/comfy
-mkdir -p $COMFY_WORKFLOW
+
 
 echo "INIT: SSH"
 $PODDY/boot/ssh
