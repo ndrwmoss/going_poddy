@@ -8,12 +8,8 @@ $c/workflow vid_character_and_bg_replace
 $c/workflow vid_character_replace
 
 # NODES
-$c/node https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite
-$c/node https://github.com/kijai/ComfyUI-KJNodes
-$c/node https://github.com/kijai/ComfyUI-WanVideoWrappers
+
 $c/node https://github.com/kijai/ComfyUI-WanAnimatePreprocess
-$c/node https://github.com/un-seen/comfyui-tensorops
-$c/node https://github.com/kijai/ComfyUI-segment-anything-2
 
 # MODELS
 $c/model Wan2_2-Animate-14B_fp8_e4m3fn_scaled_KJ.safetensors diffusion_models https://huggingface.co/Kijai/WanVideo_comfy_fp8_scaled/resolve/main/Wan22Animate/Wan2_2-Animate-14B_fp8_e4m3fn_scaled_KJ.safetensors
