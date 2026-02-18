@@ -21,7 +21,7 @@ COPY boot $PODDY/boot
 COPY cmd $PODDY/cmd
 COPY installers $PODDY/installers
 COPY workflows $PODDY/workflows
-RUN mkdir -p $PODDY/active
+COPY active $PODDY/active
 
 # SET EXECUTABLES
 RUN chmod -R +x $PODDY/boot
