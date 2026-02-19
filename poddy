@@ -31,9 +31,12 @@ if [[ $command == add || $command == a || $command == install || $command == i ]
                 # INSTALL NODE
                 elif [[ $type == node ]]; then
                     name=$(basename $command)
-                    if [ ! -d $COMFY/custom_nodes/$name ]; then
+                    if [[ ! -d $COMFY/custom_nodes/$name ]]; then
                         echo "INSTALLING CUSTOM NODE: $name"
                         git clone $command $COMFY/custom_nodes/$name
+                        if [[ -f $COMFY/custom_nodes/$name/requirements.txt ]]; then
+                            pip install -r $COMFY/custom_nodes/$name/requirements.txt
+                        fi
                     else
                         echo "ALREADY INSTALLED: $name"
                     fi
