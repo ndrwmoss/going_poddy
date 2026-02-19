@@ -30,6 +30,7 @@ if [[ $rep == "none" ]]; then
     $PODDY/boot/update
 elif [[ $rep == test ]]; then
     $PODDY/boot/update
+    echo "FETCHING TEST PACKAGES"
     $PODDY/boot/update test
 else
     $PODDY/boot/update
@@ -39,7 +40,7 @@ fi
 # Runs installers if PREINSTALL is set to a non-empty string.
 pre=${PREINSTALL:-"none"}
 if [[ $pre != "none" ]]; then
-    echo "INIT: installing selected Going Poddy packages"
+    echo "INIT: installing $pre packages"
     /poddy i $pre
 else
     echo "INIT: Going Poddy packages selected. To install packages open a terminal and type /poddy to open the Going Poddy wizard where you can select packages to install."

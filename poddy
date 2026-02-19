@@ -18,9 +18,9 @@ if [[ $command == add || $command == a || $command == install || $command == i ]
                 command=${words_array[1]}
                 # INSTALL WORKFLOW
                 if [[ $type == workflow ]]; then
-                    if [[ -f $PODDY/installers/$command.json ]]; then
+                    if [[ -f $PODDY/workflows/$command.json ]]; then
                         echo "Copying $command from Going Poddy workflow folder to ComfyUI's workflow folder"
-                        \cp $PODDY/installers/$command.json $COMFY_WORKFLOW/$command.json
+                        \cp $PODDY/workflows/$command.json $COMFY_WORKFLOW/$command.json
                     else
                         echo "$command isn't in the Going Poddy workflow folder. Cannot be installed."
                     fi
