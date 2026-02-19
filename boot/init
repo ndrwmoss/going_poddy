@@ -9,6 +9,22 @@ $PODDY/boot/system
 echo "INIT: COMFY"
 $PODDY/boot/comfy
 
+echo "INIT: POPULATING YOUR PODDY"
+pip install --upgrade pip
+pip install onnxruntime-gpu
+
+echo "INIT: SAGE"
+$PODDY/boot/sage
+
+echo "INIT: SSH"
+$PODDY/boot/ssh
+
+echo "INIT: NGINX"
+$PODDY/boot/nginx
+
+echo "INIT: JUPYTER"
+$PODDY/boot/jupyter
+
 # Runs update.
 if [[ $rep == "none" ]]; then
     $PODDY/boot/update
@@ -29,21 +45,7 @@ else
     echo "INIT: Going Poddy packages selected. To install packages open a terminal and type /poddy to open the Going Poddy wizard where you can select packages to install."
 fi
 
-echo "INIT: POPULATING YOUR PODDY"
-pip install --upgrade pip
-pip install onnxruntime-gpu
-
-echo "INIT: SAGE"
-$PODDY/boot/sage
-
-echo "INIT: SSH"
-$PODDY/boot/ssh
-
-echo "INIT: NGINX"
-$PODDY/boot/nginx
-
-echo "INIT: JUPYTER"
-$PODDY/boot/jupyter
+$PODDY/cmd/update_nodes
 
 echo "INIT COMPLETE: STARTING YOUR COMFY ON PORT 8188"
 python $COMFY/main.py --use-sage-attention --listen --port=8188
