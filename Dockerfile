@@ -68,12 +68,11 @@ RUN git clone https://github.com/lldacing/ComfyUI_StableHair_ll.git
 RUN git clone https://github.com/cubiq/ComfyUI_essentials.git
 RUN git clone https://github.com/mav-rik/facerestore_cf.git
 RUN git clone https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite.git
-RUN git clone https://github.com/ryanontheinside/ComfyUI_RyanOnTheInside.git
 RUN git clone https://github.com/kijai/ComfyUI-MelBandRoFormer.git
-RUN git clone https://github.com/kijai/ComfyUI-WanVideoWrapper.git
 RUN git clone https://github.com/kijai/ComfyUI-WanAnimatePreprocess.git
 RUN git clone https://github.com/kijai/ComfyUI-segment-anything-2.git
 RUN git clone https://github.com/un-seen/comfyui-tensorops.git
+RUN git clone https://github.com/ryanontheinside/ComfyUI_RyanOnTheInside.git
 
 EXPOSE 8080 8188 8888
 CMD [ "/workspace/going_poddy/boot/init" ]
