@@ -1,0 +1,21 @@
+# py name
+
+# workflow name
+workflow sdxl_hair_transfer
+workflow sdxl_hair_transfer_batch
+
+# node url
+node https://github.com/a-und-b/ComfyUI_LoRA_from_URL
+node https://github.com/lldacing/ComfyUI_StableHair_ll
+node https://github.com/cubiq/ComfyUI_essentials
+node https://github.com/yolain/ComfyUI-Easy-Use
+node https://github.com/mav-rik/facerestore_cf
+node https://github.com/ltdrdata/was-node-suite-comfyui
+
+
+# model name folder url
+model realisticVisionV60B1_v51VAE.safetensors diffusion_models https://huggingface.co/khaimd123/realisticVisionV60B1_v51VAE/resolve/5314c8485d833085571162c6bd3664eabdc6b25f/realisticVisionV60B1_v51VAE.safetensors
+model hair_encoder_model.bin diffusers/StableHair https://huggingface.co/lldacing/StableHair/resolve/main/hair_encoder_model.bin
+model hair_adapter_model.bin diffusers/StableHair https://huggingface.co/lldacing/StableHair/resolve/main/hair_adapter_model.bin
+model hair_controlnet_model.bin diffusers/StableHair https://huggingface.co/lldacing/StableHair/resolve/main/hair_controlnet_model.bin
+model hair_bald_model.bin diffusers/StableHair https://huggingface.co/lldacing/StableHair/resolve/main/hair_bald_model.bin

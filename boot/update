@@ -11,11 +11,13 @@ mkdir -p $PORTA_PODDY
 git clone $location $PORTA_PODDY
 
 if [[ -d $PORTA_PODDY/installers ]]; then
+    echo "REPOSITORY: Installers Exist"
     if [[ -d $PODDY/workflows ]]; then
-            \cp -r $PORTA_PODDY/installers $PODDY
+        echo "REPOSITORY: Workflows Exist"
+        \cp -r $PORTA_PODDY/installers $PODDY
         \cp -r $PORTA_PODDY/workflows $PODDY
         rm -r $PORTA_PODDY
-        echo "UPDATE COMPLETE"
+        echo "REPOSITORY INSTALLED"
     else
         echo "INVALID REPOSITORY: No Workflows Found"
     fi
