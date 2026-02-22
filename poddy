@@ -44,7 +44,7 @@ if [[ $command == add || $command == a || $command == install || $command == i ]
                 elif [[ $type == model ]]; then
                     folder=${words_array[2]}
                     url=${words_array[3]}
-                    file=$COMFY/models/$folder/
+                    file=$COMFY/models/$folder
                     # Extract domain name
                     if [[ -f $file ]]; then
                         echo "model already exists"
