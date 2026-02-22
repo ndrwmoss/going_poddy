@@ -27,7 +27,7 @@ if [[ $command == add || $command == a || $command == install || $command == i ]
                 # INSTALL PY
                 elif [[ $type == py ]]; then
                     echo "INSTALLING PYTHON: $name"
-                    python -m pip install $command --quiet
+                    python -m pip install $command -q
                 # INSTALL NODE
                 elif [[ $type == node ]]; then
                     name=$(basename $command)
@@ -44,7 +44,7 @@ if [[ $command == add || $command == a || $command == install || $command == i ]
                 elif [[ $type == model ]]; then
                     folder=${words_array[2]}
                     url=${words_array[3]}
-                    file=$COMFY/models/$folder/$command
+                    file=$COMFY/models/$folder/
                     # Extract domain name
                     if [[ -f $file ]]; then
                         echo "model already exists"
