@@ -27,12 +27,14 @@ $PODDY/boot/jupyter
 
 # Runs update.
 if [[ $rep == "none" ]]; then
+    echo "FETCHING WORKFLOWS"
     $PODDY/boot/update
 elif [[ $rep == test ]]; then
     $PODDY/boot/update
     echo "FETCHING TEST PACKAGES"
     $PODDY/boot/update test
 else
+    echo "FETCHING WORKFLOWS"
     $PODDY/boot/update
     $PODDY/boot/update $rep
 fi
