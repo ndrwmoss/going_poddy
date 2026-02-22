@@ -59,12 +59,12 @@ if [[ $command == add || $command == a || $command == install || $command == i ]
                                 echo "$name requires the CIVITAI environmental variable set"
                             else
                                 echo "downloading $url to $file"
-                                wget -O $file "$url&token=$CIVITAI_API_TOKEN" --no-verbose --show-progress --progress=bar:force:noscroll 
+                                wget -O $command -P $file "$url&token=$CIVITAI_API_TOKEN" --no-verbose --show-progress --progress=bar:force:noscroll 
                             fi
                         else
                             # HUGGINGFACE
                             echo "downloading $url to $file"
-                            wget -O $file $url --no-verbose --show-progress --progress=bar:force:noscroll 
+                            wget -O $command -P $file $url --no-verbose --show-progress --progress=bar:force:noscroll 
                         fi
                     fi
                 fi

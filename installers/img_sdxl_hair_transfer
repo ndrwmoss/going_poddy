@@ -1,8 +1,8 @@
 # py name
 
 # workflow name
-workflow sdxl_hair_transfer
-workflow sdxl_hair_transfer_batch
+workflow img_hair_transfer
+workflow img_hair_transfer_batch
 
 # node url
 node https://github.com/a-und-b/ComfyUI_LoRA_from_URL
