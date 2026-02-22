@@ -8,9 +8,9 @@ ENV COMFY_WORKFLOW=$COMFY/user/default/workflows
 ENV PODDY=/workspace/going_poddy
 ENV PORTA_PODDY=/workspace/going_poddy/porta_poddy
 ENV PREINSTALL="none"
+ENV REPO="none"
 # ENV CIVITAI_API_TOKEN="none"
 # ENV HF_API_TOKEN="none"
-ENV REPO="none"
 
 # INSTALL PODDY
 COPY poddy /poddy

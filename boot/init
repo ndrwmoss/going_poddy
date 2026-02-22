@@ -26,10 +26,10 @@ echo "INIT: JUPYTER"
 $PODDY/boot/jupyter
 
 # Runs update.
-if [[ $rep == "none" ]]; then
+if [[ $REPO == "none" ]]; then
     echo "FETCHING WORKFLOWS"
     $PODDY/boot/update
-elif [[ $rep == test ]]; then
+elif [[ $REPO == test ]]; then
     $PODDY/boot/update
     echo "FETCHING TEST PACKAGES"
     $PODDY/boot/update test
@@ -40,12 +40,11 @@ else
 fi
 
 # Runs installers if PREINSTALL is set to a non-empty string.
-pre=${PREINSTALL:-"none"}
-if [[ $pre != "none" ]]; then
-    echo "INIT: installing $pre packages"
-    /poddy i $pre
+if [[ $PREINSTALL != "none" ]]; then
+    echo "INIT: installing $PREINSTALL package"
+    /poddy i $PREINSTALL
 else
-    echo "INIT: Going Poddy packages selected. To install packages open a terminal and type /poddy to open the Going Poddy wizard where you can select packages to install."
+    echo "INIT: No Going Poddy packages selected. To install packages open a terminal and type: /poddy i name_of_package_to_install."
 fi
 
 $PODDY/cmd/update_nodes
