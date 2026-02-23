@@ -74,6 +74,7 @@ if [[ $command == add || $command == a || $command == install || $command == i ]
                 echo "Package is shared"
             fi
         done < $PODDY/installers/$location
+        comfy node update all
         \cp $PODDY/installers/$location $PODDY/active/$location
     else
         echo "Not a valid installer"
@@ -90,7 +91,7 @@ elif [[ $command == remove || $command == r || $command == uninstall || $command
                 words_array=($line)
                 type=${words_array[0]}
                 command=${words_array[1]}
-                # INSTALL PY
+                #  PY
                 if [[ $type == workflow ]]; then
                     if [[ -f $COMFY_WORKFLOW/$command.json ]]; then
                         rm $COMFY_WORKFLOW/$command.json
@@ -100,7 +101,7 @@ elif [[ $command == remove || $command == r || $command == uninstall || $command
                 elif [[ $type == py ]]; then
                     echo "Uninstalling Python: $name"
                     python -m pip uninstall $command --yes --quiet
-                # INSTALL NODE
+                #  NODE
                 elif [[ $type == node ]]; then
                     name=$(basename $command)
                     if [[ -d $COMFY/custom_nodes/$name ]]; then
@@ -109,7 +110,7 @@ elif [[ $command == remove || $command == r || $command == uninstall || $command
                     else
                         echo "NOT INSTALLED: $name"
                     fi
-                # INSTALL MODEL
+                #  MODEL
                 elif [[ $type == model ]]; then
                     folder=${words_array[2]}
                     file=$COMFY/models/$folder/$command
@@ -124,6 +125,7 @@ elif [[ $command == remove || $command == r || $command == uninstall || $command
                 echo "Package is shared"
             fi
         done < $PODDY/installers/$location
+        comfy node update all
         if [[ -f $PODDY/active/$location ]]; then
             rm $PODDY/active/$location
         fi

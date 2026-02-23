@@ -35,6 +35,7 @@ workflow img_clothing_extract_batch
 
 # node url
 
+
 # model name folder url
 model qwen_image_edit_fp8_e4m3fn.safetensors diffusion_models https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI/resolve/main/split_files/diffusion_models/qwen_image_edit_fp8_e4m3fn.safetensors
 model juggernautXL_juggXIByRundiffusion.safetensors checkpoints https://huggingface.co/misri/juggernautXL_juggXIByRundiffusion/resolve/main/juggernautXL_juggXIByRundiffusion.safetensors
