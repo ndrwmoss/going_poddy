@@ -1,6 +1,10 @@
 # py name
 
 # workflow name
+workflow faboro_face2face_uncensored
+workflow faboro_face_swap
+workflow apex_controlnet
+workflow llama_face_swap
 workflow QIE_add_items
 workflow QIE_change_ratio
 workflow QIE_character_turnaround
@@ -24,8 +28,6 @@ workflow QIE_replace_background
 workflow QIE_replace_character
 workflow QIE_replace_text
 workflow QIE_restore_photo
-workflow QIE_controlnet
-workflow Qwen_IE_2511_FaceSwap
 workflow img_clothing_transfer
 workflow img_clothing_extract
 workflow img_clothing_transfer_batch

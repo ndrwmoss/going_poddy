@@ -71,7 +71,9 @@ git clone https://github.com/lldacing/ComfyUI_StableHair_ll.git &&\
 git clone https://github.com/cubiq/ComfyUI_essentials.git &&\
 git clone https://github.com/mav-rik/facerestore_cf.git &&\
 git clone https://github.com/ryanontheinside/ComfyUI_RyanOnTheInside.git
+
 WORKDIR /
+
 RUN mv Comfy /workspace/ComfyUI
 
 EXPOSE 8080 8188 8888

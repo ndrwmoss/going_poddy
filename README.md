@@ -40,7 +40,12 @@ A CUDA 12.8, ComfyUI, Sage Attention Runpod pod with quick installs for Wan 2.2,
     /poddy i img_clothing_transfer
 
 #### QWEN Edit
-The workflows are by [pixaroma](https://www.youtube.com/watch?v=myuV6vjkGIw), except the controlnet workflow which is from [Apex Artist](https://www.youtube.com/watch?v=v6xOY5x4NFU) and the face swap workflow which is from (Llamabytes)[https://www.youtube.com/watch?v=YBhYAVUfPvg]  
+The workflows are by 
+All workflows prefixed by QIE are by [pixaroma](https://www.youtube.com/watch?v=myuV6vjkGIw)  
+All workflows prefixed by faboro are by [Faboro Hacks](https://www.youtube.com/watch?v=_QYBgeII9Pg)  
+All workflows prefixed by apex are by [Apex Artist](https://www.youtube.com/watch?v=v6xOY5x4NFU)  
+All workflows prefixed by llama are by [Llamabytes](https://www.youtube.com/watch?v=YBhYAVUfPvg)  
+
 <mark>disk space: **base container size + 35 GB**</mark>   
 
     /poddy i img_qwen_edit
