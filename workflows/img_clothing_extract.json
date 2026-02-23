@@ -664,7 +664,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 118,
+      "order": 113,
       "mode": 2,
       "inputs": [
         {
@@ -896,7 +896,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 145,
+      "order": 143,
       "mode": 2,
       "inputs": [
         {
@@ -1604,7 +1604,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 122,
+      "order": 116,
       "mode": 0,
       "inputs": [
         {
@@ -2067,7 +2067,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 117,
+      "order": 112,
       "mode": 2,
       "inputs": [
         {
@@ -2126,7 +2126,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 144,
+      "order": 142,
       "mode": 2,
       "inputs": [
         {
@@ -2166,7 +2166,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 126,
+      "order": 120,
       "mode": 0,
       "inputs": [
         {
@@ -2286,7 +2286,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 129,
+      "order": 122,
       "mode": 0,
       "inputs": [
         {
@@ -2518,7 +2518,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 125,
+      "order": 119,
       "mode": 0,
       "inputs": [
         {
@@ -2558,7 +2558,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 124,
+      "order": 118,
       "mode": 0,
       "inputs": [
         {
@@ -2815,7 +2815,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 128,
+      "order": 121,
       "mode": 0,
       "inputs": [
         {
@@ -3623,7 +3623,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 112,
+      "order": 124,
       "mode": 0,
       "inputs": [
         {
@@ -3663,7 +3663,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 113,
+      "order": 125,
       "mode": 0,
       "inputs": [
         {
@@ -3703,7 +3703,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 127,
+      "order": 126,
       "mode": 0,
       "inputs": [
         {
@@ -3741,7 +3741,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 114,
+      "order": 127,
       "mode": 0,
       "inputs": [
         {
@@ -3781,7 +3781,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 116,
+      "order": 129,
       "mode": 0,
       "inputs": [
         {
@@ -3821,7 +3821,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 142,
+      "order": 149,
       "mode": 0,
       "inputs": [
         {
@@ -3861,7 +3861,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 143,
+      "order": 150,
       "mode": 0,
       "inputs": [
         {
@@ -3901,7 +3901,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 155,
+      "order": 157,
       "mode": 0,
       "inputs": [
         {
@@ -3941,7 +3941,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 156,
+      "order": 158,
       "mode": 0,
       "inputs": [
         {
@@ -3966,49 +3966,6 @@
       ],
       "color": "#223",
       "bgcolor": "#335"
-    },
-    {
-      "id": 221,
-      "type": "LoraLoaderModelOnly",
-      "pos": [
-        -2840,
-        930
-      ],
-      "size": [
-        300,
-        82
-      ],
-      "flags": {},
-      "order": 148,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 157
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            158
-          ]
-        }
-      ],
-      "title": "Clothes Try On LoRA",
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.52",
-        "Node name for S&R": "LoraLoaderModelOnly"
-      },
-      "widgets_values": [
-        "clothes_tryon_qwen-edit-lora.safetensors",
-        1.5
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
     },
     {
       "id": 317,
@@ -4148,140 +4105,6 @@
       "bgcolor": "#335"
     },
     {
-      "id": 38,
-      "type": "CLIPLoader",
-      "pos": [
-        -3500,
-        930
-      ],
-      "size": [
-        340,
-        110
-      ],
-      "flags": {},
-      "order": 48,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            54
-          ]
-        }
-      ],
-      "title": "> QWEN CLIP",
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.52",
-        "Node name for S&R": "CLIPLoader"
-      },
-      "widgets_values": [
-        "qwen_2.5_vl_7b_fp8_scaled.safetensors",
-        "qwen_image",
-        "default"
-      ],
-      "color": "#222",
-      "bgcolor": "#000"
-    },
-    {
-      "id": 39,
-      "type": "VAELoader",
-      "pos": [
-        -3500,
-        1080
-      ],
-      "size": [
-        350,
-        60
-      ],
-      "flags": {},
-      "order": 49,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            45
-          ]
-        }
-      ],
-      "title": "> QWEN VAE",
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.52",
-        "Node name for S&R": "VAELoader"
-      },
-      "widgets_values": [
-        "qwen_image_vae.safetensors"
-      ],
-      "color": "#222",
-      "bgcolor": "#000"
-    },
-    {
-      "id": 250,
-      "type": "CheckpointLoaderSimple",
-      "pos": [
-        -3500,
-        1280
-      ],
-      "size": [
-        350,
-        100
-      ],
-      "flags": {},
-      "order": 50,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "slot_index": 0,
-          "links": [
-            173
-          ]
-        },
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "slot_index": 1,
-          "links": [
-            166
-          ]
-        },
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "slot_index": 2,
-          "links": [
-            174
-          ]
-        }
-      ],
-      "title": "> SDXL CHECKPOINT",
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.33",
-        "Node name for S&R": "CheckpointLoaderSimple",
-        "models": [
-          {
-            "name": "sd_xl_base_1.0.safetensors",
-            "url": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors?download=true",
-            "directory": "checkpoints"
-          }
-        ]
-      },
-      "widgets_values": [
-        "juggernautXL_juggXIByRundiffusion.safetensors"
-      ],
-      "color": "#222",
-      "bgcolor": "#000"
-    },
-    {
       "id": 158,
       "type": "GetNode",
       "pos": [
@@ -4295,7 +4118,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 51,
+      "order": 48,
       "mode": 2,
       "inputs": [],
       "outputs": [
@@ -4370,7 +4193,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 52,
+      "order": 49,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -4404,7 +4227,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 53,
+      "order": 50,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -4438,7 +4261,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 54,
+      "order": 51,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -4472,7 +4295,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 55,
+      "order": 52,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -4506,7 +4329,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 56,
+      "order": 53,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -4540,7 +4363,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 57,
+      "order": 54,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -4574,7 +4397,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 58,
+      "order": 55,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -4608,7 +4431,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 59,
+      "order": 56,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -4642,7 +4465,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 146,
+      "order": 144,
       "mode": 2,
       "inputs": [
         {
@@ -4708,7 +4531,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 60,
+      "order": 57,
       "mode": 2,
       "inputs": [],
       "outputs": [
@@ -4742,7 +4565,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 61,
+      "order": 58,
       "mode": 2,
       "inputs": [],
       "outputs": [
@@ -4776,7 +4599,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 62,
+      "order": 59,
       "mode": 2,
       "inputs": [],
       "outputs": [
@@ -4810,7 +4633,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 63,
+      "order": 60,
       "mode": 2,
       "inputs": [],
       "outputs": [
@@ -4844,7 +4667,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 64,
+      "order": 61,
       "mode": 2,
       "inputs": [],
       "outputs": [
@@ -4878,7 +4701,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 65,
+      "order": 62,
       "mode": 2,
       "inputs": [],
       "outputs": [
@@ -4912,7 +4735,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 66,
+      "order": 63,
       "mode": 2,
       "inputs": [],
       "outputs": [
@@ -4946,7 +4769,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 67,
+      "order": 64,
       "mode": 2,
       "inputs": [],
       "outputs": [
@@ -4980,7 +4803,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 68,
+      "order": 65,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -5014,7 +4837,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 119,
+      "order": 114,
       "mode": 0,
       "inputs": [
         {
@@ -5067,86 +4890,6 @@
       "widgets_values": []
     },
     {
-      "id": 94,
-      "type": "LoraLoaderModelOnly",
-      "pos": [
-        -2840,
-        810
-      ],
-      "size": [
-        300,
-        82
-      ],
-      "flags": {},
-      "order": 147,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 41
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            57
-          ]
-        }
-      ],
-      "title": "Outfit Extractor LoRA",
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.52",
-        "Node name for S&R": "LoraLoaderModelOnly"
-      },
-      "widgets_values": [
-        "extract-outfit_v3.safetensors",
-        1.75
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
-      "id": 37,
-      "type": "UNETLoader",
-      "pos": [
-        -3500,
-        810
-      ],
-      "size": [
-        340,
-        82
-      ],
-      "flags": {},
-      "order": 69,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            39
-          ]
-        }
-      ],
-      "title": "> QWEN MODEL",
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.52",
-        "Node name for S&R": "UNETLoader"
-      },
-      "widgets_values": [
-        "qwen_image_edit_fp8_e4m3fn.safetensors",
-        "default"
-      ],
-      "color": "#222",
-      "bgcolor": "#000"
-    },
-    {
       "id": 282,
       "type": "GetNode",
       "pos": [
@@ -5160,7 +4903,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 70,
+      "order": 66,
       "mode": 2,
       "inputs": [],
       "outputs": [
@@ -5284,7 +5027,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 115,
+      "order": 128,
       "mode": 0,
       "inputs": [
         {
@@ -5329,7 +5072,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 71,
+      "order": 67,
       "mode": 2,
       "inputs": [],
       "outputs": [
@@ -5363,7 +5106,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 72,
+      "order": 68,
       "mode": 2,
       "inputs": [],
       "outputs": [
@@ -5397,7 +5140,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 73,
+      "order": 69,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -5431,7 +5174,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 74,
+      "order": 70,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -5465,7 +5208,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 75,
+      "order": 71,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -5499,7 +5242,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 76,
+      "order": 72,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -5545,7 +5288,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 77,
+      "order": 73,
       "mode": 2,
       "inputs": [],
       "outputs": [
@@ -5579,7 +5322,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 78,
+      "order": 74,
       "mode": 2,
       "inputs": [],
       "outputs": [
@@ -5613,7 +5356,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 157,
+      "order": 155,
       "mode": 0,
       "inputs": [
         {
@@ -5651,7 +5394,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 149,
+      "order": 145,
       "mode": 0,
       "inputs": [
         {
@@ -5717,7 +5460,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 79,
+      "order": 75,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -5751,7 +5494,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 123,
+      "order": 117,
       "mode": 2,
       "inputs": [
         {
@@ -5880,7 +5623,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 158,
+      "order": 156,
       "mode": 2,
       "inputs": [
         {
@@ -5918,7 +5661,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 150,
+      "order": 146,
       "mode": 2,
       "inputs": [
         {
@@ -5984,7 +5727,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 80,
+      "order": 76,
       "mode": 2,
       "inputs": [],
       "outputs": [
@@ -6018,7 +5761,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 81,
+      "order": 77,
       "mode": 2,
       "inputs": [],
       "outputs": [
@@ -6052,7 +5795,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 121,
+      "order": 115,
       "mode": 0,
       "inputs": [
         {
@@ -6181,7 +5924,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 82,
+      "order": 78,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -6225,7 +5968,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 83,
+      "order": 79,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -6411,7 +6154,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 84,
+      "order": 80,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -6612,42 +6355,6 @@
       "bgcolor": "#353"
     },
     {
-      "id": 249,
-      "type": "UpscaleModelLoader",
-      "pos": [
-        -3500,
-        1180
-      ],
-      "size": [
-        350,
-        60
-      ],
-      "flags": {},
-      "order": 85,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "UPSCALE_MODEL",
-          "type": "UPSCALE_MODEL",
-          "links": [
-            172
-          ]
-        }
-      ],
-      "title": "> UPSCALE MODEL",
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.50",
-        "Node name for S&R": "UpscaleModelLoader"
-      },
-      "widgets_values": [
-        "RealESRGAN_x2plus.pth"
-      ],
-      "color": "#222",
-      "bgcolor": "#000"
-    },
-    {
       "id": 256,
       "type": "easy seed",
       "pos": [
@@ -6661,7 +6368,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 86,
+      "order": 81,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -6688,50 +6395,6 @@
       "bgcolor": "#653"
     },
     {
-      "id": 89,
-      "type": "LoraLoaderModelOnly",
-      "pos": [
-        -3150,
-        810
-      ],
-      "size": [
-        300,
-        82
-      ],
-      "flags": {},
-      "order": 120,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 39
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            41,
-            157
-          ]
-        }
-      ],
-      "title": "Lighting LoRA",
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.52",
-        "Node name for S&R": "LoraLoaderModelOnly"
-      },
-      "widgets_values": [
-        "Qwen-Image-Lightning-4steps-V2.0.safetensors",
-        1
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
       "id": 261,
       "type": "mxSlider",
       "pos": [
@@ -6745,7 +6408,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 87,
+      "order": 82,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -6789,7 +6452,7 @@
         82
       ],
       "flags": {},
-      "order": 88,
+      "order": 83,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -6826,7 +6489,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 89,
+      "order": 84,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -6848,6 +6511,343 @@
       },
       "color": "#223",
       "bgcolor": "#335"
+    },
+    {
+      "id": 37,
+      "type": "UNETLoader",
+      "pos": [
+        -3500,
+        810
+      ],
+      "size": [
+        340,
+        82
+      ],
+      "flags": {},
+      "order": 85,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            39
+          ]
+        }
+      ],
+      "title": "> QWEN MODEL",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.52",
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "qwen_image_edit_2511_fp8_e4m3fn.safetensors",
+        "default"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 38,
+      "type": "CLIPLoader",
+      "pos": [
+        -3500,
+        930
+      ],
+      "size": [
+        340,
+        110
+      ],
+      "flags": {},
+      "order": 86,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            54
+          ]
+        }
+      ],
+      "title": "> QWEN CLIP",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.52",
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "qwen_2.5_vl_7b_fp8_scaled.safetensors",
+        "qwen_image",
+        "default"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 39,
+      "type": "VAELoader",
+      "pos": [
+        -3500,
+        1080
+      ],
+      "size": [
+        350,
+        60
+      ],
+      "flags": {},
+      "order": 87,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            45
+          ]
+        }
+      ],
+      "title": "> QWEN VAE",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.52",
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "qwen_image_vae.safetensors"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 249,
+      "type": "UpscaleModelLoader",
+      "pos": [
+        -3500,
+        1180
+      ],
+      "size": [
+        350,
+        60
+      ],
+      "flags": {},
+      "order": 88,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "UPSCALE_MODEL",
+          "type": "UPSCALE_MODEL",
+          "links": [
+            172
+          ]
+        }
+      ],
+      "title": "> UPSCALE MODEL",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.50",
+        "Node name for S&R": "UpscaleModelLoader"
+      },
+      "widgets_values": [
+        "RealESRGAN_x2.pth"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 250,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        -3500,
+        1280
+      ],
+      "size": [
+        350,
+        100
+      ],
+      "flags": {},
+      "order": 89,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [
+            173
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "slot_index": 1,
+          "links": [
+            166
+          ]
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "slot_index": 2,
+          "links": [
+            174
+          ]
+        }
+      ],
+      "title": "> SDXL CHECKPOINT",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.33",
+        "Node name for S&R": "CheckpointLoaderSimple",
+        "models": [
+          {
+            "name": "sd_xl_base_1.0.safetensors",
+            "url": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors?download=true",
+            "directory": "checkpoints"
+          }
+        ]
+      },
+      "widgets_values": [
+        "juggernautXL_juggXIByRundiffusion.safetensors"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 221,
+      "type": "LoraLoaderModelOnly",
+      "pos": [
+        -2840,
+        930
+      ],
+      "size": [
+        300,
+        82
+      ],
+      "flags": {},
+      "order": 148,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 157
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            158
+          ]
+        }
+      ],
+      "title": "Clothes Try On LoRA",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.52",
+        "Node name for S&R": "LoraLoaderModelOnly"
+      },
+      "widgets_values": [
+        "clothes_tryon_qwen-edit-lora.safetensors",
+        1.5
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 94,
+      "type": "LoraLoaderModelOnly",
+      "pos": [
+        -2840,
+        810
+      ],
+      "size": [
+        300,
+        82
+      ],
+      "flags": {},
+      "order": 147,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 41
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            57
+          ]
+        }
+      ],
+      "title": "Outfit Extractor LoRA",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.52",
+        "Node name for S&R": "LoraLoaderModelOnly"
+      },
+      "widgets_values": [
+        "extract-outfit_v3.safetensors",
+        1.75
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 89,
+      "type": "LoraLoaderModelOnly",
+      "pos": [
+        -3150,
+        810
+      ],
+      "size": [
+        300,
+        82
+      ],
+      "flags": {},
+      "order": 123,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 39
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            41,
+            157
+          ]
+        }
+      ],
+      "title": "Lighting LoRA",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.52",
+        "Node name for S&R": "LoraLoaderModelOnly"
+      },
+      "widgets_values": [
+        "Qwen-Image-Lightning-4steps-V2.0.safetensors",
+        1
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
     }
   ],
   "links": [
@@ -7975,10 +7975,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.6392830555299638,
+      "scale": 0.850885746910382,
       "offset": [
-        4263.838449703977,
-        843.3117210639103
+        4348.411231323871,
+        765.9354953784876
       ]
     },
     "frontendVersion": "1.36.14",

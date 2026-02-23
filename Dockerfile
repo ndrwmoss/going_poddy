@@ -28,6 +28,10 @@ RUN chmod -R +x $PODDY/cmd
 RUN chmod -R +x $PODDY/installers
 WORKDIR /Comfy/custom_nodes
 RUN cd /Comfy/custom_nodes &&\
+git clone https://github.com/1038lab/ComfyUI-RMBG.git &&\
+git clone https://github.com/djbielejeski/a-person-mask-generator.git &&\
+git clone https://github.com/SeanScripts/ComfyUI-Unload-Model.git &&\
+git clone https://github.com/quasiblob/ComfyUI-EsesImageCompare.git &&\
 git clone https://github.com/kijai/ComfyUI-MelBandRoFormer.git &&\
 git clone https://github.com/kijai/ComfyUI-WanAnimatePreprocess.git &&\
 git clone https://github.com/kijai/ComfyUI-segment-anything-2.git &&\

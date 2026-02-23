@@ -1604,7 +1604,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 121,
+      "order": 120,
       "mode": 0,
       "inputs": [
         {
@@ -2166,7 +2166,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 125,
+      "order": 124,
       "mode": 0,
       "inputs": [
         {
@@ -2286,7 +2286,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 128,
+      "order": 126,
       "mode": 0,
       "inputs": [
         {
@@ -2478,7 +2478,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 129,
+      "order": 127,
       "mode": 0,
       "inputs": [
         {
@@ -2518,7 +2518,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 124,
+      "order": 123,
       "mode": 0,
       "inputs": [
         {
@@ -2558,7 +2558,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 123,
+      "order": 122,
       "mode": 0,
       "inputs": [
         {
@@ -2771,7 +2771,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 127,
+      "order": 125,
       "mode": 0,
       "inputs": [
         {
@@ -3659,7 +3659,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 126,
+      "order": 129,
       "mode": 0,
       "inputs": [
         {
@@ -3857,7 +3857,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 155,
+      "order": 157,
       "mode": 0,
       "inputs": [
         {
@@ -3897,7 +3897,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 156,
+      "order": 158,
       "mode": 0,
       "inputs": [
         {
@@ -3935,7 +3935,7 @@
         82
       ],
       "flags": {},
-      "order": 148,
+      "order": 150,
       "mode": 0,
       "inputs": [
         {
@@ -5034,7 +5034,7 @@
         82
       ],
       "flags": {},
-      "order": 147,
+      "order": 149,
       "mode": 0,
       "inputs": [
         {
@@ -5066,43 +5066,6 @@
       "bgcolor": "#653"
     },
     {
-      "id": 37,
-      "type": "UNETLoader",
-      "pos": [
-        -3500,
-        810
-      ],
-      "size": [
-        340,
-        82
-      ],
-      "flags": {},
-      "order": 68,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            39
-          ]
-        }
-      ],
-      "title": "> QWEN MODEL",
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.52",
-        "Node name for S&R": "UNETLoader"
-      },
-      "widgets_values": [
-        "qwen_image_edit_fp8_e4m3fn.safetensors",
-        "default"
-      ],
-      "color": "#222",
-      "bgcolor": "#000"
-    },
-    {
       "id": 282,
       "type": "GetNode",
       "pos": [
@@ -5116,7 +5079,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 69,
+      "order": 68,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -5240,7 +5203,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 70,
+      "order": 69,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -5274,7 +5237,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 71,
+      "order": 70,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -5308,7 +5271,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 72,
+      "order": 71,
       "mode": 2,
       "inputs": [],
       "outputs": [
@@ -5342,7 +5305,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 73,
+      "order": 72,
       "mode": 2,
       "inputs": [],
       "outputs": [
@@ -5376,7 +5339,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 74,
+      "order": 73,
       "mode": 2,
       "inputs": [],
       "outputs": [
@@ -5410,7 +5373,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 75,
+      "order": 74,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -5456,7 +5419,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 76,
+      "order": 75,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -5490,7 +5453,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 77,
+      "order": 76,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -5524,7 +5487,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 157,
+      "order": 155,
       "mode": 2,
       "inputs": [
         {
@@ -5562,7 +5525,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 149,
+      "order": 147,
       "mode": 2,
       "inputs": [
         {
@@ -5628,7 +5591,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 78,
+      "order": 77,
       "mode": 2,
       "inputs": [],
       "outputs": [
@@ -5662,7 +5625,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 122,
+      "order": 121,
       "mode": 0,
       "inputs": [
         {
@@ -5791,7 +5754,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 158,
+      "order": 156,
       "mode": 0,
       "inputs": [
         {
@@ -5829,7 +5792,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 150,
+      "order": 148,
       "mode": 0,
       "inputs": [
         {
@@ -5895,7 +5858,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 79,
+      "order": 78,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -5929,7 +5892,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 80,
+      "order": 79,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -5963,7 +5926,7 @@
       "flags": {
         "collapsed": true
       },
-      "order": 120,
+      "order": 119,
       "mode": 2,
       "inputs": [
         {
@@ -6092,7 +6055,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 81,
+      "order": 80,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -6136,7 +6099,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 82,
+      "order": 81,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -6322,7 +6285,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 83,
+      "order": 82,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -6523,42 +6486,6 @@
       "bgcolor": "#353"
     },
     {
-      "id": 249,
-      "type": "UpscaleModelLoader",
-      "pos": [
-        -3500,
-        1180
-      ],
-      "size": [
-        350,
-        60
-      ],
-      "flags": {},
-      "order": 84,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "UPSCALE_MODEL",
-          "type": "UPSCALE_MODEL",
-          "links": [
-            172
-          ]
-        }
-      ],
-      "title": "> UPSCALE MODEL",
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.50",
-        "Node name for S&R": "UpscaleModelLoader"
-      },
-      "widgets_values": [
-        "RealESRGAN_x2plus.pth"
-      ],
-      "color": "#222",
-      "bgcolor": "#000"
-    },
-    {
       "id": 256,
       "type": "easy seed",
       "pos": [
@@ -6572,7 +6499,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 85,
+      "order": 83,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -6610,7 +6537,7 @@
         82
       ],
       "flags": {},
-      "order": 119,
+      "order": 128,
       "mode": 0,
       "inputs": [
         {
@@ -6656,7 +6583,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 86,
+      "order": 84,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -6700,7 +6627,7 @@
         82
       ],
       "flags": {},
-      "order": 87,
+      "order": 85,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -6737,7 +6664,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 88,
+      "order": 86,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -6759,52 +6686,6 @@
       },
       "color": "#223",
       "bgcolor": "#335"
-    },
-    {
-      "id": 325,
-      "type": "Load Image Batch",
-      "pos": [
-        -3497.40606933125,
-        44.57198780135109
-      ],
-      "size": [
-        299.708984375,
-        270
-      ],
-      "flags": {},
-      "order": 89,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "links": [
-            263
-          ]
-        },
-        {
-          "name": "filename_text",
-          "type": "STRING",
-          "links": null
-        }
-      ],
-      "properties": {
-        "cnr_id": "was-ns",
-        "ver": "3.0.1",
-        "Node name for S&R": "Load Image Batch"
-      },
-      "widgets_values": [
-        "incremental_image",
-        0,
-        "randomize",
-        0,
-        "Batch 001",
-        "/workspace/ComfyUI/input",
-        "*",
-        "false",
-        "true"
-      ]
     },
     {
       "id": 281,
@@ -6850,6 +6731,125 @@
       ],
       "color": "#2a363b",
       "bgcolor": "#3f5159"
+    },
+    {
+      "id": 325,
+      "type": "Load Image Batch",
+      "pos": [
+        -3487.790420918375,
+        43.503582422142614
+      ],
+      "size": [
+        299.708984375,
+        270
+      ],
+      "flags": {},
+      "order": 87,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            263
+          ]
+        },
+        {
+          "name": "filename_text",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "was-ns",
+        "ver": "3.0.1",
+        "Node name for S&R": "Load Image Batch"
+      },
+      "widgets_values": [
+        "incremental_image",
+        0,
+        "randomize",
+        0,
+        "Batch 001",
+        "/workspace/ComfyUI/input",
+        "*",
+        "false",
+        "true"
+      ]
+    },
+    {
+      "id": 37,
+      "type": "UNETLoader",
+      "pos": [
+        -3500,
+        810
+      ],
+      "size": [
+        340,
+        82
+      ],
+      "flags": {},
+      "order": 88,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            39
+          ]
+        }
+      ],
+      "title": "> QWEN MODEL",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.52",
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "qwen_image_edit_2511_fp8_e4m3fn.safetensors",
+        "default"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 249,
+      "type": "UpscaleModelLoader",
+      "pos": [
+        -3500,
+        1180
+      ],
+      "size": [
+        350,
+        60
+      ],
+      "flags": {},
+      "order": 89,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "UPSCALE_MODEL",
+          "type": "UPSCALE_MODEL",
+          "links": [
+            172
+          ]
+        }
+      ],
+      "title": "> UPSCALE MODEL",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.50",
+        "Node name for S&R": "UpscaleModelLoader"
+      },
+      "widgets_values": [
+        "RealESRGAN_x2.pth"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
     }
   ],
   "links": [
@@ -7977,10 +7977,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.7032113610829602,
+      "scale": 0.850885746910382,
       "offset": [
-        4395.507096891239,
-        691.8584719794952
+        4140.950305817037,
+        141.6257459382668
       ]
     },
     "frontendVersion": "1.36.14",
