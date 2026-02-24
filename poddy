@@ -36,7 +36,10 @@ if [[ $command == add || $command == a || $command == install || $command == i ]
                         cd $COMFY/custom_nodes
                         git clone $command
                     else
-                        echo "ALREADY INSTALLED: $name"
+                        rm -r $COMFY/custom_nodes/$name
+                        echo "UPDATING CUSTOM NODE: $name"
+                        cd $COMFY/custom_nodes
+                        git clone $command
                     fi
                 # INSTALL MODEL
                 elif [[ $type == model ]]; then
