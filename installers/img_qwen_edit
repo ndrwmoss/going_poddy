@@ -55,9 +55,10 @@ node https://github.com/ltdrdata/was-node-suite-comfyui
 node https://github.com/SeanScripts/ComfyUI-Unload-Model
 node https://github.com/quasiblob/ComfyUI-EsesImageCompare
 node https://github.com/gseth/ControlAltAI-Nodes
-
+node https://github.com/1038lab/ComfyUI-QwenVL
+node https://github.com/huchukato/ComfyUI-QwenVL-Mod
 # model name folder url
-model qwen_image_edit_fp8_e4m3fn.safetensors diffusion_models https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI/resolve/main/split_files/diffusion_models/qwen_image_edit_fp8_e4m3fn.safetensors
+model qwen_image_edit_2511_fp8_e4m3fn.safetensors diffusion_models https://huggingface.co/xms991/Qwen-Image-Edit-2511-fp8-e4m3fn/resolve/main/qwen_image_edit_2511_fp8_e4m3fn.safetensors
 model juggernautXL_juggXIByRundiffusion.safetensors checkpoints https://huggingface.co/misri/juggernautXL_juggXIByRundiffusion/resolve/main/juggernautXL_juggXIByRundiffusion.safetensors
 model qwen_image_vae.safetensors vae https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors
 model qwen_2.5_vl_7b_fp8_scaled.safetensors text_encoders https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors
