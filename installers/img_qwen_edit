@@ -32,7 +32,31 @@ workflow img_clothing_transfer
 workflow img_clothing_extract
 
 # node url
-
+node https://github.com/kijai/ComfyUI-DepthAnythingV2
+node https://github.com/Fannovel16/comfyui_controlnet_aux
+node https://github.com/cubiq/ComfyUI_essentials
+node https://github.com/chflame163/ComfyUI_LayerStyle
+node https://github.com/rgthree/rgthree-comfy
+node https://github.com/yolain/ComfyUI-Easy-Use
+node https://github.com/kijai/ComfyUI-KJNodes
+node https://github.com/numz/ComfyUI-SeedVR2_VideoUpscaler
+node https://github.com/lrzjason/Comfyui-QwenEditUtils
+node https://github.com/chflame163/ComfyUI_LayerStyle_Advance
+node https://github.com/ltdrdata/was-node-suite-comfyui
+node https://github.com/liusida/ComfyUI-AutoCropFaces
+node https://github.com/MinorBoy/ComfyUI_essentials_mb
+node https://github.com/LAOGOU-666/Comfyui-Memory_Cleanup
+node https://github.com/ssitu/ComfyUI_UltimateSDUpscale
+node https://github.com/Smirnov75/ComfyUI-mxToolkit
+node https://github.com/1038lab/ComfyUI-RMBG
+node https://github.com/lquesada/ComfyUI-Inpaint-CropAndStitch
+node https://github.com/djbielejeski/a-person-mask-generator
+node https://github.com/ltdrdata/was-node-suite-comfyui
+node https://github.com/SeanScripts/ComfyUI-Unload-Model
+node https://github.com/quasiblob/ComfyUI-EsesImageCompare
+node https://github.com/gseth/ControlAltAI-Nodes
+node https://github.com/1038lab/ComfyUI-QwenVL
+node https://github.com/huchukato/ComfyUI-QwenVL-Mod
 
 # model name folder url
 model qwen_image_edit_2511_fp8_e4m3fn.safetensors diffusion_models https://huggingface.co/xms991/Qwen-Image-Edit-2511-fp8-e4m3fn/resolve/main/qwen_image_edit_2511_fp8_e4m3fn.safetensors
