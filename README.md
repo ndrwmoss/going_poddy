@@ -36,8 +36,9 @@ A CUDA 12.8, ComfyUI, Sage Attention Runpod pod with quick installs for Wan 2.2,
 ##
 # Photo
 #### Hair Transfer
-Based on Stable Hair II (https://github.com/lldacing/ComfyUI_StableHair_ll/blob/main/README_EN.md)
-<mark>disk space: **base container size + 35 GB**</mark>    
+Based on Stable Hair II (https://github.com/lldacing/ComfyUI_StableHair_ll/blob/main/README_EN.md)  
+<mark>disk space: **base container size + 35 GB**</mark>
+<mark>dl/install time: **2-5 minutes**</mark>
 
     /poddy i hair_transfer
 
