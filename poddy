@@ -33,7 +33,8 @@ if [[ $command == add || $command == a || $command == install || $command == i ]
                     name=$(basename $command)
                     if [[ ! -d $COMFY/custom_nodes/$name ]]; then
                         echo "INSTALLING CUSTOM NODE: $name"
-                        comfy node install $command --workspace=$COMFY
+                        cd $COMFY/custom_nodes
+                        git clone $command
                     else
                         echo "ALREADY INSTALLED: $name"
                     fi
@@ -55,15 +56,17 @@ if [[ $command == add || $command == a || $command == install || $command == i ]
                             if [[ $civ == "none" ]]; then
                                 echo "$name requires the CIVITAI environmental variable set"
                             else
-                                echo "downloading $url to $file"
+                                echo "downloading $name to $file"
                                 cd $file
                                 wget -O $command "$url&token=$CIVITAI_API_TOKEN" --no-verbose --show-progress --progress=bar:force:noscroll 
+                                cd /
                             fi
                         else
                             # HUGGINGFACE
                             echo "downloading $url to $file"
                             cd $file
                             wget -O $command $url --no-verbose --show-progress --progress=bar:force:noscroll 
+                            cd /
                         fi
                     fi
                 fi
