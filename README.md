@@ -49,3 +49,11 @@ All workflows prefixed by llama are by [Llamabytes](https://www.youtube.com/watc
 <mark>disk space: **base container size + 35 GB**</mark>   
 
     /poddy i img_qwen_edit
+
+##
+# Audio
+#### Ace Step 1.5
+The workflows are by [RyanOnTheInside](https://www.youtube.com/watch?v=R6ksf5GSsrk).  
+<mark>disk space: **base container size + 35 GB**</mark>   
+
+    /poddy i aud_acestep
