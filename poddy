@@ -33,10 +33,7 @@ if [[ $command == add || $command == a || $command == install || $command == i ]
                     name=$(basename $command)
                     if [[ ! -d $COMFY/custom_nodes/$name ]]; then
                         echo "INSTALLING CUSTOM NODE: $name"
-                        git clone $command $COMFY/custom_nodes/$name
-                        if [[ -f $COMFY/custom_nodes/$name/requirements.txt ]]; then
-                            pip install -r $COMFY/custom_nodes/$name/requirements.txt
-                        fi
+                        comfy node install $command --workspace=$COMFY
                     else
                         echo "ALREADY INSTALLED: $name"
                     fi
@@ -80,7 +77,7 @@ if [[ $command == add || $command == a || $command == install || $command == i ]
         echo "Not a valid installer"
     fi
 elif [[ $command == remove || $command == r || $command == uninstall || $command == u ]]; then
-    echo "INSTALLING: $location"
+    echo "UNINSTALLING: $location"
     if [[ -f $PODDY/installers/$location ]]; then
         # LOOP lines of installer file
         while IFS= read -r line; do
