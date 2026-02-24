@@ -34,10 +34,11 @@ A CUDA 12.8, ComfyUI, Sage Attention Runpod pod with quick installs for Wan 2.2,
 
 ##
 # Photo
-#### Clothing Transfer
+#### Hair Transfer
+Based on Stable Hair II (https://github.com/lldacing/ComfyUI_StableHair_ll/blob/main/README_EN.md)
 <mark>disk space: **base container size + 35 GB**</mark>    
 
-    /poddy i img_clothing_transfer
+    /poddy i hair_transfer
 
 #### QWEN Edit
 The workflows are by 
