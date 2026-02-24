@@ -26,6 +26,7 @@ A CUDA 12.8, ComfyUI, Sage Attention Runpod pod with quick installs for Wan 2.2,
 *note: uninstalling is brute force, there is no uninstaller list or dependency tracking. If two packages share the same models and you uninstall one the other package will not work, you'll need to reinstall it to re-download the dependencies (it will skip parts it kept though, yay tiny wins).
 ##
 ### Base Container Size: 11 GB
+### Base Container DL/Install time: ~3-5 minutes depending on server lottery.
 ##
 # Video
 

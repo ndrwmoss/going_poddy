@@ -17,4 +17,4 @@ model hair_controlnet_model.bin diffusers/StableHair https://huggingface.co/llda
 model hair_encoder_model.bin diffusers/StableHair https://huggingface.co/lldacing/StableHair/resolve/main/hair_encoder_model.bin
 
 # model Juggernaut.safetensors checkpoint https://civitai.com/api/download/models/274039?type=Model&format=SafeTensor&size=pruned&fp=fp16
-model epiCRealism.safetensors checkpoint https://civitai.com/api/download/models/134065?type=Model&format=SafeTensor&size=pruned&fp=fp16
+model epiCRealism.safetensors checkpoints https://civitai.com/api/download/models/134065?type=Model&format=SafeTensor&size=pruned&fp=fp16
