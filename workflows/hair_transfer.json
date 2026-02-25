@@ -1,93 +1,9 @@
 {
   "id": "c7f7cba0-2bad-472a-b0fd-ead513a9052f",
   "revision": 0,
-  "last_node_id": 47,
-  "last_link_id": 65,
+  "last_node_id": 60,
+  "last_link_id": 87,
   "nodes": [
-    {
-      "id": 14,
-      "type": "LoadImage",
-      "pos": [
-        -1015.12939453125,
-        728.810302734375
-      ],
-      "size": [
-        315,
-        314
-      ],
-      "flags": {},
-      "order": 0,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "label": "IMAGE",
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "slot_index": 0,
-          "links": [
-            22
-          ]
-        },
-        {
-          "label": "MASK",
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.10.0",
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "69965.png",
-        "image"
-      ]
-    },
-    {
-      "id": 21,
-      "type": "CropFace",
-      "pos": [
-        -656.5086059570312,
-        707.760009765625
-      ],
-      "size": [
-        315,
-        58
-      ],
-      "flags": {},
-      "order": 5,
-      "mode": 0,
-      "inputs": [
-        {
-          "label": "image",
-          "name": "image",
-          "type": "IMAGE",
-          "link": 22
-        }
-      ],
-      "outputs": [
-        {
-          "label": "IMAGE",
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "slot_index": 0,
-          "links": [
-            23
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "facerestore_cf",
-        "ver": "ff4d7a5c102441d8f058dd6135797ffb57b6c6ad",
-        "Node name for S&R": "CropFace"
-      },
-      "widgets_values": [
-        "retinaface_resnet50"
-      ]
-    },
     {
       "id": 16,
       "type": "ImageResize+",
@@ -100,7 +16,7 @@
         218
       ],
       "flags": {},
-      "order": 7,
+      "order": 8,
       "mode": 0,
       "inputs": [
         {
@@ -108,6 +24,22 @@
           "name": "image",
           "type": "IMAGE",
           "link": 23
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 68
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 69
         }
       ],
       "outputs": [
@@ -136,7 +68,8 @@
       "properties": {
         "cnr_id": "comfyui_essentials",
         "ver": "1.1.0",
-        "Node name for S&R": "ImageResize+"
+        "Node name for S&R": "ImageResize+",
+        "aux_id": "cubiq/ComfyUI_essentials"
       },
       "widgets_values": [
         512,
@@ -145,48 +78,6 @@
         "stretch",
         "always",
         0
-      ]
-    },
-    {
-      "id": 29,
-      "type": "LoadImage",
-      "pos": [
-        -1004.3889770507812,
-        1614.5262451171875
-      ],
-      "size": [
-        315,
-        314
-      ],
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "label": "IMAGE",
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "slot_index": 0,
-          "links": [
-            32
-          ]
-        },
-        {
-          "label": "MASK",
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.10.0",
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "69934.png",
-        "image"
       ]
     },
     {
@@ -201,14 +92,14 @@
         58
       ],
       "flags": {},
-      "order": 6,
+      "order": 7,
       "mode": 0,
       "inputs": [
         {
           "label": "image",
           "name": "image",
           "type": "IMAGE",
-          "link": 32
+          "link": 79
         }
       ],
       "outputs": [
@@ -243,7 +134,7 @@
         26
       ],
       "flags": {},
-      "order": 10,
+      "order": 12,
       "mode": 0,
       "inputs": [
         {
@@ -264,9 +155,215 @@
       "properties": {
         "cnr_id": "comfyui-easy-use",
         "ver": "1.3.6",
-        "Node name for S&R": "easy cleanGpuUsed"
+        "Node name for S&R": "easy cleanGpuUsed",
+        "aux_id": "yolain/ComfyUI-Easy-Use"
       },
       "widgets_values": []
+    },
+    {
+      "id": 47,
+      "type": "LoadStableHairTransferModel",
+      "pos": [
+        -974.252197265625,
+        1248.868408203125
+      ],
+      "size": [
+        340.20001220703125,
+        154
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "model",
+          "name": "model",
+          "type": "HAIR_MODEL",
+          "slot_index": 0,
+          "links": [
+            59
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui_stablehair_ll",
+        "ver": "1.0.1",
+        "Node name for S&R": "LoadStableHairTransferModel",
+        "aux_id": "lldacing/ComfyUI_StableHair_ll"
+      },
+      "widgets_values": [
+        "epiCRealism.safetensors",
+        "hair_encoder_model.bin",
+        "hair_adapter_model.bin",
+        "hair_controlnet_model.bin",
+        "AUTO"
+      ]
+    },
+    {
+      "id": 15,
+      "type": "PreviewImage",
+      "pos": [
+        829.6184692382812,
+        768.1566772460938
+      ],
+      "size": [
+        382,
+        342
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "link": 66
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.10.0",
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 21,
+      "type": "CropFace",
+      "pos": [
+        -656.5086059570312,
+        707.760009765625
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "link": 73
+        }
+      ],
+      "outputs": [
+        {
+          "label": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            23
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "facerestore_cf",
+        "ver": "ff4d7a5c102441d8f058dd6135797ffb57b6c6ad",
+        "Node name for S&R": "CropFace"
+      },
+      "widgets_values": [
+        "retinaface_resnet50"
+      ]
+    },
+    {
+      "id": 45,
+      "type": "LoadStableHairRemoverModel",
+      "pos": [
+        -244.62454223632812,
+        719.042724609375
+      ],
+      "size": [
+        327.5999755859375,
+        106
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "bald_model",
+          "name": "bald_model",
+          "type": "BALD_MODEL",
+          "slot_index": 0,
+          "links": [
+            56
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui_stablehair_ll",
+        "ver": "1.0.1",
+        "Node name for S&R": "LoadStableHairRemoverModel",
+        "aux_id": "lldacing/ComfyUI_StableHair_ll"
+      },
+      "widgets_values": [
+        "epiCRealism.safetensors",
+        "hair_bald_model.bin",
+        "AUTO"
+      ]
+    },
+    {
+      "id": 46,
+      "type": "ApplyHairRemover",
+      "pos": [
+        431,
+        740.6428833007812
+      ],
+      "size": [
+        315,
+        174
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "bald_model",
+          "name": "bald_model",
+          "type": "BALD_MODEL",
+          "link": 56
+        },
+        {
+          "label": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "link": 57
+        }
+      ],
+      "outputs": [
+        {
+          "label": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            61,
+            65,
+            66
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui_stablehair_ll",
+        "ver": "1.0.1",
+        "Node name for S&R": "ApplyHairRemover",
+        "aux_id": "lldacing/ComfyUI_StableHair_ll"
+      },
+      "widgets_values": [
+        1123857346752110,
+        "fixed",
+        30,
+        0.9,
+        1
+      ]
     },
     {
       "id": 42,
@@ -280,7 +377,7 @@
         218
       ],
       "flags": {},
-      "order": 11,
+      "order": 13,
       "mode": 0,
       "inputs": [
         {
@@ -308,20 +405,22 @@
           "name": "image",
           "type": "IMAGE",
           "links": [
-            52
+            52,
+            72
           ]
         }
       ],
       "properties": {
         "cnr_id": "comfyui_stablehair_ll",
         "ver": "1.0.1",
-        "Node name for S&R": "ApplyHairTransfer"
+        "Node name for S&R": "ApplyHairTransfer",
+        "aux_id": "lldacing/ComfyUI_StableHair_ll"
       },
       "widgets_values": [
-        929258254390144,
+        1096947553219333,
         "randomize",
-        20,
-        1.5,
+        40,
+        3.5,
         1,
         1
       ]
@@ -338,7 +437,7 @@
         415.3031921386719
       ],
       "flags": {},
-      "order": 12,
+      "order": 15,
       "mode": 0,
       "inputs": [
         {
@@ -357,87 +456,55 @@
       "widgets_values": []
     },
     {
-      "id": 15,
-      "type": "PreviewImage",
+      "id": 48,
+      "type": "GetImageSize+",
       "pos": [
-        829.6184692382812,
-        768.1566772460938
+        -614.9197767465499,
+        924.0978883741965
       ],
       "size": [
-        382,
-        342
+        162.8169921875,
+        66
       ],
       "flags": {},
-      "order": 2,
+      "order": 5,
       "mode": 0,
       "inputs": [
         {
-          "label": "images",
-          "name": "images",
+          "name": "image",
           "type": "IMAGE",
-          "link": null
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.10.0",
-        "Node name for S&R": "PreviewImage"
-      },
-      "widgets_values": []
-    },
-    {
-      "id": 46,
-      "type": "ApplyHairRemover",
-      "pos": [
-        431,
-        740.6428833007812
-      ],
-      "size": [
-        315,
-        174
-      ],
-      "flags": {},
-      "order": 9,
-      "mode": 0,
-      "inputs": [
-        {
-          "label": "bald_model",
-          "name": "bald_model",
-          "type": "BALD_MODEL",
-          "link": 56
-        },
-        {
-          "label": "images",
-          "name": "images",
-          "type": "IMAGE",
-          "link": 57
+          "link": 74
         }
       ],
       "outputs": [
         {
-          "label": "image",
-          "name": "image",
-          "type": "IMAGE",
-          "slot_index": 0,
+          "name": "width",
+          "type": "INT",
           "links": [
-            61,
-            65
+            68,
+            70
           ]
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            69,
+            71
+          ]
+        },
+        {
+          "name": "count",
+          "type": "INT",
+          "links": null
         }
       ],
       "properties": {
-        "cnr_id": "comfyui_stablehair_ll",
-        "ver": "1.0.1",
-        "Node name for S&R": "ApplyHairRemover"
+        "cnr_id": "comfyui_essentials",
+        "ver": "9d9f4bedfc9f0321c19faf71855e228c93bd0dc9",
+        "Node name for S&R": "GetImageSize+"
       },
-      "widgets_values": [
-        407418010294086,
-        "fixed",
-        20,
-        0.9,
-        1.5
-      ]
+      "widgets_values": []
     },
     {
       "id": 34,
@@ -451,7 +518,7 @@
         218
       ],
       "flags": {},
-      "order": 8,
+      "order": 10,
       "mode": 0,
       "inputs": [
         {
@@ -459,6 +526,22 @@
           "name": "image",
           "type": "IMAGE",
           "link": 36
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 70
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 71
         }
       ],
       "outputs": [
@@ -487,7 +570,8 @@
       "properties": {
         "cnr_id": "comfyui_essentials",
         "ver": "1.1.0",
-        "Node name for S&R": "ImageResize+"
+        "Node name for S&R": "ImageResize+",
+        "aux_id": "cubiq/ComfyUI_essentials"
       },
       "widgets_values": [
         512,
@@ -499,15 +583,64 @@
       ]
     },
     {
-      "id": 45,
-      "type": "LoadStableHairRemoverModel",
+      "id": 56,
+      "type": "> Load Image",
       "pos": [
-        -244.62454223632812,
-        719.042724609375
+        -993.9665468234725,
+        729.1451556971193
       ],
       "size": [
-        327.5999755859375,
-        106
+        270,
+        358
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            73,
+            74
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        },
+        {
+          "name": "FILENAME",
+          "type": "STRING",
+          "links": [
+            87
+          ]
+        }
+      ],
+      "title": "Character Head",
+      "properties": {
+        "cnr_id": "ComfyUI_yanc",
+        "ver": "923c366c2937cf6ce55e8a808e29f23831281bb5",
+        "Node name for S&R": "> Load Image"
+      },
+      "widgets_values": [
+        "example.png",
+        true,
+        "image"
+      ]
+    },
+    {
+      "id": 58,
+      "type": "> Load Image",
+      "pos": [
+        -963.0272216748888,
+        1610.9911671982848
+      ],
+      "size": [
+        270,
+        358
       ],
       "flags": {},
       "order": 3,
@@ -515,88 +648,177 @@
       "inputs": [],
       "outputs": [
         {
-          "label": "bald_model",
-          "name": "bald_model",
-          "type": "BALD_MODEL",
-          "slot_index": 0,
+          "name": "IMAGE",
+          "type": "IMAGE",
           "links": [
-            56
+            79
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        },
+        {
+          "name": "FILENAME",
+          "type": "STRING",
+          "links": [
+            84
           ]
         }
       ],
+      "title": "Hair Style",
       "properties": {
-        "cnr_id": "comfyui_stablehair_ll",
-        "ver": "1.0.1",
-        "Node name for S&R": "LoadStableHairRemoverModel"
+        "cnr_id": "ComfyUI_yanc",
+        "ver": "923c366c2937cf6ce55e8a808e29f23831281bb5",
+        "Node name for S&R": "> Load Image"
       },
       "widgets_values": [
-        "epiCRealism.safetensors",
-        "hair_bald_model.bin",
-        "AUTO"
+        "example.png",
+        true,
+        "image"
       ]
     },
     {
-      "id": 47,
-      "type": "LoadStableHairTransferModel",
+      "id": 59,
+      "type": "Basic data handling: StringConcat",
       "pos": [
-        -974.252197265625,
-        1248.868408203125
+        303.485541820923,
+        1897.4004627539869
       ],
       "size": [
-        340.20001220703125,
-        154
+        270,
+        82
       ],
       "flags": {},
-      "order": 4,
+      "order": 9,
       "mode": 0,
-      "inputs": [],
+      "inputs": [
+        {
+          "name": "string_a",
+          "type": "STRING",
+          "widget": {
+            "name": "string_a"
+          },
+          "link": 82
+        },
+        {
+          "name": "string_b",
+          "type": "STRING",
+          "widget": {
+            "name": "string_b"
+          },
+          "link": 84
+        }
+      ],
       "outputs": [
         {
-          "label": "model",
-          "name": "model",
-          "type": "HAIR_MODEL",
-          "slot_index": 0,
+          "name": "STRING",
+          "type": "STRING",
           "links": [
-            59
+            81
           ]
         }
       ],
       "properties": {
-        "cnr_id": "comfyui_stablehair_ll",
-        "ver": "1.0.1",
-        "Node name for S&R": "LoadStableHairTransferModel"
+        "cnr_id": "basic_data_handling",
+        "ver": "1.4.0",
+        "Node name for S&R": "Basic data handling: StringConcat"
       },
       "widgets_values": [
-        "epiCRealism.safetensors",
-        "hair_encoder_model.bin",
-        "hair_adapter_model.bin",
-        "hair_controlnet_model.bin",
-        "AUTO"
+        "hair - ",
+        "hair - "
+      ]
+    },
+    {
+      "id": 57,
+      "type": "Basic data handling: StringConcat",
+      "pos": [
+        310.62272130222766,
+        1728.9033126989912
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "string_a",
+          "type": "STRING",
+          "widget": {
+            "name": "string_a"
+          },
+          "link": 87
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            82
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "basic_data_handling",
+        "ver": "1.4.0",
+        "Node name for S&R": "Basic data handling: StringConcat"
+      },
+      "widgets_values": [
+        "hair - ",
+        ", hair - "
+      ]
+    },
+    {
+      "id": 49,
+      "type": "SaveImage",
+      "pos": [
+        726.4870861772295,
+        1885.3119208081096
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 72
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": 81
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.68",
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "hair "
       ]
     }
   ],
   "links": [
     [
-      22,
-      14,
-      0,
-      21,
-      0,
-      "IMAGE"
-    ],
-    [
       23,
       21,
       0,
       16,
-      0,
-      "IMAGE"
-    ],
-    [
-      32,
-      29,
-      0,
-      30,
       0,
       "IMAGE"
     ],
@@ -663,6 +885,110 @@
       42,
       2,
       "IMAGE"
+    ],
+    [
+      66,
+      46,
+      0,
+      15,
+      0,
+      "IMAGE"
+    ],
+    [
+      68,
+      48,
+      0,
+      16,
+      1,
+      "INT"
+    ],
+    [
+      69,
+      48,
+      1,
+      16,
+      2,
+      "INT"
+    ],
+    [
+      70,
+      48,
+      0,
+      34,
+      1,
+      "INT"
+    ],
+    [
+      71,
+      48,
+      1,
+      34,
+      2,
+      "INT"
+    ],
+    [
+      72,
+      42,
+      0,
+      49,
+      0,
+      "IMAGE"
+    ],
+    [
+      73,
+      56,
+      0,
+      21,
+      0,
+      "IMAGE"
+    ],
+    [
+      74,
+      56,
+      0,
+      48,
+      0,
+      "IMAGE"
+    ],
+    [
+      79,
+      58,
+      0,
+      30,
+      0,
+      "IMAGE"
+    ],
+    [
+      81,
+      59,
+      0,
+      49,
+      1,
+      "STRING"
+    ],
+    [
+      82,
+      57,
+      0,
+      59,
+      0,
+      "STRING"
+    ],
+    [
+      84,
+      58,
+      2,
+      59,
+      1,
+      "STRING"
+    ],
+    [
+      87,
+      56,
+      2,
+      57,
+      0,
+      "STRING"
     ]
   ],
   "groups": [
@@ -695,6 +1021,14 @@
   ],
   "config": {},
   "extra": {
+    "ds": {
+      "scale": 0.7129556757143088,
+      "offset": [
+        1935.601777966842,
+        -819.2452050349679
+      ]
+    },
+    "frontendVersion": "1.36.14",
     "workspace_info": {
       "id": "d4NPf9aaFLN3hUdA1vTC1",
       "saveLock": false,
@@ -702,14 +1036,6 @@
       "coverMediaPath": null
     },
     "workflowRendererVersion": "LG",
-    "ds": {
-      "scale": 0.7842512432857384,
-      "offset": [
-        1323.876255630223,
-        -472.9244882306866
-      ]
-    },
-    "frontendVersion": "1.36.14",
     "VHS_latentpreview": false,
     "VHS_latentpreviewrate": 0,
     "VHS_MetadataImage": true,
