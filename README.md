@@ -35,10 +35,11 @@ A CUDA 12.8, ComfyUI, Sage Attention Runpod pod with quick installs for Wan 2.2,
 
 ##
 # Photo
-#### Hair Transfer
-Based on Stable Hair II (https://github.com/lldacing/ComfyUI_StableHair_ll/blob/main/README_EN.md)  
-<mark>disk space: **base container size + 35 GB**</mark>
-<mark>dl/install time: **2-5 minutes**</mark>
+### Hair Transfer
+Based on [Stable Hair II](https://github.com/lldacing/ComfyUI_StableHair_ll/blob/main/README_EN.md)  
+<mark>disk space: **base container size + 35 GB**</mark>  
+<mark>dl/install time: **2-5 minutes**</mark>  
+Transfers hair from one subject to another, meant for realism and may have problems with animation hair. Both images should be 512 x 512 pixels. Other sizes work but with much MUCH more error, if choosing to use a custom size the image dimensions must be divisible by 16. The workflow has 2 stages, one where it takes the subject getting their hair changed and makes them bald, the second stage removes the hair from the second subject and places it on the main subject's head. It make take several different seeds (play with CFG between 1.0-3.0 as well) to get the subject bald. When you've got the bald down, make sure to set seed changing to fixed, that way you can apply multiple different hairstyle without having to process the bald phase.
 
     /poddy i hair_transfer
 
@@ -53,9 +54,14 @@ All workflows prefixed by llama are by [Llamabytes](https://www.youtube.com/watc
 
     /poddy i img_qwen_edit
 
+#### Upscale
+<mark>disk space: **base container size + 35 GB**</mark>      
+
+    /poddy i img_flux_upscale
+
 ##
 # Audio
-#### Ace Step 1.5
+### Ace Step 1.5
 The workflows are by [RyanOnTheInside](https://www.youtube.com/watch?v=R6ksf5GSsrk).  
 <mark>disk space: **base container size + 35 GB**</mark>   
 

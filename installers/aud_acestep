@@ -6,10 +6,13 @@ workflow audio_ace_step_1_5_cover_semantic_blending
 workflow audio_ace_step_1_5_edit
 workflow audio_ace_step_1_5_edit_with_reference
 workflow audio_ace_step_1_5_prompt_lora_blending
-
+workflow ace_step_lora_training
 # node url
 node https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite
 node https://github.com/ryanontheinside/ComfyUI_RyanOnTheInside
+node https://github.com/filliptm/ComfyUI-FL-AceStep-Training
+
 
 # model name folder url
 model ace_step_1.5_turbo_aio.safetensors checkpoints https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/resolve/main/checkpoints/ace_step_1.5_turbo_aio.safetensors
+model acestep-5Hz-lm-1.7B checkpoints https://huggingface.co/ACE-Step/Ace-Step1.5/resolve/main/acestep-5Hz-lm-1.7B/model.safetensors
