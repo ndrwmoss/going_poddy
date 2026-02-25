@@ -12,8 +12,8 @@ node https://github.com/yolain/ComfyUI-Easy-Use
 node https://github.com/rgthree/rgthree-comfy
 
 # model name folder url
-model flux1-dev-Q8_0.gguf diffusion_models https://huggingface.co/city96/FLUX.1-dev-gguf/resolve/main/flux1-dev-Q8_0.gguf?download=true
-model t5-v1_1-xxl-encoder-Q8_0.gguf clip https://huggingface.co/city96/t5-v1_1-xxl-encoder-gguf/resolve/main/t5-v1_1-xxl-encoder-Q8_0.gguf?download=true
-model clip_l.safetensors clip https://huggingface.co/city96/t5-v1_1-xxl-encoder-gguf/resolve/main/t5-v1_1-xxl-encoder-Q8_0.gguf?download=true
-model ae.safetensor vae https://huggingface.co/black-forest-labs/FLUX.1-schnell/resolve/main/ae.safetensors?download=true
-model 4x_NMKD-Siax_200k.pth upscale_models https://huggingface.co/Akumetsu971/SD_Anime_Futuristic_Armor/resolve/main/4x_NMKD-Siax_200k.pth?download=true
+model flux1-dev-Q8_0.gguf diffusion_models https://huggingface.co/city96/FLUX.1-dev-gguf/resolve/main/flux1-dev-Q8_0.gguf
+model t5-v1_1-xxl-encoder-Q8_0.gguf clip https://huggingface.co/city96/t5-v1_1-xxl-encoder-gguf/resolve/main/t5-v1_1-xxl-encoder-Q8_0.gguf
+model clip_l.safetensors clip https://huggingface.co/city96/t5-v1_1-xxl-encoder-gguf/resolve/main/t5-v1_1-xxl-encoder-Q8_0.gguf
+model ae.safetensor vae https://huggingface.co/black-forest-labs/FLUX.1-schnell/resolve/main/ae.safetensors
+model 4x_NMKD-Siax_200k.pth upscale_models https://huggingface.co/Akumetsu971/SD_Anime_Futuristic_Armor/resolve/main/4x_NMKD-Siax_200k.pth
