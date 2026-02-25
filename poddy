@@ -137,9 +137,9 @@ elif [[ $command == remove || $command == r || $command == uninstall || $command
         echo "Not a valid installer"
     fi
 elif [[ $command == update ]]; then
-    if [[ $location == none]]; then
+    if [[ $location == none ]]; then
         $PODDY/boot/update https://github.com/ndrwmoss/going_poddy
-    elif [[ $location == test]]; then
+    elif [[ $location == test ]]; then
         $PODDY/boot/update https://github.com/ndrwmoss/testing_poddy
     else
         $PODDY/boot/update $location
