@@ -74,72 +74,6 @@
       "bgcolor": "#4F0074"
     },
     {
-      "id": 5,
-      "type": "FL_AceStep_PreprocessDataset",
-      "pos": [
-        -1238.7983675751118,
-        -594.5178070200783
-      ],
-      "size": [
-        309.5650390625,
-        166
-      ],
-      "flags": {},
-      "order": 6,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "dataset",
-          "type": "ACESTEP_DATASET",
-          "link": 6
-        },
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 7
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": 8
-        },
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 9
-        }
-      ],
-      "outputs": [
-        {
-          "name": "output_path",
-          "type": "STRING",
-          "links": []
-        },
-        {
-          "name": "sample_count",
-          "type": "INT",
-          "links": null
-        },
-        {
-          "name": "status",
-          "type": "STRING",
-          "links": null
-        }
-      ],
-      "properties": {
-        "cnr_id": "fl-acestep-training",
-        "ver": "e867dfc409c8211cb7b95c41e98c32ac6deff7b9",
-        "Node name for S&R": "FL_AceStep_PreprocessDataset"
-      },
-      "widgets_values": [
-        "./output/acestep/datasets",
-        240,
-        0
-      ],
-      "color": "#16727c",
-      "bgcolor": "#4F0074"
-    },
-    {
       "id": 8,
       "type": "FL_AceStep_Train",
       "pos": [
@@ -385,6 +319,72 @@
       ],
       "color": "#16727c",
       "bgcolor": "#4F0074"
+    },
+    {
+      "id": 5,
+      "type": "FL_AceStep_PreprocessDataset",
+      "pos": [
+        -1238.7983675751118,
+        -594.5178070200783
+      ],
+      "size": [
+        309.5650390625,
+        166
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "dataset",
+          "type": "ACESTEP_DATASET",
+          "link": 6
+        },
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 8
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 9
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output_path",
+          "type": "STRING",
+          "links": []
+        },
+        {
+          "name": "sample_count",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "status",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "fl-acestep-training",
+        "ver": "e867dfc409c8211cb7b95c41e98c32ac6deff7b9",
+        "Node name for S&R": "FL_AceStep_PreprocessDataset"
+      },
+      "widgets_values": [
+        "/workspace/ComfyUI/output/",
+        240,
+        0
+      ],
+      "color": "#16727c",
+      "bgcolor": "#4F0074"
     }
   ],
   "links": [
@@ -501,10 +501,10 @@
   "extra": {
     "workflowRendererVersion": "LG",
     "ds": {
-      "scale": 1.0610764609500123,
+      "scale": 1.8797616762370652,
       "offset": [
-        2600.4849381095337,
-        1011.0302570028383
+        2176.5772693484873,
+        931.0110790924189
       ]
     },
     "frontendVersion": "1.36.14",
