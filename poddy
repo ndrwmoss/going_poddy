@@ -60,6 +60,7 @@ if [[ $command == add || $command == a || $command == install || $command == i ]
                             if [[ $civ == "none" ]]; then
                                 echo "$name requires the CIVITAI environmental variable set"
                             else
+                                echo "Civitai api token found"
                                 echo "downloading $name to $file"
                                 cd $file
                                 wget -O $command "$url&token=$CIVITAI_API_TOKEN" --no-verbose --show-progress --progress=bar:force:noscroll 
@@ -69,7 +70,16 @@ if [[ $command == add || $command == a || $command == install || $command == i ]
                             # HUGGINGFACE
                             echo "downloading $url to $file"
                             cd $file
-                            wget -O $command $url --no-verbose --show-progress --progress=bar:force:noscroll 
+                            hf=${HF_API_TOKEN:-"none"}
+                            if [[ $hf == "none" ]]; then
+                                echo "Attempting to get HUGGINGFACE file without a set token. This file, and thus workflow, may fail. To rectify this issue log into HuggingFace, go to settings, generate an API key, enter that key as a Runpod Secret, finally apply the secret to the HF_API_KEY environmental variable in the pod settings."
+                                wget -O $command $url --no-verbose --show-progress --progress=bar:force:noscroll 
+                                wget $url
+                            else
+                                echo "HuggingFace api token found"
+                                wget -O $command $url --no-verbose --show-progress --progress=bar:force:noscroll 
+                                wget --header="Authorization: Bearer $hf" $url
+                            fi
                             cd /
                         fi
                     fi
