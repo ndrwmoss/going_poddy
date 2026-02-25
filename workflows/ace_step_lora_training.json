@@ -74,92 +74,6 @@
       "bgcolor": "#4F0074"
     },
     {
-      "id": 4,
-      "type": "FL_AceStep_LLMLoader",
-      "pos": [
-        -1572.8964896581688,
-        -785.6811381922724
-      ],
-      "size": [
-        270,
-        130
-      ],
-      "flags": {},
-      "order": 0,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "llm",
-          "type": "ACESTEP_LLM",
-          "links": [
-            4
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "fl-acestep-training",
-        "ver": "49740cb896c1c169364c15f7cd821fe813883604",
-        "Node name for S&R": "FL_AceStep_LLMLoader"
-      },
-      "widgets_values": [
-        "acestep-5Hz-lm-1.7B",
-        "auto",
-        "pt",
-        ""
-      ],
-      "color": "#16727c",
-      "bgcolor": "#4F0074"
-    },
-    {
-      "id": 6,
-      "type": "FL_AceStep_ScanDirectory",
-      "pos": [
-        -1952.0303345837438,
-        -595.5688709581174
-      ],
-      "size": [
-        320.2427734375,
-        170
-      ],
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "dataset",
-          "type": "ACESTEP_DATASET",
-          "links": [
-            1
-          ]
-        },
-        {
-          "name": "sample_count",
-          "type": "INT",
-          "links": null
-        },
-        {
-          "name": "status",
-          "type": "STRING",
-          "links": null
-        }
-      ],
-      "properties": {
-        "cnr_id": "fl-acestep-training",
-        "ver": "49740cb896c1c169364c15f7cd821fe813883604",
-        "Node name for S&R": "FL_AceStep_ScanDirectory"
-      },
-      "widgets_values": [
-        "",
-        false,
-        "Future",
-        "prepend"
-      ],
-      "color": "#16727c",
-      "bgcolor": "#4F0074"
-    },
-    {
       "id": 5,
       "type": "FL_AceStep_PreprocessDataset",
       "pos": [
@@ -294,7 +208,7 @@
         394
       ],
       "flags": {},
-      "order": 2,
+      "order": 0,
       "mode": 4,
       "inputs": [],
       "outputs": [
@@ -343,7 +257,7 @@
         98
       ],
       "flags": {},
-      "order": 3,
+      "order": 1,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -385,6 +299,92 @@
       "widgets_values": [
         "ace_step_1.5_turbo_aio.safetensors"
       ]
+    },
+    {
+      "id": 4,
+      "type": "FL_AceStep_LLMLoader",
+      "pos": [
+        -1572.8964896581688,
+        -785.6811381922724
+      ],
+      "size": [
+        270,
+        130
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "llm",
+          "type": "ACESTEP_LLM",
+          "links": [
+            4
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "fl-acestep-training",
+        "ver": "49740cb896c1c169364c15f7cd821fe813883604",
+        "Node name for S&R": "FL_AceStep_LLMLoader"
+      },
+      "widgets_values": [
+        "acestep-5Hz-lm-1.7B",
+        "auto",
+        "pt",
+        ""
+      ],
+      "color": "#16727c",
+      "bgcolor": "#4F0074"
+    },
+    {
+      "id": 6,
+      "type": "FL_AceStep_ScanDirectory",
+      "pos": [
+        -1952.0303345837438,
+        -595.5688709581174
+      ],
+      "size": [
+        320.2427734375,
+        170
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "dataset",
+          "type": "ACESTEP_DATASET",
+          "links": [
+            1
+          ]
+        },
+        {
+          "name": "sample_count",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "status",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "fl-acestep-training",
+        "ver": "49740cb896c1c169364c15f7cd821fe813883604",
+        "Node name for S&R": "FL_AceStep_ScanDirectory"
+      },
+      "widgets_values": [
+        "/workspace/ComfyUI/input/",
+        true,
+        "Future",
+        "prepend"
+      ],
+      "color": "#16727c",
+      "bgcolor": "#4F0074"
     }
   ],
   "links": [
@@ -501,13 +501,13 @@
   "extra": {
     "workflowRendererVersion": "LG",
     "ds": {
-      "scale": 0.7972024500000091,
+      "scale": 1.0610764609500123,
       "offset": [
-        2713.9518089085345,
-        1130.1829092370194
+        2600.4849381095337,
+        1011.0302570028383
       ]
     },
-    "frontendVersion": "1.37.11",
+    "frontendVersion": "1.36.14",
     "VHS_latentpreview": false,
     "VHS_latentpreviewrate": 0,
     "VHS_MetadataImage": true,
