@@ -13,7 +13,6 @@ ENV HF_HOME=/workspace/.cache/huggingface HF_DATASETS_CACHE=/workspace/.cache/hu
 RUN pip install --no-cache-dir pyloudnorm opencv-python imageio imageio-ffmpeg ffmpeg-python av runpod hf-transfer huggingface_hub diffusers accelerate insightface face-alignment onnxruntime-gpu comfy-cli packaging pyyaml ninja
 RUN mkdir -p $COMFY
 
-
 WORKDIR /
 # SET FOLDERS
 COPY boot/assets/ /usr/share/nginx/html/assets/
