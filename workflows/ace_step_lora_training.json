@@ -283,6 +283,44 @@
       "bgcolor": "#4F0074"
     },
     {
+      "id": 4,
+      "type": "FL_AceStep_LLMLoader",
+      "pos": [
+        -1572.8964896581688,
+        -785.6811381922724
+      ],
+      "size": [
+        270,
+        130
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "llm",
+          "type": "ACESTEP_LLM",
+          "links": [
+            4
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "fl-acestep-training",
+        "ver": "49740cb896c1c169364c15f7cd821fe813883604",
+        "Node name for S&R": "FL_AceStep_LLMLoader"
+      },
+      "widgets_values": [
+        "acestep-5Hz-lm-1.7B",
+        "auto",
+        "pt",
+        ""
+      ],
+      "color": "#16727c",
+      "bgcolor": "#4F0074"
+    },
+    {
       "id": 5,
       "type": "FL_AceStep_PreprocessDataset",
       "pos": [
@@ -342,46 +380,8 @@
       },
       "widgets_values": [
         "/workspace/ComfyUI/output/",
-        420,
+        600,
         0
-      ],
-      "color": "#16727c",
-      "bgcolor": "#4F0074"
-    },
-    {
-      "id": 4,
-      "type": "FL_AceStep_LLMLoader",
-      "pos": [
-        -1572.8964896581688,
-        -785.6811381922724
-      ],
-      "size": [
-        270,
-        130
-      ],
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "llm",
-          "type": "ACESTEP_LLM",
-          "links": [
-            4
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "fl-acestep-training",
-        "ver": "49740cb896c1c169364c15f7cd821fe813883604",
-        "Node name for S&R": "FL_AceStep_LLMLoader"
-      },
-      "widgets_values": [
-        "acestep-5Hz-lm-1.7B",
-        "auto",
-        "pt",
-        ""
       ],
       "color": "#16727c",
       "bgcolor": "#4F0074"
@@ -502,8 +502,8 @@
     "ds": {
       "scale": 1.5535220464769133,
       "offset": [
-        2297.0659477076338,
-        927.3804097973318
+        2413.5753982239416,
+        882.7507245236444
       ]
     },
     "frontendVersion": "1.28.8",
