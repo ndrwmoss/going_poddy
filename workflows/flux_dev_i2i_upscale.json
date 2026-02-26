@@ -33,7 +33,8 @@
       "properties": {
         "cnr_id": "comfyui-gguf",
         "ver": "bc5223b0e37e053dbec2ea5e5f52c2fd4b8f712a",
-        "Node name for S&R": "DualCLIPLoaderGGUF"
+        "Node name for S&R": "DualCLIPLoaderGGUF",
+        "aux_id": "city96/ComfyUI-GGUF"
       },
       "widgets_values": [
         "t5-v1_1-xxl-encoder-Q8_0.gguf",
@@ -126,51 +127,6 @@
       ],
       "color": "#322",
       "bgcolor": "#533"
-    },
-    {
-      "id": 154,
-      "type": "TiledDiffusion",
-      "pos": [
-        -456.64715576171875,
-        54.49949645996094
-      ],
-      "size": [
-        315,
-        154
-      ],
-      "flags": {},
-      "order": 13,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 179
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            180
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "ComfyUI-TiledDiffusion",
-        "ver": "a155b1bac39147381aeaa52b9be42e545626a44f",
-        "Node name for S&R": "TiledDiffusion"
-      },
-      "widgets_values": [
-        "Mixture of Diffusers",
-        768,
-        768,
-        64,
-        4
-      ],
-      "color": "#323",
-      "bgcolor": "#535"
     },
     {
       "id": 11,
@@ -493,7 +449,8 @@
       "properties": {
         "cnr_id": "comfyui-easy-use",
         "ver": "9292f2286207928cfdade99ad1634103470c0799",
-        "Node name for S&R": "easy cleanGpuUsed"
+        "Node name for S&R": "easy cleanGpuUsed",
+        "aux_id": "yolain/ComfyUI-Easy-Use"
       },
       "widgets_values": []
     },
@@ -614,37 +571,12 @@
       "properties": {
         "cnr_id": "comfyui-gguf",
         "ver": "bc5223b0e37e053dbec2ea5e5f52c2fd4b8f712a",
-        "Node name for S&R": "UnetLoaderGGUF"
+        "Node name for S&R": "UnetLoaderGGUF",
+        "aux_id": "city96/ComfyUI-GGUF"
       },
       "widgets_values": [
         "flux1-dev-Q8_0.gguf"
       ]
-    },
-    {
-      "id": 145,
-      "type": "MarkdownNote",
-      "pos": [
-        -1416.44873046875,
-        335.3531494140625
-      ],
-      "size": [
-        412.8952331542969,
-        788.6478271484375
-      ],
-      "flags": {
-        "collapsed": false
-      },
-      "order": 4,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "title": "Pixaroma - Note - START HERE",
-      "properties": {},
-      "widgets_values": [
-        "# MODELS USED IN THIS WORKFLOW  \n\n## ⚛️ Unet Loader (GGUF)  \n### Download flux1-dev-Q8_0.gguf model from [HERE](https://huggingface.co/city96/FLUX.1-dev-gguf/resolve/main/flux1-dev-Q8_0.gguf?download=true)  \n\n**Place in:**`ComfyUI/models/diffusion_models`  \n\n### Or a smaller Q variant from [HERE](https://huggingface.co/city96/FLUX.1-dev-gguf/tree/main)\n\n---\n\n## 🟣 Dual Clip Loader (GGUF) 1️⃣\n\n###  Download t5-v1_1-xxl-encoder-Q8_0.gguf from [HERE](https://huggingface.co/city96/t5-v1_1-xxl-encoder-gguf/resolve/main/t5-v1_1-xxl-encoder-Q8_0.gguf?download=true)  \n\n**Place in:** `ComfyUI/models/clip`  \n\n### Or a smaller variant from [HERE](https://huggingface.co/city96/t5-v1_1-xxl-encoder-gguf/tree/main)\n\n## 🟣 Dual Clip Loader (GGUF) 2️⃣\n\n###  Clip L model from [HERE](https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/clip_l.safetensors?download=true)  \n\n**Place in:** `ComfyUI/models/clip`\n\n---\n\n## 🟣 Load VAE\n\n### Download **ae.safetensor** vae model from [HERE](https://huggingface.co/black-forest-labs/FLUX.1-schnell/resolve/main/ae.safetensors?download=true)  \n\n📁 **Place in:** `ComfyUI/models/vae`  \n\nIf you can't download the model make sure you login and accept the agreement on huggingface website [here](https://huggingface.co/black-forest-labs/FLUX.1-schnell)\n \n\n---\n\n## 🆙 Load Upscale Model  \n\n### Download 4x_NMKD-Siax_200k.pth mode from [HERE](https://huggingface.co/Akumetsu971/SD_Anime_Futuristic_Armor/resolve/main/4x_NMKD-Siax_200k.pth?download=true)  \n\n**Place in:** `ComfyUI/models/upscale_models`\n\n---\n\n## 🧩 Nodes Installed from Manager  \n\n- **ComfyUI-Easy-Use**\n- **rgthree-comfy**\n- **ComfyUI-GGUF**\n- **Tiled Diffusion & VAE for ComfyUI**\n\n---\n\n## 📚 Resources  \n🎥 **Tutorials:** [Pixaroma YouTube Channel](https://www.youtube.com/@pixaroma)  \n💬 **Community Discord:** [Join Here](https://discord.com/invite/gggpkVgBf3)\n"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
     },
     {
       "id": 149,
@@ -679,19 +611,20 @@
       "properties": {
         "cnr_id": "rgthree-comfy",
         "ver": "f044a9dbb3fc9de55c6244d616d386986add3072",
-        "comparer_mode": "Slide"
+        "comparer_mode": "Slide",
+        "aux_id": "rgthree/rgthree-comfy"
       },
       "widgets_values": [
         [
           {
             "name": "A",
             "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_hledh_00033_.png&type=temp&subfolder=&rand=0.13219773357978337"
+            "url": "/api/view?filename=rgthree.compare._temp_gzzzs_00001_.png&type=temp&subfolder=&rand=0.9493386374107761"
           },
           {
             "name": "B",
             "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_hledh_00034_.png&type=temp&subfolder=&rand=0.7290661144894316"
+            "url": "/api/view?filename=rgthree.compare._temp_gzzzs_00002_.png&type=temp&subfolder=&rand=0.36640858579309366"
           }
         ]
       ]
@@ -742,7 +675,7 @@
       "flags": {
         "allow_interaction": true
       },
-      "order": 5,
+      "order": 4,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -754,7 +687,8 @@
         "textAlign": "left",
         "backgroundColor": "#353535",
         "padding": 5,
-        "borderRadius": 10
+        "borderRadius": 10,
+        "angle": 0
       },
       "color": "#fff0",
       "bgcolor": "#fff0"
@@ -773,7 +707,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 6,
+      "order": 5,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -818,19 +752,20 @@
       "properties": {
         "cnr_id": "rgthree-comfy",
         "ver": "f044a9dbb3fc9de55c6244d616d386986add3072",
-        "comparer_mode": "Slide"
+        "comparer_mode": "Slide",
+        "aux_id": "rgthree/rgthree-comfy"
       },
       "widgets_values": [
         [
           {
             "name": "A",
             "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_oxmam_00033_.png&type=temp&subfolder=&rand=0.8741499210510028"
+            "url": "/api/view?filename=rgthree.compare._temp_hjdrk_00001_.png&type=temp&subfolder=&rand=0.0923769357100307"
           },
           {
             "name": "B",
             "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_oxmam_00034_.png&type=temp&subfolder=&rand=0.6040543960579575"
+            "url": "/api/view?filename=rgthree.compare._temp_hjdrk_00002_.png&type=temp&subfolder=&rand=0.6052301855437727"
           }
         ]
       ]
@@ -881,7 +816,7 @@
       "flags": {
         "allow_interaction": true
       },
-      "order": 7,
+      "order": 6,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -893,7 +828,8 @@
         "textAlign": "left",
         "backgroundColor": "transparent",
         "padding": 0,
-        "borderRadius": 0
+        "borderRadius": 0,
+        "angle": 0
       },
       "color": "#fff0",
       "bgcolor": "#fff0"
@@ -912,7 +848,7 @@
       "flags": {
         "allow_interaction": true
       },
-      "order": 8,
+      "order": 7,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -924,7 +860,8 @@
         "textAlign": "left",
         "backgroundColor": "transparent",
         "padding": 0,
-        "borderRadius": 0
+        "borderRadius": 0,
+        "angle": 0
       },
       "color": "#fff0",
       "bgcolor": "#fff0"
@@ -943,7 +880,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 9,
+      "order": 8,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -951,6 +888,161 @@
       "properties": {},
       "widgets_values": [
         "🔧 Tiled Diffusion – Key Parameters\n\n| Parameter         | Description                                                                 |\n|-------------------|-----------------------------------------------------------------------------|\n| `tile_size`       | Width & height of each tile. Recommended: 512, 768, 1024.                   |\n|                   | 🔹 512 – safest, low VRAM                                                    |\n|                   | 🔹 768 – fast, stable, great for portraits                                   |\n|                   | 🔹 1024 – high detail, but can add \"extra stuff\" & takes longer              |\n| `tile_overlap`    | Pixels shared between tiles. Prevents seams. Use 32–128 based on tile size. |\n|                   | 🔹 32 for 512 tiles, 64 for 768, 128 for 1024                                |\n| `tile_batch_size` | Tiles processed at once. Higher = faster, but uses more VRAM.               |\n|                   | 🔹 1–2 = safe and clean                                                      |\n|                   | 🔹 4–6 = fast on 24GB GPUs (like RTX 4090)                                   |\n\n💡 Tips:\n- Use **square tiles** (width = height)\n- Match **overlap** to tile size to avoid seams\n- 768 is often the sweet spot for quality + speed\n- 1024 tiles may generate more detail, but also more \"creative noise\"\n"
+      ],
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 127,
+      "type": "easy imageScaleDownToSize",
+      "pos": [
+        -510,
+        580
+      ],
+      "size": [
+        257.2787170410156,
+        82
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 165
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            155
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-easy-use",
+        "ver": "9292f2286207928cfdade99ad1634103470c0799",
+        "Node name for S&R": "easy imageScaleDownToSize",
+        "aux_id": "yolain/ComfyUI-Easy-Use"
+      },
+      "widgets_values": [
+        1024,
+        true
+      ],
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 143,
+      "type": "LoadImage",
+      "pos": [
+        -860,
+        580
+      ],
+      "size": [
+        324.6139831542969,
+        432.8638916015625
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            165,
+            176
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "Bach - Closeup, hair - beatles_00004_.png",
+        "image"
+      ]
+    },
+    {
+      "id": 145,
+      "type": "MarkdownNote",
+      "pos": [
+        -1416.44873046875,
+        335.3531494140625
+      ],
+      "size": [
+        412.8952331542969,
+        788.6478271484375
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Pixaroma - Note - START HERE",
+      "properties": {},
+      "widgets_values": [
+        "# MODELS USED IN THIS WORKFLOW  \n\n## ⚛️ Unet Loader (GGUF)  \n### Download flux1-dev-Q8_0.gguf model from [HERE](https://huggingface.co/city96/FLUX.1-dev-gguf/resolve/main/flux1-dev-Q8_0.gguf?download=true)  \n\n**Place in:**`ComfyUI/models/diffusion_models`  \n\n### Or a smaller Q variant from [HERE](https://huggingface.co/city96/FLUX.1-dev-gguf/tree/main)\n\n---\n\n## 🟣 Dual Clip Loader (GGUF) 1️⃣\n\n###  Download t5-v1_1-xxl-encoder-Q8_0.gguf from [HERE](https://huggingface.co/city96/t5-v1_1-xxl-encoder-gguf/resolve/main/t5-v1_1-xxl-encoder-Q8_0.gguf?download=true)  \n\n**Place in:** `ComfyUI/models/clip`  \n\n### Or a smaller variant from [HERE](https://huggingface.co/city96/t5-v1_1-xxl-encoder-gguf/tree/main)\n\n## 🟣 Dual Clip Loader (GGUF) 2️⃣\n\n###  Clip L model from [HERE](https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/clip_l.safetensors?download=true)  \n\n**Place in:** `ComfyUI/models/clip`\n\n---\n\n## 🟣 Load VAE\n\n### Download **ae.safetensor** vae model from [HERE](https://huggingface.co/black-forest-labs/FLUX.1-schnell/resolve/main/ae.safetensors?download=true)  \n\n📁 **Place in:** `ComfyUI/models/vae`  \n\nIf you can't download the model make sure you login and accept the agreement on huggingface website [here](https://huggingface.co/black-forest-labs/FLUX.1-schnell)\n \n\n---\n\n## 🆙 Load Upscale Model  \n\n### Download 4x_NMKD-Siax_200k.pth mode from [HERE](https://huggingface.co/Akumetsu971/SD_Anime_Futuristic_Armor/resolve/main/4x_NMKD-Siax_200k.pth?download=true)  \n\n**Place in:** `ComfyUI/models/upscale_models`\n\n---\n\n## 🧩 Nodes Installed from Manager  \n\n- **ComfyUI-Easy-Use**\n- **rgthree-comfy**\n- **ComfyUI-GGUF**\n- **Tiled Diffusion & VAE for ComfyUI**\n\n---\n\n## 📚 Resources  \n🎥 **Tutorials:** [Pixaroma YouTube Channel](https://www.youtube.com/@pixaroma)  \n💬 **Community Discord:** [Join Here](https://discord.com/invite/gggpkVgBf3)\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 154,
+      "type": "TiledDiffusion",
+      "pos": [
+        -456.64715576171875,
+        54.49949645996094
+      ],
+      "size": [
+        315,
+        154
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 179
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            180
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "ComfyUI-TiledDiffusion",
+        "ver": "a155b1bac39147381aeaa52b9be42e545626a44f",
+        "Node name for S&R": "TiledDiffusion"
+      },
+      "widgets_values": [
+        "Mixture of Diffusers",
+        1024,
+        1024,
+        128,
+        4
       ],
       "color": "#323",
       "bgcolor": "#535"
@@ -964,7 +1056,7 @@
       ],
       "size": [
         315,
-        262
+        571
       ],
       "flags": {},
       "order": 19,
@@ -1007,97 +1099,14 @@
         "Node name for S&R": "KSampler"
       },
       "widgets_values": [
-        912087442410771,
+        604240882035454,
         "randomize",
         20,
         1,
         "dpmpp_2m",
         "karras",
-        0.8500000000000002
+        0.85
       ]
-    },
-    {
-      "id": 143,
-      "type": "LoadImage",
-      "pos": [
-        -860,
-        580
-      ],
-      "size": [
-        324.6139831542969,
-        432.8638916015625
-      ],
-      "flags": {},
-      "order": 10,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            165,
-            176
-          ]
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": null
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.27",
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "PortraitWoman.png",
-        "image"
-      ]
-    },
-    {
-      "id": 127,
-      "type": "easy imageScaleDownToSize",
-      "pos": [
-        -510,
-        580
-      ],
-      "size": [
-        257.2787170410156,
-        82
-      ],
-      "flags": {},
-      "order": 14,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 165
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "slot_index": 0,
-          "links": [
-            155
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfyui-easy-use",
-        "ver": "9292f2286207928cfdade99ad1634103470c0799",
-        "Node name for S&R": "easy imageScaleDownToSize"
-      },
-      "widgets_values": [
-        1024,
-        true
-      ],
-      "color": "#323",
-      "bgcolor": "#535"
     }
   ],
   "links": [
@@ -1314,19 +1323,19 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.630394086312898,
+      "scale": 0.7627768444386076,
       "offset": [
-        1455.8456427216354,
-        378.710116566014
+        648.9286417182898,
+        -245.3062938191668
       ]
     },
-    "frontendVersion": "1.17.11",
+    "frontendVersion": "1.28.8",
     "node_versions": {
       "ComfyUI-GGUF": "8098c7149fa4ff14991eb3347a5585051ceeafbe",
       "comfy-core": "v0.3.10-37-gd055325",
       "rgthree-comfy": "5d771b8b56a343c24a26e8cea1f0c87c3d58102f"
     },
-    "VHS_latentpreview": false,
+    "VHS_latentpreview": true,
     "VHS_latentpreviewrate": 0,
     "VHS_MetadataImage": true,
     "VHS_KeepIntermediate": true

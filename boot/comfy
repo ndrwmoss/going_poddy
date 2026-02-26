@@ -22,5 +22,8 @@ function old {
 
 comfy set-default $COMFY
 comfy install --workspace=$COMFY
-# --- Create necessary directories ---
+cd $COMFY
+git pull
+pip install -r requirements.txt
 mkdir -p $COMFY_WORKFLOW
+cd /

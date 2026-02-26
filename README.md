@@ -63,6 +63,7 @@ All workflows prefixed by llama are by [Llamabytes](https://www.youtube.com/watc
 # Audio
 ### Ace Step 1.5
 The workflows are by [RyanOnTheInside](https://www.youtube.com/watch?v=R6ksf5GSsrk).  
+[Syman UK](https://openart.ai/workflows/chimpanzee_skinny_81/audio-ace-step-15-turbosft-make-song-with-lora/QnVFyPIUTrVhkxY97KN3)
 <mark>disk space: **base container size + 35 GB**</mark>   
 
     /poddy i aud_acestep
