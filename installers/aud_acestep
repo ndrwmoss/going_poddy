@@ -10,6 +10,10 @@ workflow audio_ace_step_1_5_prompt_lora_blending
 
 workflow ace_step_lora_training
 
+workflow ace_step_std
+
+workflow ace_step_chimp
+
 node https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite
 
 node https://github.com/ryanontheinside/ComfyUI_RyanOnTheInside
