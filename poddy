@@ -73,11 +73,9 @@ install_package () {
                             cd $file
                             if [[ $hf == "none" ]]; then
                                 echo "Attempting to get HUGGINGFACE file without a set token. This file, and thus workflow, may fail. To rectify this issue log into HuggingFace, go to settings, generate an API key, enter that key as a Runpod Secret, finally apply the secret to the HF_API_KEY environmental variable in the pod settings."
-                                wget -O $command $url --no-verbose --show-progress --progress=bar:force:noscroll 
                                 wget $url
                             else
                                 echo "HuggingFace api token found"
-                                wget -O $command $url --no-verbose --show-progress --progress=bar:force:noscroll 
                                 wget --header="Authorization: Bearer $hf" $url
                             fi
                             cd /

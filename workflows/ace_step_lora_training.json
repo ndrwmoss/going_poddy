@@ -74,6 +74,55 @@
       "bgcolor": "#4F0074"
     },
     {
+      "id": 7,
+      "type": "FL_AceStep_TrainingConfig",
+      "pos": [
+        -1394.7152152700087,
+        -296.6407442971491
+      ],
+      "size": [
+        327.2564453125,
+        394
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "config",
+          "type": "ACESTEP_TRAINING_CONFIG",
+          "links": [
+            11
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "fl-acestep-training",
+        "ver": "27d70c722e9be51a08825564e6d6741d011eac83",
+        "Node name for S&R": "FL_AceStep_TrainingConfig"
+      },
+      "widgets_values": [
+        64,
+        128,
+        0.1,
+        0.0003,
+        500,
+        1,
+        1,
+        100,
+        "./output/acestep/loras",
+        42,
+        "fixed",
+        100,
+        0.01,
+        1,
+        "q_proj,k_proj,v_proj,o_proj"
+      ],
+      "color": "#16727c",
+      "bgcolor": "#4F0074"
+    },
+    {
       "id": 8,
       "type": "FL_AceStep_Train",
       "pos": [
@@ -86,7 +135,7 @@
       ],
       "flags": {},
       "order": 4,
-      "mode": 4,
+      "mode": 0,
       "inputs": [
         {
           "name": "model",
@@ -126,55 +175,6 @@
         "",
         "",
         ""
-      ],
-      "color": "#16727c",
-      "bgcolor": "#4F0074"
-    },
-    {
-      "id": 7,
-      "type": "FL_AceStep_TrainingConfig",
-      "pos": [
-        -1394.7152152700087,
-        -296.6407442971491
-      ],
-      "size": [
-        327.2564453125,
-        394
-      ],
-      "flags": {},
-      "order": 0,
-      "mode": 4,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "config",
-          "type": "ACESTEP_TRAINING_CONFIG",
-          "links": [
-            11
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "fl-acestep-training",
-        "ver": "27d70c722e9be51a08825564e6d6741d011eac83",
-        "Node name for S&R": "FL_AceStep_TrainingConfig"
-      },
-      "widgets_values": [
-        64,
-        128,
-        0.1,
-        0.0003,
-        500,
-        1,
-        1,
-        100,
-        "./output/acestep/loras",
-        42,
-        "fixed",
-        100,
-        0.01,
-        1,
-        "q_proj,k_proj,v_proj,o_proj"
       ],
       "color": "#16727c",
       "bgcolor": "#4F0074"
@@ -231,46 +231,8 @@
         }
       },
       "widgets_values": [
-        "ace_step_1.5_turbo_aio.safetensors"
+        "ace_step_1.5_sft.safetensors"
       ]
-    },
-    {
-      "id": 4,
-      "type": "FL_AceStep_LLMLoader",
-      "pos": [
-        -1572.8964896581688,
-        -785.6811381922724
-      ],
-      "size": [
-        270,
-        130
-      ],
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "llm",
-          "type": "ACESTEP_LLM",
-          "links": [
-            4
-          ]
-        }
-      ],
-      "properties": {
-        "cnr_id": "fl-acestep-training",
-        "ver": "49740cb896c1c169364c15f7cd821fe813883604",
-        "Node name for S&R": "FL_AceStep_LLMLoader"
-      },
-      "widgets_values": [
-        "acestep-5Hz-lm-1.7B",
-        "auto",
-        "pt",
-        ""
-      ],
-      "color": "#16727c",
-      "bgcolor": "#4F0074"
     },
     {
       "id": 6,
@@ -284,7 +246,7 @@
         170
       ],
       "flags": {},
-      "order": 3,
+      "order": 2,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -313,8 +275,8 @@
       },
       "widgets_values": [
         "/workspace/ComfyUI/input/",
-        true,
-        "Future",
+        false,
+        "Floydy",
         "prepend"
       ],
       "color": "#16727c",
@@ -380,8 +342,46 @@
       },
       "widgets_values": [
         "/workspace/ComfyUI/output/",
-        240,
+        420,
         0
+      ],
+      "color": "#16727c",
+      "bgcolor": "#4F0074"
+    },
+    {
+      "id": 4,
+      "type": "FL_AceStep_LLMLoader",
+      "pos": [
+        -1572.8964896581688,
+        -785.6811381922724
+      ],
+      "size": [
+        270,
+        130
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "llm",
+          "type": "ACESTEP_LLM",
+          "links": [
+            4
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "fl-acestep-training",
+        "ver": "49740cb896c1c169364c15f7cd821fe813883604",
+        "Node name for S&R": "FL_AceStep_LLMLoader"
+      },
+      "widgets_values": [
+        "acestep-5Hz-lm-1.7B",
+        "auto",
+        "pt",
+        ""
       ],
       "color": "#16727c",
       "bgcolor": "#4F0074"
@@ -499,16 +499,16 @@
   ],
   "config": {},
   "extra": {
-    "workflowRendererVersion": "LG",
     "ds": {
-      "scale": 1.8797616762370652,
+      "scale": 1.5535220464769133,
       "offset": [
-        2176.5772693484873,
-        931.0110790924189
+        2297.0659477076338,
+        927.3804097973318
       ]
     },
-    "frontendVersion": "1.36.14",
-    "VHS_latentpreview": false,
+    "frontendVersion": "1.28.8",
+    "workflowRendererVersion": "LG",
+    "VHS_latentpreview": true,
     "VHS_latentpreviewrate": 0,
     "VHS_MetadataImage": true,
     "VHS_KeepIntermediate": true
