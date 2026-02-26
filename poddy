@@ -88,7 +88,6 @@ install_package () {
                 echo "Package is shared"
             fi
         done < $PODDY/installers/$pkg
-        comfy node update all
         \cp $PODDY/installers/$pkg $PODDY/active/$pkg
     else
         echo "Not a valid installer"
@@ -141,7 +140,6 @@ uninstall_package () {
                 echo "Package is shared"
             fi
         done < $PODDY/installers/$pkg
-        comfy node update all
         if [[ -f $PODDY/active/$pkg ]]; then
             rm $PODDY/active/$pkg
         fi
@@ -155,11 +153,13 @@ if [[ $branch == add || $branch == a || $branch == install || $branch == i ]]; t
     for arg in $@; do
         install_package $arg
     done
+    comfy node update all
 elif [[ $branch == remove || $branch == r || $branch == uninstall || $branch == u ]]; then
     shift
     for arg in $@; do
         uninstall_package $arg
     done
+    comfy node update all
 elif [[ $branch == update ]]; then
     url=${2:-none}
     if [[ $url == none ]]; then
