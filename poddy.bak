@@ -156,11 +156,152 @@ if [[ $branch == add || $branch == a || $branch == install || $branch == i ]]; t
     for arg in $@; do
         install_package $arg
     done
+    echo "INSTALLING: $location"
+    if [[ -f $PODDY/installers/$location ]]; then
+        # LOOP lines of installer file
+        while IFS= read -r line; do
+            # Check if already installed
+            shared=$($PODDY/cmd/is_shared $line)
+            if [[ $shared == false ]]; then
+                # make array of words in the line
+                words_array=($line)
+                type=${words_array[0]}
+                command=${words_array[1]}
+                # INSTALL WORKFLOW
+                if [[ $type == workflow ]]; then
+                    if [[ -f $PODDY/workflows/$command.json ]]; then
+                        echo "Copying $command from Going Poddy workflow folder to ComfyUI's workflow folder"
+                        \cp $PODDY/workflows/$command.json $COMFY_WORKFLOW/$command.json
+                    else
+                        echo "$command isn't in the Going Poddy workflow folder. Cannot be installed."
+                    fi
+                # INSTALL PY
+                elif [[ $type == py ]]; then
+                    echo "INSTALLING PYTHON: $name"
+                    python -m pip install $command -q
+                # INSTALL NODE
+                elif [[ $type == node ]]; then
+                    name=$(basename $command)
+                    if [[ ! -d $COMFY/custom_nodes/$name ]]; then
+                        echo "INSTALLING CUSTOM NODE: $name"
+                        cd $COMFY/custom_nodes
+                        git clone $command
+                    else
+                        rm -r $COMFY/custom_nodes/$name
+                        echo "UPDATING CUSTOM NODE: $name"
+                        cd $COMFY/custom_nodes
+                        git clone $command
+                    fi
+                # INSTALL MODEL
+                elif [[ $type == model ]]; then
+                    folder=${words_array[2]}
+                    url=${words_array[3]}
+                    file=$COMFY/models/$folder
+                    mkdir -p $file
+                    # Extract domain name
+                    if [[ -f $file/$command ]]; then
+                        echo "model already exists"
+                    else
+                        domain=$(echo "$url" | sed -E 's|(https://)?([^/]+).*|\2|')
+                        domain=$(basename -s ".com" $domain)
+                        domain=$(basename -s ".co" $domain)
+                        # Download
+                        if [[ $domain == "civitai" ]]; then
+                            # CIVITAI
+                            if [[ $civ == "none" ]]; then
+                                echo "$name requires the CIVITAI environmental variable set"
+                            else
+                                echo "Civitai api token found"
+                                echo "downloading $name to $file"
+                                cd $file
+                                wget -O $command "$url&token=$CIVITAI_API_TOKEN" --no-verbose --show-progress --progress=bar:force:noscroll 
+                                cd /
+                            fi
+                        else
+                            # HUGGINGFACE
+                            echo "downloading $url to $file"
+                            cd $file
+                            hf=${HF_API_TOKEN:-"none"}
+                            if [[ $hf == "none" ]]; then
+                                echo "Attempting to get HUGGINGFACE file without a set token. This file, and thus workflow, may fail. To rectify this issue log into HuggingFace, go to settings, generate an API key, enter that key as a Runpod Secret, finally apply the secret to the HF_API_KEY environmental variable in the pod settings."
+                                wget -O $command $url --no-verbose --show-progress --progress=bar:force:noscroll 
+                                wget $url
+                            else
+                                echo "HuggingFace api token found"
+                                wget -O $command $url --no-verbose --show-progress --progress=bar:force:noscroll 
+                                wget --header="Authorization: Bearer $hf" $url
+                            fi
+                            cd /
+                        fi
+                    fi
+                fi
+            else
+                echo "Package is shared"
+            fi
+        done < $PODDY/installers/$location
+        comfy node update all
+        \cp $PODDY/installers/$location $PODDY/active/$location
+    else
+        echo "Not a valid installer"
+    fi
 elif [[ $branch == remove || $branch == r || $branch == uninstall || $branch == u ]]; then
     shift
     for arg in $@; do
         uninstall_package $arg
     done
+
+    echo "UNINSTALLING: $location"
+    if [[ -f $PODDY/installers/$location ]]; then
+        # LOOP lines of installer file
+        while IFS= read -r line; do
+            # Check if already installed
+            shared=$($PODDY/cmd/is_shared $line)
+            if [[ $shared == false ]]; then
+                # make array of words in the line
+                words_array=($line)
+                type=${words_array[0]}
+                command=${words_array[1]}
+                #  PY
+                if [[ $type == workflow ]]; then
+                    if [[ -f $COMFY_WORKFLOW/$command.json ]]; then
+                        rm $COMFY_WORKFLOW/$command.json
+                    else
+                        echo "$command isn't in the ComfyUI workflows folder, apparently it was never installed."
+                    fi
+                elif [[ $type == py ]]; then
+                    echo "Uninstalling Python: $name"
+                    python -m pip uninstall $command --yes --quiet
+                #  NODE
+                elif [[ $type == node ]]; then
+                    name=$(basename $command)
+                    if [[ -d $COMFY/custom_nodes/$name ]]; then
+                        echo "Uninstalling Custom Node: $name"
+                        rm -r $COMFY/custom_nodes/$name
+                    else
+                        echo "NOT INSTALLED: $name"
+                    fi
+                #  MODEL
+                elif [[ $type == model ]]; then
+                    folder=${words_array[2]}
+                    file=$COMFY/models/$folder/$command
+                    if [[ -f $file ]]; then
+                        echo "Uninstalling Model: $command"
+                        rm $file
+                    else
+                        echo "$command not installed"
+                    fi
+                fi
+            else
+                echo "Package is shared"
+            fi
+        done < $PODDY/installers/$location
+        comfy node update all
+        if [[ -f $PODDY/active/$location ]]; then
+            rm $PODDY/active/$location
+        fi
+    else
+        echo "Not a valid installer"
+    fi
 elif [[ $branch == update ]]; then
     url=${2:-none}
     if [[ $url == none ]]; then
