@@ -1,6 +1,4 @@
-# py name
 
-# workflow name
 workflow faboro_face2face_uncensored
 workflow faboro_face_swap
 workflow apex_controlnet
@@ -30,8 +28,6 @@ workflow QIE_replace_text
 workflow QIE_restore_photo
 workflow img_clothing_transfer
 workflow img_clothing_extract
-
-# node url
 node https://github.com/kijai/ComfyUI-DepthAnythingV2
 node https://github.com/Fannovel16/comfyui_controlnet_aux
 node https://github.com/cubiq/ComfyUI_essentials
@@ -57,8 +53,6 @@ node https://github.com/quasiblob/ComfyUI-EsesImageCompare
 node https://github.com/gseth/ControlAltAI-Nodes
 node https://github.com/1038lab/ComfyUI-QwenVL
 node https://github.com/huchukato/ComfyUI-QwenVL-Mod
-
-# model name folder url
 model qwen_image_edit_2511_fp8_e4m3fn.safetensors diffusion_models https://huggingface.co/xms991/Qwen-Image-Edit-2511-fp8-e4m3fn/resolve/main/qwen_image_edit_2511_fp8_e4m3fn.safetensors
 model juggernautXL_juggXIByRundiffusion.safetensors checkpoints https://huggingface.co/misri/juggernautXL_juggXIByRundiffusion/resolve/main/juggernautXL_juggXIByRundiffusion.safetensors
 model qwen_image_vae.safetensors vae https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors
@@ -67,3 +61,5 @@ model Qwen-Image-Lightning-4steps-V2.0.safetensors loras https://huggingface.co/
 model clothes_tryon_qwen-edit-lora.safetensors loras https://civitai.com/api/download/models/2196278?type=Model&format=SafeTensor
 model extract-outfit_v3.safetensors loras https://huggingface.co/datasets/dubsta/xmas/resolve/main/extract-outfit_v3.safetensors
 model RealESRGAN_x2.pth upscale_models https://huggingface.co/ai-forever/Real-ESRGAN/resolve/main/RealESRGAN_x2.pth
+
+# end
