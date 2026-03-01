@@ -34,7 +34,6 @@ All workflows prefixed by faboro are by [Faboro Hacks](https://www.youtube.com/w
 All workflows prefixed by apex are by [Apex Artist](https://www.youtube.com/watch?v=v6xOY5x4NFU)  
 All workflows prefixed by llama are by [Llamabytes](https://www.youtube.com/watch?v=YBhYAVUfPvg)  
 All workflows prefixed by allison are by [Alissonerdx](https://huggingface.co/Alissonerdx/BFS-Best-Face-Swap)  
-https://huggingface.co/Alissonerdx/BFS-Best-Face-Swap
 <mark>disk space: **base container size + 35 GB**</mark>   
 
     /poddy i img_qwen_edit
