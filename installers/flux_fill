@@ -1,0 +1,9 @@
+workflow flux_pix_inpaint
+workflow flux_pix_outpaint
+node https://github.com/lquesada/ComfyUI-Inpaint-CropAndStitch
+model ae.safetensor vae https://huggingface.co/black-forest-labs/FLUX.1-schnell/resolve/main/ae.safetensors
+model Zer0Int-Vision_CLIPL_FP32 clip https://civitai.com/api/download/models/1377767?type=Model&format=SafeTensor&size=full&fp=fp32
+model t5-v1_1-xxl-encoder-Q8_0.gguf clip https://huggingface.co/city96/t5-v1_1-xxl-encoder-gguf/resolve/main/t5-v1_1-xxl-encoder-Q8_0.gguf
+model flux1-fill-dev-Q8_0.gguf diffusion_models https://huggingface.co/YarvixPA/FLUX.1-Fill-dev-gguf/resolve/main/flux1-fill-dev-Q8_0.gguf
+
+# end

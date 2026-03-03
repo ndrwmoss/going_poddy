@@ -3,7 +3,7 @@ A CUDA 12.8, ComfyUI, Sage Attention Runpod pod with quick installs for various 
 
 ## Install
 
-The pod installs a simple image, after boot the image downloads any package(s) (workflows + custom nodes + models) you choose, simply type in ``/poddy install ``  followed by an install command (found below) into the terminal, or add the install command(s) to the Pod Configuration under PREINSTALL on the pod deployment page for a seemless install. To uninstall a package do the same thing but replace ``install`` with ``uninstall``. The pod automatically updates the going_poddy workflows and isntallers on start but you can also manually do it by typing ``/poddy update ``.
+The pod installs a simple image, after boot the image downloads any package(s) (workflows + custom nodes + models) you choose, simply type in ``/poddy install ``  followed by an install command (found below) into the terminal, or add the install command(s) to the Pod Configuration under PREINSTALL on the pod deployment page for a seemless install. To uninstall a package do the same thing but replace ``install`` with ``uninstall``. The pod automatically updates the going_poddy workflows and installers on start but you can also manually do it by typing ``/poddy update ``.
 
 
 ##
@@ -17,37 +17,41 @@ The pod installs a simple image, after boot the image downloads any package(s) (
 
 ##
 # Photo
-### Hair Transfer
+### Epic Realism
 <mark>disk space: **35 GB**</mark>  
 <mark>dl/install time: **2-5 minutes**</mark>  
 
-    /poddy i hair_transfer
+    /poddy i epic_realism
 
-Based on [Stable Hair II](https://github.com/lldacing/ComfyUI_StableHair_ll/blob/main/README_EN.md)  
+juggernaut_hair_transfer by [Stable Hair II](https://github.com/lldacing/ComfyUI_StableHair_ll/blob/main/README_EN.md)  
+All workflow prefixed by juggernaut_pix are by [pixaroma](https://www.youtube.com/watch?v=qLZJ7iSq9tY)
 
-Transfers hair from one subject to another, meant for realism and may have problems with animation hair. Both images should be 512 x 512 pixels. Other sizes work but with much MUCH more error, if choosing to use a custom size the image dimensions must be divisible by 16. The workflow has 2 stages, one where it takes the subject getting their hair changed and makes them bald, the second stage removes the hair from the second subject and places it on the main subject's head. It make take several different seeds (play with CFG between 1.0-3.0 as well) to get the subject bald. When you've got the bald down, make sure to set seed changing to fixed, that way you can apply multiple different hairstyle without having to process the bald phase.
+### Juggernaut
+<mark>disk space: **35 GB**</mark>  
+<mark>dl/install time: **2-5 minutes**</mark>  
+
+    /poddy i juggernaut
+
+juggernaut_hair_transfer by [Stable Hair II](https://github.com/lldacing/ComfyUI_StableHair_ll/blob/main/README_EN.md)  
+All workflow prefixed by juggernaut_pix are by [pixaroma](https://www.youtube.com/watch?v=qLZJ7iSq9tY)
+
+### Flux Fill
+<mark>disk space: **35 GB**</mark>  
+<mark>dl/install time: **2-5 minutes**</mark>  
+
+    /poddy i flux_fill
+
+All workflow prefixed by flux_fill_pix are by [pixaroma](https://www.youtube.com/watch?v=qLZJ7iSq9tY)
+
 
 #### QWEN Edit
-The workflows are by 
-All workflows prefixed by QIE are by [pixaroma](https://www.youtube.com/watch?v=myuV6vjkGIw)  
-All workflows prefixed by faboro are by [Faboro Hacks](https://www.youtube.com/watch?v=_QYBgeII9Pg)  
-All workflows prefixed by apex are by [Apex Artist](https://www.youtube.com/watch?v=v6xOY5x4NFU)  
-All workflows prefixed by llama are by [Llamabytes](https://www.youtube.com/watch?v=YBhYAVUfPvg)  
-All workflows prefixed by allison are by [Alissonerdx](https://huggingface.co/Alissonerdx/BFS-Best-Face-Swap)  
-<mark>disk space: **base container size + 35 GB**</mark>   
+<mark>disk space: **base container size + 35 GB**</mark>  
+All workflows prefixed by QIE_pix are by [pixaroma](https://www.youtube.com/watch?v=myuV6vjkGIw)  
+All workflows prefixed by QIE_fab are by [Faboro Hacks](https://www.youtube.com/watch?v=_QYBgeII9Pg)  
+All workflows prefixed by QIE_apex are by [Apex Artist](https://www.youtube.com/watch?v=v6xOY5x4NFU)  
+All workflows prefixed by QIE_lla are by [Llamabytes](https://www.youtube.com/watch?v=YBhYAVUfPvg)  
+All workflows prefixed by QIE_ali are by [Alissonerdx](https://huggingface.co/Alissonerdx/BFS-Best-Face-Swap)  
+QIE_clothing_extract and QIE_clothing_transfer are by [Clothes Try On](https://civitai.com/models/1940532/clothes-try-on-clothing-transfer-qwen-edit)  
+ 
+    /poddy i qwen_edit
 
-    /poddy i img_qwen_edit
-
-#### Upscale
-<mark>disk space: **base container size + 35 GB**</mark>      
-
-    /poddy i img_flux_upscale
-
-##
-# Audio
-### Ace Step 1.5
-The workflows are by [RyanOnTheInside](https://www.youtube.com/watch?v=R6ksf5GSsrk).  
-[Syman UK](https://openart.ai/workflows/chimpanzee_skinny_81/audio-ace-step-15-turbosft-make-song-with-lora/QnVFyPIUTrVhkxY97KN3)  
-<mark>disk space: **base container size + 35 GB**</mark>   
-
-    /poddy i aud_acestep

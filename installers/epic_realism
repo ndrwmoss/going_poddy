@@ -1,0 +1,18 @@
+workflow epic_realism_hair_transfer
+workflow epic_realism_pix_inpaint
+workflow epic_realism_pix_outpaint
+node https://github.com/cubiq/ComfyUI_essentials
+node https://github.com/yolain/ComfyUI-Easy-Use
+node https://github.com/lldacing/ComfyUI_StableHair_ll
+node https://github.com/mav-rik/facerestore_cf
+node https://github.com/ALatentPlace/ComfyUI_yanc
+node https://github.com/StableLlama/ComfyUI-basic_data_handling
+node https://github.com/lquesada/ComfyUI-Inpaint-CropAndStitch
+model hair_adapter_model.bin diffusers/StableHair https://huggingface.co/lldacing/StableHair/resolve/main/hair_adapter_model.bin
+model hair_bald_model.bin diffusers/StableHair https://huggingface.co/lldacing/StableHair/resolve/main/hair_bald_model.bin
+model hair_controlnet_model.bin diffusers/StableHair https://huggingface.co/lldacing/StableHair/resolve/main/hair_controlnet_model.bin
+model hair_encoder_model.bin diffusers/StableHair https://huggingface.co/lldacing/StableHair/resolve/main/hair_encoder_model.bin
+model epiCRealism.safetensors checkpoints https://civitai.com/api/download/models/134065?type=Model&format=SafeTensor&size=pruned&fp=fp16
+model epicrealism_v10-inpainting.safetensors checkpoints https://civitai.com/api/download/models/95864?type=Model&format=SafeTensor&size=pruned&fp=fp16
+
+# end
