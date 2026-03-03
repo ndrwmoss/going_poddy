@@ -20,3 +20,6 @@ rm -r $PORTA_PODDY
 echo "PREVIOUS PODDY FLUSHED. INITIATING."
 
 $PODDY/boot/init
+
+echo "INIT COMPLETE: STARTING YOUR COMFY ON PORT 8188"
+python $COMFY/main.py --use-sage-attention --listen --port=8188
