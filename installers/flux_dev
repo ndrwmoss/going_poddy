@@ -1,0 +1,18 @@
+# workflow name
+workflow flux_pix_i2i
+workflow flux_pix_t2i
+workflow flux_pix_upscaler
+# node url
+node https://github.com/rgthree/rgthree-comfy
+node https://github.com/yolain/ComfyUI-Easy-Use
+node https://github.com/shiimizu/ComfyUI-TiledDiffusion
+node https://github.com/gseth/ControlAltAI-Nodes
+# model name folder url
+model flux1-dev-Q8_0.gguf diffusion_models https://huggingface.co/city96/FLUX.1-dev-gguf/resolve/main/flux1-dev-Q8_0.gguf
+model t5-v1_1-xxl-encoder-Q8_0.gguf clip https://huggingface.co/city96/t5-v1_1-xxl-encoder-gguf/resolve/main/t5-v1_1-xxl-encoder-Q8_0.gguf
+model clip_l.safetensors clip https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/clip_l.safetensors
+model ae.safetensors vae https://huggingface.co/black-forest-labs/FLUX.1-schnell/resolve/main/ae.safetensors
+model 4x_NMKD-Siax_200k.pth upscale_models https://huggingface.co/Akumetsu971/SD_Anime_Futuristic_Armor/resolve/main/4x_NMKD-Siax_200k.pth
+model Zer0Int-Vision_CLIPL_FP32 clip https://civitai.com/api/download/models/1377767?type=Model&format=SafeTensor&size=full&fp=fp32
+
+# needs an empty space at the end of the line to work

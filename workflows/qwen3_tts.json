@@ -1,0 +1,956 @@
+{
+  "id": "83400b26-5b18-4708-a141-027514fe6019",
+  "revision": 0,
+  "last_node_id": 33,
+  "last_link_id": 33,
+  "nodes": [
+    {
+      "id": 25,
+      "type": "Label (rgthree)",
+      "pos": [
+        192.18448424557533,
+        -4279.95456772137
+      ],
+      "size": [
+        1060.78125,
+        48
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Tutorial https://www.youtube.com/@vantagewithai",
+      "properties": {
+        "fontSize": 48,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0,
+        "angle": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 24,
+      "type": "Label (rgthree)",
+      "pos": [
+        526.3143670580754,
+        -4353.4295433073075
+      ],
+      "size": [
+        332.6484375,
+        48
+      ],
+      "flags": {
+        "allow_interaction": true
+      },
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Vantage with AI",
+      "properties": {
+        "fontSize": 48,
+        "fontFamily": "Arial",
+        "fontColor": "#ffffff",
+        "textAlign": "left",
+        "backgroundColor": "transparent",
+        "padding": 0,
+        "borderRadius": 0,
+        "angle": 0
+      },
+      "color": "#fff0",
+      "bgcolor": "#fff0"
+    },
+    {
+      "id": 18,
+      "type": "SaveAudio",
+      "pos": [
+        1597.9336493979715,
+        -3996.0652490465295
+      ],
+      "size": [
+        271.2504979558271,
+        112
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 22
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.11.0",
+        "Node name for S&R": "SaveAudio"
+      },
+      "widgets_values": [
+        "audio/ComfyUI"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 29,
+      "type": "Any Switch (rgthree)",
+      "pos": [
+        663.6409847343342,
+        -3196.7246646082926
+      ],
+      "size": [
+        263.6999908447266,
+        106
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 14,
+      "mode": 4,
+      "inputs": [
+        {
+          "dir": 3,
+          "name": "any_01",
+          "type": "AUDIO",
+          "link": 27
+        },
+        {
+          "dir": 3,
+          "name": "any_02",
+          "type": "AUDIO",
+          "link": 28
+        },
+        {
+          "dir": 3,
+          "name": "any_03",
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "dir": 3,
+          "name": "any_04",
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "dir": 3,
+          "name": "any_05",
+          "type": "AUDIO",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "dir": 4,
+          "label": "AUDIO",
+          "name": "*",
+          "shape": 3,
+          "type": "AUDIO",
+          "links": [
+            29
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "rgthree-comfy",
+        "ver": "1.0.2511270846"
+      },
+      "widgets_values": [],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 30,
+      "type": "PreviewAny",
+      "pos": [
+        446.4366836590653,
+        -3196.724664608292
+      ],
+      "size": [
+        210,
+        166
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 16,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 30
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.11.0",
+        "Node name for S&R": "PreviewAny"
+      },
+      "widgets_values": [
+        null,
+        null,
+        null
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 20,
+      "type": "Fast Groups Bypasser (rgthree)",
+      "pos": [
+        1599.955609935439,
+        -3840.3742876614697
+      ],
+      "size": [
+        270.0691950427672,
+        58
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "title": "Background Audio",
+      "properties": {
+        "matchColors": "brown",
+        "matchTitle": "",
+        "showNav": true,
+        "showAllGraphs": true,
+        "sort": "custom alphabet",
+        "customSortAlphabet": "C,G,A",
+        "toggleRestriction": "max one"
+      },
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 4,
+      "type": "QwenTTSVoiceDesignNode",
+      "pos": [
+        235.8951242702435,
+        -3848.7835725536675
+      ],
+      "size": [
+        337.5854285834557,
+        460.847823334183
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "QWEN_TTS_MODEL",
+          "link": 4
+        },
+        {
+          "name": "tokenizer",
+          "type": "QWEN_TTS_TOKENIZER",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            5,
+            28
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "vantagewithai/Vantage-Nodes",
+        "ver": "ca87e1a4f9173a9950f524cb38116f4dee14f76c",
+        "Node name for S&R": "QwenTTSVoiceDesignNode"
+      },
+      "widgets_values": [
+        "Good one. Okay, fine, I'm just gonna leave this sock monkey here. Goodbye.",
+        "Male, 17 years old, tenor range, gaining confidence — deeper breath support now, though vowels still tighten when nervous.",
+        "Auto",
+        "auto",
+        "inherit",
+        47,
+        "randomize",
+        2048,
+        0.8,
+        20,
+        1,
+        1.05,
+        false
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 5,
+      "type": "PreviewAudio",
+      "pos": [
+        237.85279625924102,
+        -3347.1263915139216
+      ],
+      "size": [
+        332.2212401757307,
+        89.01098026873387
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 5
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.11.0",
+        "Node name for S&R": "PreviewAudio"
+      },
+      "widgets_values": [],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 23,
+      "type": "Fast Groups Bypasser (rgthree)",
+      "pos": [
+        229.9487687036815,
+        -4002.259707755875
+      ],
+      "size": [
+        337.6120074025473,
+        82
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "title": "Select Speaker Generation Mode",
+      "properties": {
+        "matchColors": "black",
+        "matchTitle": "",
+        "showNav": true,
+        "showAllGraphs": true,
+        "sort": "position",
+        "customSortAlphabet": "",
+        "toggleRestriction": "always one"
+      },
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 9,
+      "type": "QwenTTSVoiceClonePromptNode",
+      "pos": [
+        598.2579782141814,
+        -3783.943207206652
+      ],
+      "size": [
+        279.23381153484377,
+        534.8109487959509
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "QWEN_TTS_MODEL",
+          "link": 14
+        },
+        {
+          "name": "ref_audio",
+          "type": "AUDIO",
+          "link": 29
+        }
+      ],
+      "outputs": [
+        {
+          "name": "voice_prompt",
+          "type": "QWEN_TTS_VOICE_PROMPT",
+          "links": [
+            30
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "vantagewithai/Vantage-Nodes",
+        "ver": "ca87e1a4f9173a9950f524cb38116f4dee14f76c",
+        "Node name for S&R": "QwenTTSVoiceClonePromptNode"
+      },
+      "widgets_values": [
+        "Yeah, so—uh—I’m a digital nomad, right? So… pretty much all my communication is just, like, texts and messages. And now, you know, there’s these AI agents that can, uh… reply for you?\n",
+        false,
+        "inherit",
+        "inherit",
+        false,
+        true,
+        "samantha",
+        false
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 22,
+      "type": "LoadAudio",
+      "pos": [
+        603.0192622761933,
+        -3973.0934795271633
+      ],
+      "size": [
+        260.5917699643128,
+        136
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            27
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.11.0",
+        "Node name for S&R": "LoadAudio"
+      },
+      "widgets_values": [
+        "ComfyUI_00036_.mp3",
+        null,
+        null
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 19,
+      "type": "Fast Groups Bypasser (rgthree)",
+      "pos": [
+        -86.79186164568058,
+        -3749.0936362679327
+      ],
+      "size": [
+        283.4514562234047,
+        82
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "title": "Select Process",
+      "properties": {
+        "matchColors": "pale_blue",
+        "matchTitle": "",
+        "showNav": true,
+        "showAllGraphs": true,
+        "sort": "custom alphabet",
+        "customSortAlphabet": "C,G,A",
+        "toggleRestriction": "always one"
+      },
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 16,
+      "type": "LoadAudio",
+      "pos": [
+        916.532948271134,
+        -3283.048437697452
+      ],
+      "size": [
+        246.43804620203423,
+        136
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            26
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.11.0",
+        "Node name for S&R": "LoadAudio"
+      },
+      "widgets_values": [
+        "no-copyright-music-468179.mp3",
+        null,
+        null
+      ],
+      "color": "#332922",
+      "bgcolor": "#593930"
+    },
+    {
+      "id": 13,
+      "type": "QwenTTSMultiSpeakerNode",
+      "pos": [
+        1186.464680023161,
+        -3998.0872095839936
+      ],
+      "size": [
+        401.37860945736475,
+        855.5982585427168
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "speaker_prompts",
+          "type": "DICT",
+          "link": 33
+        },
+        {
+          "name": "model",
+          "type": "QWEN_TTS_MODEL",
+          "link": 23
+        },
+        {
+          "name": "background_music",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 26
+        }
+      ],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            22
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "vantagewithai/Vantage-Nodes",
+        "ver": "ca87e1a4f9173a9950f524cb38116f4dee14f76c",
+        "Node name for S&R": "QwenTTSMultiSpeakerNode"
+      },
+      "widgets_values": [
+        "[Mia, 2500, 0.95]\nHey… um… did you understand what she said about quadratic equations?\n[Lucas]\nN-not really… I mean—kind of? I stopped listening when you leaned over.\n[Mia, 200, 1.0]\nOh? Is that my fault now?\n[Lucas, -1000, 0.85]\nI—I didn’t say that. Just… you smell like strawberries.\n[Mia, 300, 1.05]\nYou noticed that?\n[Lucas, -550, 0.9, fade]\nMaybe… yeah. I kinda notice everything you do.\n[Samantha, -1500, 1.6]\nMIA. LUCAS. THAT IS ENOUGH.\n[Mia, 200, 0.8]\nSorry, ma’am…\n[Lucas, 0, 0.75]\nYes, ma’am.\n[Samantha, 300, 1.4]\nEyes on the board. This isn’t a café — it’s a classroom.\n[Mia, 0, 0.9]\nI think she hates strawberries.\n[Lucas, 0, 0.85, fade]\nWorth it.",
+        "inherit",
+        "inherit",
+        "Auto",
+        0.5,
+        true,
+        true,
+        500,
+        500,
+        true,
+        0.1,
+        200,
+        1098,
+        "randomize",
+        2048,
+        0.8,
+        20,
+        1,
+        1.05,
+        true,
+        false
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 33,
+      "type": "QwenTTSSpeakerBankNode",
+      "pos": [
+        909.5479936871486,
+        -4001.1201503901966
+      ],
+      "size": [
+        265.63875658147003,
+        642.5238707184835
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "speaker_prompts",
+          "type": "DICT",
+          "links": [
+            33
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "vantagewithai/Vantage-Nodes",
+        "ver": "ca87e1a4f9173a9950f524cb38116f4dee14f76c",
+        "Node name for S&R": "QwenTTSSpeakerBankNode",
+        "mainSpeaker": "<none>",
+        "extraSpeakers": [],
+        "_speakerBankInit": true
+      },
+      "widgets_values": [
+        "<none>",
+        "{}",
+        null
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 26,
+      "type": "MarkdownNote",
+      "pos": [
+        -93.8370211307686,
+        -3484.6123390062294
+      ],
+      "size": [
+        302.36559139784947,
+        239.56989247311822
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Note:",
+      "properties": {},
+      "widgets_values": [
+        "### Voice Design\n\n**For more information about how to provide Voice Design  instructions you can check this page out.**\n\n[https://qwen.ai/blog?id=qwen3tts-0115](https://qwen.ai/blog?id=qwen3tts-0115)\n\n### Vantage-Nodes\n\n**Please Install or Update Vantage-Nodes to use this workflow.**\n\n[Vantage-Nodes](https://github.com/vantagewithai/Vantage-Nodes)"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 1,
+      "type": "QwenTTSModelDownloader",
+      "pos": [
+        -95.06153874174474,
+        -4012.210512289731
+      ],
+      "size": [
+        287.97961364006517,
+        166
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "tokenizer",
+          "type": "QWEN_TTS_TOKENIZER",
+          "links": [
+            3
+          ]
+        },
+        {
+          "name": "base_model",
+          "type": "QWEN_TTS_MODEL",
+          "links": [
+            14,
+            23
+          ]
+        },
+        {
+          "name": "voice_design_model",
+          "type": "QWEN_TTS_MODEL",
+          "links": [
+            4
+          ]
+        },
+        {
+          "name": "custom_voice_model",
+          "type": "QWEN_TTS_MODEL",
+          "links": []
+        }
+      ],
+      "properties": {
+        "aux_id": "vantagewithai/Vantage-Nodes",
+        "ver": "ca87e1a4f9173a9950f524cb38116f4dee14f76c",
+        "Node name for S&R": "QwenTTSModelDownloader"
+      },
+      "widgets_values": [
+        "auto",
+        "sage_attn",
+        "fp32"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    }
+  ],
+  "links": [
+    [
+      3,
+      1,
+      0,
+      4,
+      1,
+      "QWEN_TTS_TOKENIZER"
+    ],
+    [
+      4,
+      1,
+      2,
+      4,
+      0,
+      "QWEN_TTS_MODEL"
+    ],
+    [
+      5,
+      4,
+      0,
+      5,
+      0,
+      "AUDIO"
+    ],
+    [
+      14,
+      1,
+      1,
+      9,
+      0,
+      "QWEN_TTS_MODEL"
+    ],
+    [
+      22,
+      13,
+      0,
+      18,
+      0,
+      "AUDIO"
+    ],
+    [
+      23,
+      1,
+      1,
+      13,
+      1,
+      "QWEN_TTS_MODEL"
+    ],
+    [
+      26,
+      16,
+      0,
+      13,
+      2,
+      "AUDIO"
+    ],
+    [
+      27,
+      22,
+      0,
+      29,
+      0,
+      "AUDIO"
+    ],
+    [
+      28,
+      4,
+      0,
+      29,
+      1,
+      "AUDIO"
+    ],
+    [
+      29,
+      29,
+      0,
+      9,
+      1,
+      "AUDIO"
+    ],
+    [
+      30,
+      9,
+      0,
+      30,
+      0,
+      "QWEN_TTS_VOICE_PROMPT"
+    ],
+    [
+      33,
+      33,
+      0,
+      13,
+      0,
+      "DICT"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "Models",
+      "bounding": [
+        -98.84097533643066,
+        -4084.921860374685,
+        307.97961364006517,
+        249.6
+      ],
+      "color": "#88A",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "Speaker Generation",
+      "bounding": [
+        216.9703930874479,
+        -4079.0934795271633,
+        672.6719342959858,
+        901.2515436971071
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "Audio Generation",
+      "bounding": [
+        896.532948271134,
+        -4074.7201503901965,
+        983.4918567070722,
+        947.6717126927448
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 4,
+      "title": "Background Audio",
+      "bounding": [
+        906.532948271134,
+        -3345.448437697452,
+        269.47098700823676,
+        208.4000000000001
+      ],
+      "color": "#b06634",
+      "font_size": 16,
+      "flags": {}
+    },
+    {
+      "id": 6,
+      "title": "Clone Voice",
+      "bounding": [
+        593.0192622761933,
+        -4035.4934795271633,
+        280.5917699643128,
+        208.4
+      ],
+      "color": "#444",
+      "font_size": 16,
+      "flags": {}
+    },
+    {
+      "id": 7,
+      "title": "Design Voice",
+      "bounding": [
+        225.8951242702435,
+        -3911.1835725536675,
+        358.4799874335454,
+        659.8423548568676
+      ],
+      "color": "#444",
+      "font_size": 16,
+      "flags": {}
+    },
+    {
+      "id": 8,
+      "title": "Control",
+      "bounding": [
+        -96.79186164568058,
+        -3822.6936362679326,
+        304.5267250406088,
+        296.3956989247308
+      ],
+      "color": "#8AA",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "workflowRendererVersion": "LG",
+    "ds": {
+      "scale": 1.1253000000000004,
+      "offset": [
+        510.8539232901935,
+        4289.09821832732
+      ]
+    },
+    "reroutes": [
+      {
+        "id": 3,
+        "pos": [
+          579.6582862279595,
+          -4099.081133718391
+        ],
+        "linkIds": [
+          14,
+          23
+        ]
+      }
+    ],
+    "frontendVersion": "1.36.14",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true,
+    "linkExtensions": [
+      {
+        "id": 14,
+        "parentId": 3
+      },
+      {
+        "id": 23,
+        "parentId": 3
+      }
+    ]
+  },
+  "version": 0.4
+}

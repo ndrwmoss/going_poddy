@@ -1,0 +1,16 @@
+# workflow name
+workflow svg_generate_vector_designs
+workflow svg_image _to_vector_silhouette
+workflow svg_image_vector_variation
+workflow svg_img_to_svg
+# node url
+node https://github.com/rgthree/rgthree-comfy
+node https://github.com/Yanick112/ComfyUI-ToSVG
+# model name folder url
+model flux1-dev-Q8_0.gguf diffusion_models https://huggingface.co/YarvixPA/FLUX.1-Fill-dev-gguf/resolve/main/flux1-fill-dev-Q8_0.gguf?download=true
+model t5-v1_1-xxl-encoder-Q8_0.gguf clip https://huggingface.co/city96/t5-v1_1-xxl-encoder-gguf/resolve/main/t5-v1_1-xxl-encoder-Q8_0.gguf?download=true
+model clip_l.safetensors clip https://huggingface.co/city96/t5-v1_1-xxl-encoder-gguf/resolve/main/t5-v1_1-xxl-encoder-Q8_0.gguf?download=true
+model ae.safetensor vae https://huggingface.co/Comfy-Org/Lumina_Image_2.0_Repackaged/resolve/main/split_files/vae/ae.safetensors?download=true
+model svg_style.safetensors loras https://huggingface.co/Pixaroma/flux-kontext-loras/resolve/main/svg_style.safetensors?download=true
+
+# needs an empty space at the end of the line to work

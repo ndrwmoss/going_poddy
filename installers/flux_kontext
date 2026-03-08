@@ -1,0 +1,33 @@
+# workflow name
+workflow flux_pix_change_hair_color
+workflow flux_pix_change_hair_style
+workflow flux_pix_change_the_color
+workflow flux_pix_change_the_text
+workflow flux_pix_change_weather_and_light
+workflow flux_pix_character_consistency
+workflow flux_pix_combine_2_images_custom_size
+workflow flux_pix_custom_size
+workflow flux_pix_image_editing
+workflow flux_pix_image_generation
+workflow flux_pix_kontext_inpaint
+workflow flux_pix_remove_items
+workflow flux_pix_remove_items_inpaint
+workflow flux_pix_replace_a_character
+workflow flux_pix_replace_the_background
+workflow flux_pix_style_reference
+workflow flux_pix_style_reference_custom_size
+workflow flux_pix_transform_2_lineart
+workflow flux_pix_transform_2_watercolor
+workflow flux_pix_transform_lineart_2_color
+# node url
+node https://github.com/lquesada/ComfyUI-Inpaint-CropAndStitch
+node https://github.com/rgthree/rgthree-comfy
+node https://github.com/yolain/ComfyUI-Easy-Use
+# model name folder url
+model flux1-dev-kontext_fp8_scaled.safetensors diffusion_models https://huggingface.co/Comfy-Org/flux1-kontext-dev_ComfyUI/resolve/main/split_files/diffusion_models/flux1-dev-kontext_fp8_scaled.safetensors
+model clip_l.safetensors clip https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/clip_l.safetensors
+model t5xxl_fp16.safetensors clip https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp16.safetensors
+model ae.safetensors vae https://huggingface.co/Comfy-Org/Lumina_Image_2.0_Repackaged/resolve/main/split_files/vae/ae.safetensors
+model 4x_NMKD-Siax_200k.pth upscale_models https://huggingface.co/Akumetsu971/SD_Anime_Futuristic_Armor/resolve/main/4x_NMKD-Siax_200k.pth?download=true
+
+# needs an empty space at the end of the line to work

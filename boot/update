@@ -1,0 +1,26 @@
+#!/bin/bash
+location=${1:-https://github.com/ndrwmoss/going_poddy}
+if [[ $1 == test ]]; then
+    location=https://github.com/ndrwmoss/testing_poddy
+fi
+echo "UPDATING $location"
+if [[ -d $PORTA_PODDY ]]; then
+    rm -r $PORTA_PODDY
+fi
+mkdir -p $PORTA_PODDY
+git clone $location $PORTA_PODDY
+
+if [[ -d $PORTA_PODDY/installers ]]; then
+    echo "REPOSITORY: Installers Exist"
+    if [[ -d $PODDY/workflows ]]; then
+        echo "REPOSITORY: Workflows Exist"
+        \cp -r $PORTA_PODDY/installers $PODDY
+        \cp -r $PORTA_PODDY/workflows $PODDY
+        rm -r $PORTA_PODDY
+        echo "REPOSITORY INSTALLED"
+    else
+        echo "INVALID REPOSITORY: No Workflows Found"
+    fi
+else
+    echo "INVALID REPOSITORY: No Installers Found"
+fi

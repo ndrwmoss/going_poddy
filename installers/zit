@@ -1,0 +1,22 @@
+# workflow name
+workflow zit_pix_txt2img_2k
+workflow zit_pix_txt2img_bf16
+workflow zit_pix_txt2img_canny
+workflow zit_pix_txt2img_depth
+workflow zit_pix_txt2img_hd
+workflow zit_pix_txt2img_lora
+workflow zit_pix_txt2img_lora_style
+workflow zit_pix_txt2img_pose
+workflow zit_pix_txt2img_qwenvl_image
+workflow zit_pix_txt2img_qwenvl_text
+workflow zit_pix_upscale
+# node url
+node https://github.com/rgthree/rgthree-comfy
+node https://github.com/Fannovel16/comfyui_controlnet_aux
+# model name folder url
+model z_image_turbo_bf16 diffusion_models https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/diffusion_models/z_image_turbo_bf16.safetensors
+model qwen_3_4b text_encoders https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/text_encoders/qwen_3_4b.safetensors
+model ae.safetensor vae https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/vae/ae.safetensors
+model Z-Image-Turbo-Fun-Controlnet-Union.safetensors model_patches https://huggingface.co/alibaba-pai/Z-Image-Turbo-Fun-Controlnet-Union/resolve/main/Z-Image-Turbo-Fun-Controlnet-Union.safetensors
+
+# needs an empty space at the end of the line to work

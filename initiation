@@ -1,0 +1,25 @@
+#!/bin/bash
+
+rep=${REPO:-"none"}
+echo "INITIATING THE PODDY"
+
+if [[ -d $PORTA_PODDY ]]; then
+    rm -r $PORTA_PODDY
+fi
+mkdir -p $PORTA_PODDY
+git clone https://github.com/ndrwmoss/going_poddy $PORTA_PODDY
+\cp -r $PORTA_PODDY/cmd $PODDY
+\cp -r $PORTA_PODDY/boot $PODDY
+\cp $PORTA_PODDY/poddy /poddy
+
+chmod -R +x $PODDY/cmd
+chmod -R +x $PODDY/boot
+chmod -R +x /poddy
+
+rm -r $PORTA_PODDY
+echo "PREVIOUS PODDY FLUSHED. INITIATING."
+
+$PODDY/boot/init
+
+echo "INIT COMPLETE: STARTING YOUR COMFY ON PORT 8188"
+python $COMFY/main.py --use-sage-attention --listen --port=8188

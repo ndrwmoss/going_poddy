@@ -1,0 +1,29 @@
+# workflow name
+workflow ace_roi_cover
+workflow ace_roi_cover_semantic_blending
+workflow ace_roi_edit
+workflow ace_roi_edit_with_reference
+workflow ace_roi_prompt_lora_blending
+workflow ace_roi_lora_training
+workflow ace_roi_std
+workflow ace_roi_chimp
+workflow ace_roi_latent_noise_mask
+# node url
+node https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite
+node https://github.com/ryanontheinside/ComfyUI_RyanOnTheInside
+node https://github.com/filliptm/ComfyUI-FL-AceStep-Training
+node https://github.com/willmiao/ComfyUI-Lora-Manager
+node https://github.com/MDMAchine/ComfyUI_MD_Nodes
+node https://github.com/pythongosssss/ComfyUI-Custom-Scripts
+node https://github.com/ryanontheinside/ComfyUI-CalculatorX
+# model name folder url
+model ace_step_1.5_turbo_aio.safetensors checkpoints https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/resolve/main/checkpoints/ace_step_1.5_turbo_aio.safetensors
+model acestep-5Hz-lm-1.7B checkpoints https://huggingface.co/ACE-Step/Ace-Step1.5/resolve/main/acestep-5Hz-lm-1.7B/model.safetensors
+model ace_step_1.5_sft.safetensors checkpoints https://huggingface.co/ACE-Step/acestep-v15-sft/resolve/main/model.safetensors
+model ace_1.5_vae.safetensors vae https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/resolve/d04a435b1f2bfceb0c0f8ed6303a01fedffb0841/split_files/vae/ace_1.5_vae.safetensors
+model qwen_0.6b_ace15.safetensors text_encoders https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/resolve/main/split_files/text_encoders/qwen_0.6b_ace15.safetensors
+model acestep_v1.5_merge_sft_turbo_ta_0.5.safetensors diffusion_models https://huggingface.co/Aryanne/acestep-v15-test-merges/resolve/main/acestep_v1.5_merge_sft_turbo_ta_0.5.safetensors
+model qwen_1.7b_ace15.safetensors text_encoders https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/resolve/main/split_files/text_encoders/qwen_1.7b_ace15.safetensors
+model qwen_0.6b_ace15.safetensors text_encoders https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/resolve/main/split_files/text_encoders/qwen_0.6b_ace15.safetensors
+
+# needs an empty space at the end of the line to work

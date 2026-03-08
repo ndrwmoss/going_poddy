@@ -1,0 +1,70 @@
+# workflow name
+workflow QIE_ali_head_swap
+workflow QIE_apex_controlnet
+workflow QIE_fab_face2face_uncensored
+workflow QIE_fab_face_swap
+workflow QIE_pix_add_items
+workflow QIE_pix_change_ratio
+workflow QIE_pix_character_turnaround
+workflow QIE_pix_clothes_2_images
+workflow QIE_pix_clothes_3_images
+workflow QIE_pix_clothes_one_image
+workflow QIE_pix_colorize_photo
+workflow QIE_pix_combine_2_images
+workflow QIE_pix_combine_3_images
+workflow QIE_pix_combine_4_images
+workflow QIE_pix_clothes_one_image
+workflow QIE_pix_colorize_photo
+workflow QIE_pix_combine_2_images
+workflow QIE_pix_combine_3_images
+workflow QIE_pix_combine_4_images
+workflow QIE_pix_inpaint
+workflow QIE_pix_one_image_edit_change_ratio
+workflow QIE_pix_one_image_edit
+workflow QIE_pix_remove_items
+workflow QIE_pix_replace_background
+workflow QIE_pix_replace_character
+workflow QIE_pix_replace_text
+workflow QIE_pix_restore_photo
+workflow QIE_clothing_transfer
+workflow QIE_clothing_extract
+workflow QIE_lla_face_swap
+# node url
+node https://github.com/kijai/ComfyUI-DepthAnythingV2
+node https://github.com/Fannovel16/comfyui_controlnet_aux
+node https://github.com/cubiq/ComfyUI_essentials
+node https://github.com/chflame163/ComfyUI_LayerStyle
+node https://github.com/rgthree/rgthree-comfy
+node https://github.com/yolain/ComfyUI-Easy-Use
+node https://github.com/kijai/ComfyUI-KJNodes
+node https://github.com/numz/ComfyUI-SeedVR2_VideoUpscaler
+node https://github.com/lrzjason/Comfyui-QwenEditUtils
+node https://github.com/chflame163/ComfyUI_LayerStyle_Advance
+node https://github.com/ltdrdata/was-node-suite-comfyui
+node https://github.com/liusida/ComfyUI-AutoCropFaces
+node https://github.com/MinorBoy/ComfyUI_essentials_mb
+node https://github.com/LAOGOU-666/Comfyui-Memory_Cleanup
+node https://github.com/ssitu/ComfyUI_UltimateSDUpscale
+node https://github.com/Smirnov75/ComfyUI-mxToolkit
+node https://github.com/1038lab/ComfyUI-RMBG
+node https://github.com/lquesada/ComfyUI-Inpaint-CropAndStitch
+node https://github.com/djbielejeski/a-person-mask-generator
+node https://github.com/ltdrdata/was-node-suite-comfyui
+node https://github.com/SeanScripts/ComfyUI-Unload-Model
+node https://github.com/quasiblob/ComfyUI-EsesImageCompare
+node https://github.com/gseth/ControlAltAI-Nodes
+node https://github.com/1038lab/ComfyUI-QwenVL
+node https://github.com/huchukato/ComfyUI-QwenVL-Mod
+# model name folder url
+model qwen_image_edit_2511_fp8_e4m3fn.safetensors diffusion_models https://huggingface.co/xms991/Qwen-Image-Edit-2511-fp8-e4m3fn/resolve/main/qwen_image_edit_2511_fp8_e4m3fn.safetensors
+model juggernautXL_juggXIByRundiffusion.safetensors checkpoints https://huggingface.co/misri/juggernautXL_juggXIByRundiffusion/resolve/main/juggernautXL_juggXIByRundiffusion.safetensors
+model qwen_image_vae.safetensors vae https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors
+model qwen_2.5_vl_7b_fp8_scaled.safetensors text_encoders https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors
+model Qwen-Image-Lightning-4steps-V2.0.safetensors loras https://huggingface.co/lightx2v/Qwen-Image-Lightning/resolve/main/Qwen-Image-Lightning-4steps-V2.0.safetensors
+model clothes_tryon_qwen-edit-lora.safetensors loras https://civitai.com/api/download/models/2196278?type=Model&format=SafeTensor
+model extract-outfit_v3.safetensors loras https://huggingface.co/datasets/dubsta/xmas/resolve/main/extract-outfit_v3.safetensors
+model RealESRGAN_x2.pth upscale_models https://huggingface.co/ai-forever/Real-ESRGAN/resolve/main/RealESRGAN_x2.pth
+model bfs_head_v5_2511_merged_version_rank_32_fp32.safetensors lora https://huggingface.co/Alissonerdx/BFS-Best-Face-Swap/resolve/main/bfs_head_v5_2511_merged_version_rank_32_fp32.safetensors
+model custom_lightning_qwen_image_edit_2511_4or8steps_rank_4_fp32.safetensors lora https://huggingface.co/Alissonerdx/CustomLightning/resolve/main/
+
+# needs an empty space at the end of the line to work
