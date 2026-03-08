@@ -21,14 +21,14 @@ The pod installs a simple image, after boot the image downloads any package(s) (
 <mark>dl/install time: **2-5 minutes**</mark>  
 
 The following workflows, prefixed by ace_roi, are by [RyanOnTheInside](https://www.youtube.com/watch?v=R6ksf5GSsrk):  
-chimp
-cover_semantic_blending
-cover
-edit_with_reference
-edit
-lora_training
-prompt_lora_blending
-std 
+chimp  
+cover_semantic_blending  
+cover  
+edit_with_reference  
+edit  
+lora_training  
+prompt_lora_blending  
+std  
 
     /poddy i acestep
 
