@@ -87,7 +87,7 @@ upscale
 ### Epic Realism
 <mark>disk space: **35 GB**</mark>  
 <mark>dl/install time: **2-5 minutes**</mark>  
-<mark>The Stable Hair custom node has to be installed through the ComfyUI Manager after install. </mark>  
+<mark>The facerestore custom node has to be installed through the ComfyUI Manager after install. </mark>  
 
 The following workflows are by [Stable Hair II](https://github.com/lldacing/ComfyUI_StableHair_ll/blob/main/README_EN.md):  
 
@@ -103,7 +103,7 @@ outpaint
 ### Juggernaut
 <mark>disk space: **35 GB**</mark>  
 <mark>dl/install time: **2-5 minutes**</mark>  
-<mark>The Stable Hair custom node has to be installed through the ComfyUI Manager after install. </mark>  
+<mark>The facerestore custom node has to be installed through the ComfyUI Manager after install. </mark>  
 
 The following workflows are by [Stable Hair II](https://github.com/lldacing/ComfyUI_StableHair_ll/blob/main/README_EN.md):  
 

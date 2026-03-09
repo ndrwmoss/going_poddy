@@ -3,10 +3,10 @@ workflow epic_realism_hair_transfer
 workflow epic_realism_pix_inpaint
 workflow epic_realism_pix_outpaint
 # node url
-# node https://github.com/lldacing/ComfyUI_StableHair_ll
+node https://github.com/lldacing/ComfyUI_StableHair_ll
 node https://github.com/cubiq/ComfyUI_essentials
 node https://github.com/yolain/ComfyUI-Easy-Use
-node https://github.com/mav-rik/facerestore_cf
+# node https://github.com/mav-rik/facerestore_cf
 node https://github.com/ALatentPlace/ComfyUI_yanc
 node https://github.com/StableLlama/ComfyUI-basic_data_handling
 node https://github.com/lquesada/ComfyUI-Inpaint-CropAndStitch
