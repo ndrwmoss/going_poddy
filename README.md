@@ -115,7 +115,7 @@ outpaint
     /poddy i juggernaut
 
 ### Flux Kontext
-<mark>disk space: **35 GB**</mark>  
+<mark>disk space: **20 GB**</mark>  
 <mark>dl/install time: **2-5 minutes**</mark>  
 
 The following workflows, prefixed by flux_pix, are by [pixaroma](https://www.youtube.com/watch?v=9-onDeEWWvU&):  

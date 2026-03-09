@@ -20,11 +20,12 @@ function old {
     fi
 }
 cd $COMFY
-git clone https://github.com/comfyanonymous/ComfyUI.git ..
+git clone https://github.com/comfyanonymous/ComfyUI.git .
+pip install -r requirements.txt
+cd $COMFY/custom_nodes
+mkdir -p $COMFY/custom_nodes/ComfyUI-Manager
+cd $COMFY/custom_nodes/ComfyUI-Manager
+git clone https://github.com/Comfy-Org/ComfyUI-Manager .
 pip install -r requirements.txt
 mkdir -p $COMFY_WORKFLOW
-cd $COMFY/custom_nodes
-git clone https://github.com/Comfy-Org/ComfyUI-Manager
-cd $COMFY/custom_nodes/ComfyUI-Manager
-pip install -r requirements.txt
 cd /
