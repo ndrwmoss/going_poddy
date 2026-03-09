@@ -35,5 +35,8 @@ RUN chmod -R +x $PODDY/cmd
 RUN chmod -R +x $PODDY/installers
 RUN chmod -R +x /scripts
 
+WORKDIR /workspace/ComfyUI
+
+
 EXPOSE 8080 8188 8888
 CMD [ "/initiation" ]

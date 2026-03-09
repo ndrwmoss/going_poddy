@@ -20,13 +20,9 @@ function old {
     fi
 }
 
-if [[ ! -f /reloaded ]]; then
-    comfy set-default $COMFY
-    comfy install --workspace=$COMFY
-    cd $COMFY
-    git pull
-    pip install -r requirements.txt
-    mkdir -p $COMFY_WORKFLOW
-    cd /
-    touch /reloaded
-fi
+comfy set-default $COMFY
+cd $COMFY
+git pull
+pip install -r requirements.txt
+mkdir -p $COMFY_WORKFLOW
+cd /
